@@ -1,0 +1,13 @@
+version: 1.5.2
+apkFileName: GlassSetup.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: '15'
+  targetSdkVersion: '15'
+packageInfo:
+  cur_package: com.google.glass.setup
+  orig_package: com.google.glass.setup
+compressionType: false

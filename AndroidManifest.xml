@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest android:versionCode="1002" android:versionName="1.002" package="com.google.glass.setup"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <permission android:name="com.google.glass.setup.permission.SHUTDOWN" android:protectionLevel="signature" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_FRAME_BUFFER" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SET_TIME_ZONE" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.BACKUP" />
+    <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
+    <uses-permission android:name="android.permission.REBOOT" />
+    <uses-permission android:name="android.permission.SHUTDOWN" />
+    <uses-permission android:name="com.google.glass.setup.permission.SHUTDOWN" />
+    <application android:theme="@style/GlassTheme" android:label="@string/glass_setup" android:name="SetupApplication">
+        <activity android:name=".SetupActivity" android:excludeFromRecents="true" android:launchMode="singleTop" android:immersive="true">
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.DEVICE_INITIALIZATION_WIZARD" />
+                <action android:name="com.google.glass.setup.ACTION_CONFIGURE_ACCOUNT" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".BarcodeScanActivity" android:noHistory="true" android:immersive="true" />
+        <activity android:name=".PostSetupActivity" android:launchMode="singleTask" />
+        <activity android:name=".UpdateCredentialsActivity" android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="com.google.glass.setup.ACTION_RECONFIGURE_ACCOUNT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <service android:name="com.google.glass.camera.SharedCameraService" />
+        <activity android:name="com.google.glass.app.ShutdownActivity" android:launchMode="singleTask" />
+        <receiver android:name=".ShutdownRequestReceiver" android:permission="com.google.glass.setup.permission.SHUTDOWN">
+            <intent-filter>
+                <action android:name="com.google.glass.setup.action.REQUEST_SHUTDOWN" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
