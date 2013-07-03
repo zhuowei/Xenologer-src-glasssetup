@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="gf_padding">7.0dip</dimen>
-    <dimen name="gf_list_item_padding">12.0dip</dimen>
-    <dimen name="gf_twice_padding">14.0dip</dimen>
-    <dimen name="gf_one_half_padding">8.0dip</dimen>
-    <dimen name="gf_list_item_height">60.0dip</dimen>
-    <dimen name="gf_standard_text_padding">16.0dip</dimen>
     <item type="dimen" name="background_dim_amount">0.8</item>
     <dimen name="generic_card_padding">40.0px</dimen>
     <dimen name="half_width">280.0px</dimen>
@@ -33,5 +27,7 @@
     <dimen name="adjusted_top_padding">36.0px</dimen>
     <dimen name="adjusted_bottom_padding">20.0px</dimen>
     <dimen name="slider_bar_height">8.0px</dimen>
+    <dimen name="fill_bar_height">12.0px</dimen>
     <dimen name="tip_view_height">40.0px</dimen>
+    <dimen name="guard_phrase_bottom_margin">29.0px</dimen>
 </resources>

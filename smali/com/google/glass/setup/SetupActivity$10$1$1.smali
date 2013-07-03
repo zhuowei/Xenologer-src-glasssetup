@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 789
+    .line 788
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$10$1$1;->this$2:Lcom/google/glass/setup/SetupActivity$10$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 792
+    .line 791
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$10$1$1;->this$2:Lcom/google/glass/setup/SetupActivity$10$1;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$10$1;->this$1:Lcom/google/glass/setup/SetupActivity$10;
@@ -60,6 +60,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/PowerManager;->reboot(Ljava/lang/String;)V
 
-    .line 794
+    .line 793
     return-void
 .end method

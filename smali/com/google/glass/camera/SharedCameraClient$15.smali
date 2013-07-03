@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 523
+    .line 570
     iput-object p1, p0, Lcom/google/glass/camera/SharedCameraClient$15;->this$0:Lcom/google/glass/camera/SharedCameraClient;
 
     iput-object p2, p0, Lcom/google/glass/camera/SharedCameraClient$15;->val$viewfinder:Landroid/view/TextureView;
@@ -51,7 +51,7 @@
     .locals 3
 
     .prologue
-    .line 526
+    .line 573
     iget-object v0, p0, Lcom/google/glass/camera/SharedCameraClient$15;->val$viewfinder:Landroid/view/TextureView;
 
     invoke-virtual {v0}, Landroid/view/TextureView;->animate()Landroid/view/ViewPropertyAnimator;
@@ -77,10 +77,10 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    .line 530
+    .line 577
     return-void
 
-    .line 526
+    .line 573
     :cond_0
     const/4 v0, 0x0
 

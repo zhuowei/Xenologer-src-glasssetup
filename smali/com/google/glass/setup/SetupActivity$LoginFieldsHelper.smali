@@ -39,12 +39,12 @@
     .parameter "data"
 
     .prologue
-    .line 135
+    .line 134
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 136
+    .line 135
     const-string v1, "ssid"
 
     invoke-virtual {p2, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -53,7 +53,7 @@
 
     iput-object v1, p0, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;->ssid:Ljava/lang/String;
 
-    .line 139
+    .line 138
     :try_start_0
     const-string v1, "encryption"
 
@@ -69,7 +69,7 @@
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 146
+    .line 145
     :goto_0
     const-string v1, "psk"
 
@@ -79,7 +79,7 @@
 
     iput-object v1, p0, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;->psk:Ljava/lang/String;
 
-    .line 147
+    .line 146
     const-string v1, "username"
 
     invoke-virtual {p2, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -88,7 +88,7 @@
 
     iput-object v1, p0, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;->username:Ljava/lang/String;
 
-    .line 148
+    .line 147
     const-string v1, "password"
 
     invoke-virtual {p2, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -97,7 +97,7 @@
 
     iput-object v1, p0, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;->password:Ljava/lang/String;
 
-    .line 149
+    .line 148
     const-string v1, "token"
 
     invoke-virtual {p2, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -106,7 +106,7 @@
 
     iput-object v1, p0, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;->token:Ljava/lang/String;
 
-    .line 150
+    .line 149
     const-string v1, "bt_device_for_pair"
 
     invoke-virtual {p2, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -115,14 +115,14 @@
 
     iput-object v1, p0, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;->btDeviceForPair:Ljava/lang/String;
 
-    .line 151
+    .line 150
     return-void
 
-    .line 141
+    .line 140
     :catch_0
     move-exception v0
 
-    .line 142
+    .line 141
     .local v0, e:Ljava/lang/IllegalArgumentException;
     #calls: Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
     invoke-static {p1}, Lcom/google/glass/setup/SetupActivity;->access$400(Lcom/google/glass/setup/SetupActivity;)Ljava/lang/String;
@@ -133,7 +133,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 143
+    .line 142
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;->encryption:Lcom/google/glass/util/WifiHelper$Encryption;

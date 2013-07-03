@@ -81,103 +81,101 @@
 
 .field public static final card_sheen:I = 0x7f020020
 
-.field public static final expander_ic_minimized:I = 0x7f020021
+.field public static final ic_anon_big:I = 0x7f020021
 
-.field public static final gf_expand:I = 0x7f020022
+.field public static final ic_anon_group_small:I = 0x7f020022
 
-.field public static final gf_icon:I = 0x7f020023
+.field public static final ic_anon_medium:I = 0x7f020023
 
-.field public static final ic_anon_big:I = 0x7f020024
+.field public static final ic_bluetooth_medium:I = 0x7f020024
 
-.field public static final ic_anon_group_small:I = 0x7f020025
+.field public static final ic_bluetooth_off_big:I = 0x7f020025
 
-.field public static final ic_anon_medium:I = 0x7f020026
+.field public static final ic_bluetooth_on_big:I = 0x7f020026
 
-.field public static final ic_bluetooth_medium:I = 0x7f020027
+.field public static final ic_cloud_sad_big:I = 0x7f020027
 
-.field public static final ic_bluetooth_off_big:I = 0x7f020028
+.field public static final ic_delete_medium:I = 0x7f020028
 
-.field public static final ic_bluetooth_on_big:I = 0x7f020029
+.field public static final ic_document_medium:I = 0x7f020029
 
-.field public static final ic_bug_large:I = 0x7f02002a
+.field public static final ic_done_large:I = 0x7f02002a
 
-.field public static final ic_circle_medium:I = 0x7f02002b
+.field public static final ic_done_medium:I = 0x7f02002b
 
-.field public static final ic_cloud_happy_big:I = 0x7f02002c
+.field public static final ic_exclamation_big:I = 0x7f02002c
 
-.field public static final ic_cloud_sad_big:I = 0x7f02002d
+.field public static final ic_fail_medium:I = 0x7f02002d
 
-.field public static final ic_delete_medium:I = 0x7f02002e
+.field public static final ic_glass_big:I = 0x7f02002e
 
-.field public static final ic_done_large:I = 0x7f02002f
+.field public static final ic_hangout_medium:I = 0x7f02002f
 
-.field public static final ic_done_medium:I = 0x7f020030
+.field public static final ic_help_medium:I = 0x7f020030
 
-.field public static final ic_exclamation_big:I = 0x7f020031
+.field public static final ic_microphone_medium:I = 0x7f020031
 
-.field public static final ic_fail_medium:I = 0x7f020032
+.field public static final ic_microphone_off_medium:I = 0x7f020032
 
-.field public static final ic_glass_big:I = 0x7f020033
+.field public static final ic_navigate_medium:I = 0x7f020033
 
-.field public static final ic_hangout_medium:I = 0x7f020034
+.field public static final ic_phone_hang_medium:I = 0x7f020034
 
-.field public static final ic_help_medium:I = 0x7f020035
+.field public static final ic_phone_in_medium:I = 0x7f020035
 
-.field public static final ic_microphone_medium:I = 0x7f020036
+.field public static final ic_phone_on:I = 0x7f020036
 
-.field public static final ic_microphone_off_medium:I = 0x7f020037
+.field public static final ic_phone_out_medium:I = 0x7f020037
 
-.field public static final ic_navigate_medium:I = 0x7f020038
+.field public static final ic_pin_medium:I = 0x7f020038
 
-.field public static final ic_phone_hang_medium:I = 0x7f020039
+.field public static final ic_power_medium:I = 0x7f020039
 
-.field public static final ic_phone_in_medium:I = 0x7f02003a
+.field public static final ic_read_aloud_medium:I = 0x7f02003a
 
-.field public static final ic_phone_on:I = 0x7f02003b
+.field public static final ic_reply_all_medium:I = 0x7f02003b
 
-.field public static final ic_phone_out_medium:I = 0x7f02003c
+.field public static final ic_reply_medium:I = 0x7f02003c
 
-.field public static final ic_pin_medium:I = 0x7f02003d
+.field public static final ic_search_medium:I = 0x7f02003d
 
-.field public static final ic_power_medium:I = 0x7f02003e
+.field public static final ic_share_medium:I = 0x7f02003e
 
-.field public static final ic_qr_code_big:I = 0x7f02003f
+.field public static final ic_signing_in:I = 0x7f02003f
 
-.field public static final ic_read_aloud_medium:I = 0x7f020040
+.field public static final ic_sync_medium:I = 0x7f020040
 
-.field public static final ic_reply_all_medium:I = 0x7f020041
+.field public static final ic_unpin_medium:I = 0x7f020041
 
-.field public static final ic_reply_medium:I = 0x7f020042
+.field public static final ic_video_medium:I = 0x7f020042
 
-.field public static final ic_search_medium:I = 0x7f020043
+.field public static final ic_video_off_medium:I = 0x7f020043
 
-.field public static final ic_share_medium:I = 0x7f020044
+.field public static final ic_video_play_medium:I = 0x7f020044
 
-.field public static final ic_signing_in:I = 0x7f020045
+.field public static final ic_volume_full:I = 0x7f020045
 
-.field public static final ic_sync_medium:I = 0x7f020046
+.field public static final ic_volume_medium:I = 0x7f020046
 
-.field public static final ic_unpin_medium:I = 0x7f020047
+.field public static final ic_volume_muted:I = 0x7f020047
 
-.field public static final ic_video_medium:I = 0x7f020048
+.field public static final ic_warning_large:I = 0x7f020048
 
-.field public static final ic_video_off_medium:I = 0x7f020049
+.field public static final ic_warning_medium:I = 0x7f020049
 
-.field public static final ic_warning_large:I = 0x7f02004a
+.field public static final overlay_guard_phrase:I = 0x7f02004a
 
-.field public static final ic_warning_medium:I = 0x7f02004b
+.field public static final overlay_large:I = 0x7f02004b
 
-.field public static final overlay_large:I = 0x7f02004c
+.field public static final overlay_medium:I = 0x7f02004c
 
-.field public static final overlay_medium:I = 0x7f02004d
+.field public static final overlay_small:I = 0x7f02004d
 
-.field public static final overlay_small:I = 0x7f02004e
+.field public static final qr_code_footer:I = 0x7f02004e
 
-.field public static final qr_code_footer:I = 0x7f02004f
+.field public static final qr_code_scan_frame:I = 0x7f02004f
 
-.field public static final qr_code_scan_frame:I = 0x7f020050
-
-.field public static final slider_indeterminate:I = 0x7f020051
+.field public static final slider_indeterminate:I = 0x7f020050
 
 
 # direct methods

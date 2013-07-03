@@ -19,9 +19,13 @@
 
 # virtual methods
 .method public abstract getApiRequestC2G()Lcom/google/glass/companion/Proto$ApiRequest;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getApiResponseG2C()Lcom/google/glass/companion/Proto$ApiResponse;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getCommand()Lcom/google/glass/companion/Proto$Command;
@@ -43,6 +47,9 @@
 .end method
 
 .method public abstract getMessageC2GBytes()Lcom/google/protobuf/ByteString;
+.end method
+
+.method public abstract getMotionC2G()Lcom/google/glass/companion/Proto$MotionEvent;
 .end method
 
 .method public abstract getNavigationRequestC2G()Lcom/google/glass/companion/Proto$NavigationRequest;
@@ -118,9 +125,13 @@
 .end method
 
 .method public abstract hasApiRequestC2G()Z
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract hasApiResponseG2C()Z
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract hasCommand()Z
@@ -139,6 +150,9 @@
 .end method
 
 .method public abstract hasMessageC2G()Z
+.end method
+
+.method public abstract hasMotionC2G()Z
 .end method
 
 .method public abstract hasNavigationRequestC2G()Z

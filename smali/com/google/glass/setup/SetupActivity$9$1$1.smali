@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 685
+    .line 684
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$9$1$1;->this$2:Lcom/google/glass/setup/SetupActivity$9$1;
 
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog$SimpleListener;-><init>()V
@@ -38,12 +38,12 @@
     .locals 3
 
     .prologue
-    .line 688
+    .line 687
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 689
+    .line 688
     .local v0, postSetupIntent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/google/glass/setup/SetupActivity$9$1$1;->this$2:Lcom/google/glass/setup/SetupActivity$9$1;
 
@@ -55,7 +55,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 690
+    .line 689
     iget-object v1, p0, Lcom/google/glass/setup/SetupActivity$9$1$1;->this$2:Lcom/google/glass/setup/SetupActivity$9$1;
 
     iget-object v1, v1, Lcom/google/glass/setup/SetupActivity$9$1;->this$1:Lcom/google/glass/setup/SetupActivity$9;
@@ -64,7 +64,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 691
+    .line 690
     const-string v1, "bt_device_for_pair"
 
     iget-object v2, p0, Lcom/google/glass/setup/SetupActivity$9$1$1;->this$2:Lcom/google/glass/setup/SetupActivity$9$1;
@@ -75,7 +75,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 694
+    .line 693
     :cond_0
     const-string v1, "display_name"
 
@@ -87,7 +87,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 695
+    .line 694
     iget-object v1, p0, Lcom/google/glass/setup/SetupActivity$9$1$1;->this$2:Lcom/google/glass/setup/SetupActivity$9$1;
 
     iget-object v1, v1, Lcom/google/glass/setup/SetupActivity$9$1;->this$1:Lcom/google/glass/setup/SetupActivity$9;
@@ -96,7 +96,7 @@
 
     invoke-virtual {v1, v0}, Lcom/google/glass/setup/SetupActivity;->startActivity(Landroid/content/Intent;)V
 
-    .line 698
+    .line 697
     iget-object v1, p0, Lcom/google/glass/setup/SetupActivity$9$1$1;->this$2:Lcom/google/glass/setup/SetupActivity$9$1;
 
     iget-object v1, v1, Lcom/google/glass/setup/SetupActivity$9$1;->this$1:Lcom/google/glass/setup/SetupActivity$9;
@@ -105,6 +105,6 @@
 
     invoke-virtual {v1}, Lcom/google/glass/setup/SetupActivity;->finish()V
 
-    .line 699
+    .line 698
     return-void
 .end method

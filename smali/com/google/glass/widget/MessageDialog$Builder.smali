@@ -26,16 +26,16 @@
     .parameter "context"
 
     .prologue
-    .line 484
+    .line 504
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 485
+    .line 505
     iput-object p1, p0, Lcom/google/glass/widget/MessageDialog$Builder;->context:Landroid/content/Context;
 
-    .line 486
+    .line 506
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog$Builder;->reset()V
 
-    .line 487
+    .line 507
     return-void
 .end method
 
@@ -45,7 +45,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 490
+    .line 510
     new-instance v0, Lcom/google/glass/widget/MessageDialog$Params;
 
     const/4 v1, 0x0
@@ -54,33 +54,33 @@
 
     iput-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
-    .line 491
+    .line 511
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldAutoHide:Z
-    invoke-static {v0, v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1502(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
+    invoke-static {v0, v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1702(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
 
-    .line 492
+    .line 512
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     const/4 v1, 0x0
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldHandleConfirm:Z
-    invoke-static {v0, v1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1602(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
+    invoke-static {v0, v1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1802(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
 
-    .line 493
+    .line 513
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldAnimate:Z
-    invoke-static {v0, v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$302(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
+    invoke-static {v0, v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$402(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
 
-    .line 494
+    .line 514
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->isDismissable:Z
-    invoke-static {v0, v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$602(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
+    invoke-static {v0, v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$702(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
 
-    .line 495
+    .line 515
     return-void
 .end method
 
@@ -90,14 +90,14 @@
     .locals 4
 
     .prologue
-    .line 678
+    .line 715
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
-    .line 679
+    .line 716
     .local v0, finalParams:Lcom/google/glass/widget/MessageDialog$Params;
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog$Builder;->reset()V
 
-    .line 680
+    .line 717
     new-instance v1, Lcom/google/glass/widget/MessageDialog;
 
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog$Builder;->context:Landroid/content/Context;
@@ -114,13 +114,13 @@
     .parameter "animated"
 
     .prologue
-    .line 642
+    .line 679
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldAnimate:Z
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$302(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$402(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
 
-    .line 643
+    .line 680
     return-object p0
 .end method
 
@@ -129,13 +129,13 @@
     .parameter "autoHide"
 
     .prologue
-    .line 612
+    .line 649
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldAutoHide:Z
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1502(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1702(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
 
-    .line 613
+    .line 650
     return-object p0
 .end method
 
@@ -144,13 +144,13 @@
     .parameter "dismissable"
 
     .prologue
-    .line 661
+    .line 698
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->isDismissable:Z
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$602(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$702(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
 
-    .line 662
+    .line 699
     return-object p0
 .end method
 
@@ -159,13 +159,13 @@
     .parameter "expanded"
 
     .prologue
-    .line 652
+    .line 689
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->isExpanded:Z
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$402(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$502(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
 
-    .line 653
+    .line 690
     return-object p0
 .end method
 
@@ -174,13 +174,13 @@
     .parameter "handleConfirm"
 
     .prologue
-    .line 622
+    .line 659
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldHandleConfirm:Z
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1602(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1802(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
 
-    .line 623
+    .line 660
     return-object p0
 .end method
 
@@ -189,7 +189,7 @@
     .parameter "id"
 
     .prologue
-    .line 549
+    .line 569
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->context:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -212,13 +212,13 @@
     .parameter "drawable"
 
     .prologue
-    .line 557
+    .line 577
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->icon:Landroid/graphics/drawable/Drawable;
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1302(Lcom/google/glass/widget/MessageDialog$Params;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1502(Lcom/google/glass/widget/MessageDialog$Params;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
-    .line 558
+    .line 578
     return-object p0
 .end method
 
@@ -227,13 +227,13 @@
     .parameter "keepScreenOn"
 
     .prologue
-    .line 540
+    .line 560
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldKeepScreenOn:Z
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$502(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$602(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
 
-    .line 541
+    .line 561
     return-object p0
 .end method
 
@@ -242,13 +242,13 @@
     .parameter "listener"
 
     .prologue
-    .line 670
+    .line 707
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->listener:Lcom/google/glass/widget/MessageDialog$Listener;
     invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$202(Lcom/google/glass/widget/MessageDialog$Params;Lcom/google/glass/widget/MessageDialog$Listener;)Lcom/google/glass/widget/MessageDialog$Listener;
 
-    .line 671
+    .line 708
     return-object p0
 .end method
 
@@ -257,7 +257,7 @@
     .parameter "id"
 
     .prologue
-    .line 502
+    .line 522
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->context:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -280,13 +280,13 @@
     .parameter "msg"
 
     .prologue
-    .line 510
+    .line 530
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->message:Ljava/lang/CharSequence;
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1102(Lcom/google/glass/widget/MessageDialog$Params;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1302(Lcom/google/glass/widget/MessageDialog$Params;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
-    .line 511
+    .line 531
     return-object p0
 .end method
 
@@ -295,7 +295,7 @@
     .parameter "id"
 
     .prologue
-    .line 521
+    .line 541
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->context:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -318,13 +318,13 @@
     .parameter "msg"
 
     .prologue
-    .line 531
+    .line 551
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->secondaryMessage:Ljava/lang/CharSequence;
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1202(Lcom/google/glass/widget/MessageDialog$Params;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1402(Lcom/google/glass/widget/MessageDialog$Params;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
-    .line 532
+    .line 552
     return-object p0
 .end method
 
@@ -333,13 +333,13 @@
     .parameter "showProgress"
 
     .prologue
-    .line 632
+    .line 669
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldShowProgress:Z
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1402(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1602(Lcom/google/glass/widget/MessageDialog$Params;Z)Z
 
-    .line 633
+    .line 670
     return-object p0
 .end method
 
@@ -349,19 +349,19 @@
     .parameter "soundManager"
 
     .prologue
-    .line 567
+    .line 587
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->sound:Lcom/google/glass/sound/SoundManager$SoundId;
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$902(Lcom/google/glass/widget/MessageDialog$Params;Lcom/google/glass/sound/SoundManager$SoundId;)Lcom/google/glass/sound/SoundManager$SoundId;
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1102(Lcom/google/glass/widget/MessageDialog$Params;Lcom/google/glass/sound/SoundManager$SoundId;)Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 568
+    .line 588
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->soundManager:Lcom/google/glass/sound/SoundManager;
-    invoke-static {v0, p2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1002(Lcom/google/glass/widget/MessageDialog$Params;Lcom/google/glass/sound/SoundManager;)Lcom/google/glass/sound/SoundManager;
+    invoke-static {v0, p2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1202(Lcom/google/glass/widget/MessageDialog$Params;Lcom/google/glass/sound/SoundManager;)Lcom/google/glass/sound/SoundManager;
 
-    .line 569
+    .line 589
     return-object p0
 .end method
 
@@ -370,7 +370,7 @@
     .parameter "id"
 
     .prologue
-    .line 594
+    .line 631
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->context:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -393,13 +393,13 @@
     .parameter "drawable"
 
     .prologue
-    .line 602
+    .line 639
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->temporaryIcon:Landroid/graphics/drawable/Drawable;
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$802(Lcom/google/glass/widget/MessageDialog$Params;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1002(Lcom/google/glass/widget/MessageDialog$Params;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
-    .line 603
+    .line 640
     return-object p0
 .end method
 
@@ -408,7 +408,7 @@
     .parameter "id"
 
     .prologue
-    .line 577
+    .line 597
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->context:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -431,12 +431,50 @@
     .parameter "msg"
 
     .prologue
-    .line 585
+    .line 605
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->temporaryMessage:Ljava/lang/CharSequence;
-    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$702(Lcom/google/glass/widget/MessageDialog$Params;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$802(Lcom/google/glass/widget/MessageDialog$Params;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
-    .line 586
+    .line 606
+    return-object p0
+.end method
+
+.method public setTemporarySecondaryMessage(I)Lcom/google/glass/widget/MessageDialog$Builder;
+    .locals 1
+    .parameter "id"
+
+    .prologue
+    .line 614
+    iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->context:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/google/glass/widget/MessageDialog$Builder;->setTemporarySecondaryMessage(Ljava/lang/CharSequence;)Lcom/google/glass/widget/MessageDialog$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public setTemporarySecondaryMessage(Ljava/lang/CharSequence;)Lcom/google/glass/widget/MessageDialog$Builder;
+    .locals 1
+    .parameter "msg"
+
+    .prologue
+    .line 622
+    iget-object v0, p0, Lcom/google/glass/widget/MessageDialog$Builder;->params:Lcom/google/glass/widget/MessageDialog$Params;
+
+    #setter for: Lcom/google/glass/widget/MessageDialog$Params;->temporarySecondaryMessage:Ljava/lang/CharSequence;
+    invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$902(Lcom/google/glass/widget/MessageDialog$Params;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    .line 623
     return-object p0
 .end method

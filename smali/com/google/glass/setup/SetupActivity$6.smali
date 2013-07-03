@@ -45,7 +45,7 @@
     .parameter
 
     .prologue
-    .line 416
+    .line 415
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$6;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     iput-object p2, p0, Lcom/google/glass/setup/SetupActivity$6;->val$now:Landroid/text/format/Time;
@@ -73,7 +73,7 @@
     .locals 2
 
     .prologue
-    .line 434
+    .line 433
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -102,13 +102,13 @@
     return-object v0
 .end method
 
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public onReceiveInternal(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 419
+    .line 418
     const-string v0, "android.intent.action.TIME_SET"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -121,7 +121,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 421
+    .line 420
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$6;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     #getter for: Lcom/google/glass/setup/SetupActivity;->handler:Landroid/os/Handler;
@@ -138,12 +138,12 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 423
+    .line 422
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$6;->val$now:Landroid/text/format/Time;
 
     invoke-virtual {v0}, Landroid/text/format/Time;->setToNow()V
 
-    .line 424
+    .line 423
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity$6;->getTag()Ljava/lang/String;
 
     move-result-object v0
@@ -182,12 +182,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 425
+    .line 424
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$6;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     invoke-virtual {p0, v0}, Lcom/google/glass/setup/SetupActivity$6;->unregister(Landroid/content/Context;)V
 
-    .line 428
+    .line 427
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$6;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     iget-object v1, p0, Lcom/google/glass/setup/SetupActivity$6;->val$username:Ljava/lang/String;
@@ -205,7 +205,7 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->login(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V
     invoke-static/range {v0 .. v6}, Lcom/google/glass/setup/SetupActivity;->access$1500(Lcom/google/glass/setup/SetupActivity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V
 
-    .line 430
+    .line 429
     :cond_0
     return-void
 .end method

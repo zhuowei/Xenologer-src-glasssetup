@@ -35,7 +35,11 @@
 
 .field private clientLogging_:I
 
+.field private deadline_:D
+
 .field private deprecated_:Z
+
+.field private failFast_:Z
 
 .field private securityLabel_:Ljava/lang/Object;
 
@@ -81,47 +85,52 @@
 
     const/16 v1, 0x100
 
-    .line 33507
+    .line 34836
     invoke-direct {p0}, Lcom/google/protobuf/GeneratedMessage$ExtendableBuilder;-><init>()V
 
-    .line 33724
+    .line 35071
     iput-wide v2, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientInitialTokens_:J
 
-    .line 33776
+    .line 35123
     iput-wide v2, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverInitialTokens_:J
 
-    .line 33808
+    .line 35155
     sget-object v0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;->MESSAGE:Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->tokenUnit_:Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
-    .line 33867
+    .line 35214
     sget-object v0, Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;->NONE:Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLevel_:Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
-    .line 33918
+    .line 35265
     const-string v0, ""
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
 
-    .line 33991
+    .line 35341
     iput v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientLogging_:I
 
-    .line 34023
+    .line 35373
     iput v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverLogging_:I
 
-    .line 34115
+    .line 35405
+    const-wide/high16 v0, -0x4010
+
+    iput-wide v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deadline_:D
+
+    .line 35529
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
-    .line 33508
+    .line 34837
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->maybeForceBuilderInitialization()V
 
-    .line 33509
+    .line 34838
     return-void
 .end method
 
@@ -134,47 +143,52 @@
 
     const/16 v1, 0x100
 
-    .line 33513
+    .line 34842
     invoke-direct {p0, p1}, Lcom/google/protobuf/GeneratedMessage$ExtendableBuilder;-><init>(Lcom/google/protobuf/GeneratedMessage$BuilderParent;)V
 
-    .line 33724
+    .line 35071
     iput-wide v2, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientInitialTokens_:J
 
-    .line 33776
+    .line 35123
     iput-wide v2, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverInitialTokens_:J
 
-    .line 33808
+    .line 35155
     sget-object v0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;->MESSAGE:Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->tokenUnit_:Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
-    .line 33867
+    .line 35214
     sget-object v0, Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;->NONE:Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLevel_:Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
-    .line 33918
+    .line 35265
     const-string v0, ""
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
 
-    .line 33991
+    .line 35341
     iput v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientLogging_:I
 
-    .line 34023
+    .line 35373
     iput v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverLogging_:I
 
-    .line 34115
+    .line 35405
+    const-wide/high16 v0, -0x4010
+
+    iput-wide v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deadline_:D
+
+    .line 35529
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
-    .line 33514
+    .line 34843
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->maybeForceBuilderInitialization()V
 
-    .line 33515
+    .line 34844
     return-void
 .end method
 
@@ -184,17 +198,17 @@
     .parameter "x1"
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-direct {p0, p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;-><init>(Lcom/google/protobuf/GeneratedMessage$BuilderParent;)V
 
     return-void
 .end method
 
-.method static synthetic access$24200()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
+.method static synthetic access$25300()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-static {}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->create()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -206,7 +220,7 @@
     .locals 1
 
     .prologue
-    .line 33522
+    .line 34851
     new-instance v0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     invoke-direct {v0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;-><init>()V
@@ -218,16 +232,16 @@
     .locals 2
 
     .prologue
-    .line 34118
+    .line 35532
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    and-int/lit16 v0, v0, 0x100
+    and-int/lit16 v0, v0, 0x400
 
-    const/16 v1, 0x100
+    const/16 v1, 0x400
 
     if-eq v0, v1, :cond_0
 
-    .line 34119
+    .line 35533
     new-instance v0, Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
@@ -236,14 +250,14 @@
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
-    .line 34120
+    .line 35534
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    or-int/lit16 v0, v0, 0x100
+    or-int/lit16 v0, v0, 0x400
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 34122
+    .line 35536
     :cond_0
     return-void
 .end method
@@ -252,8 +266,8 @@
     .locals 1
 
     .prologue
-    .line 33496
-    invoke-static {}, Lcom/google/protobuf/DescriptorProtos;->access$23900()Lcom/google/protobuf/Descriptors$Descriptor;
+    .line 34825
+    invoke-static {}, Lcom/google/protobuf/DescriptorProtos;->access$25000()Lcom/google/protobuf/Descriptors$Descriptor;
 
     move-result-object v0
 
@@ -275,21 +289,21 @@
     .end annotation
 
     .prologue
-    .line 34415
+    .line 35829
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_0
 
-    .line 34416
+    .line 35830
     new-instance v1, Lcom/google/protobuf/RepeatedFieldBuilder;
 
     iget-object v2, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    and-int/lit16 v0, v0, 0x100
+    and-int/lit16 v0, v0, 0x400
 
-    const/16 v3, 0x100
+    const/16 v3, 0x400
 
     if-ne v0, v3, :cond_1
 
@@ -308,18 +322,18 @@
 
     iput-object v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
-    .line 34422
+    .line 35836
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
-    .line 34424
+    .line 35838
     :cond_0
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     return-object v0
 
-    .line 34416
+    .line 35830
     :cond_1
     const/4 v0, 0x0
 
@@ -330,15 +344,15 @@
     .locals 1
 
     .prologue
-    .line 33517
+    .line 34846
     sget-boolean v0, Lcom/google/protobuf/GeneratedMessage;->alwaysUseFieldBuilders:Z
 
     if-eqz v0, :cond_0
 
-    .line 33518
+    .line 34847
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->getUninterpretedOptionFieldBuilder()Lcom/google/protobuf/RepeatedFieldBuilder;
 
-    .line 33520
+    .line 34849
     :cond_0
     return-void
 .end method
@@ -360,28 +374,28 @@
     .end annotation
 
     .prologue
-    .line 34294
+    .line 35708
     .local p1, values:Ljava/lang/Iterable;,"Ljava/lang/Iterable<+Lcom/google/protobuf/DescriptorProtos$UninterpretedOption;>;"
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_0
 
-    .line 34295
+    .line 35709
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->ensureUninterpretedOptionIsMutable()V
 
-    .line 34296
+    .line 35710
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-static {p1, v0}, Lcom/google/protobuf/AbstractMessageLite$Builder;->addAll(Ljava/lang/Iterable;Ljava/util/Collection;)V
 
-    .line 34298
+    .line 35712
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34302
+    .line 35716
     :goto_0
     return-object p0
 
-    .line 34300
+    .line 35714
     :cond_0
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
@@ -396,15 +410,15 @@
     .parameter "builderForValue"
 
     .prologue
-    .line 34276
+    .line 35690
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_0
 
-    .line 34277
+    .line 35691
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->ensureUninterpretedOptionIsMutable()V
 
-    .line 34278
+    .line 35692
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-virtual {p2}, Lcom/google/protobuf/DescriptorProtos$UninterpretedOption$Builder;->build()Lcom/google/protobuf/DescriptorProtos$UninterpretedOption;
@@ -413,14 +427,14 @@
 
     invoke-interface {v0, p1, v1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    .line 34279
+    .line 35693
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34283
+    .line 35697
     :goto_0
     return-object p0
 
-    .line 34281
+    .line 35695
     :cond_0
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
@@ -439,38 +453,38 @@
     .parameter "value"
 
     .prologue
-    .line 34237
+    .line 35651
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_1
 
-    .line 34238
+    .line 35652
     if-nez p2, :cond_0
 
-    .line 34239
+    .line 35653
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 34241
+    .line 35655
     :cond_0
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->ensureUninterpretedOptionIsMutable()V
 
-    .line 34242
+    .line 35656
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-interface {v0, p1, p2}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    .line 34243
+    .line 35657
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34247
+    .line 35661
     :goto_0
     return-object p0
 
-    .line 34245
+    .line 35659
     :cond_1
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
@@ -484,15 +498,15 @@
     .parameter "builderForValue"
 
     .prologue
-    .line 34258
+    .line 35672
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_0
 
-    .line 34259
+    .line 35673
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->ensureUninterpretedOptionIsMutable()V
 
-    .line 34260
+    .line 35674
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$UninterpretedOption$Builder;->build()Lcom/google/protobuf/DescriptorProtos$UninterpretedOption;
@@ -501,14 +515,14 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 34261
+    .line 35675
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34265
+    .line 35679
     :goto_0
     return-object p0
 
-    .line 34263
+    .line 35677
     :cond_0
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
@@ -526,38 +540,38 @@
     .parameter "value"
 
     .prologue
-    .line 34216
+    .line 35630
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_1
 
-    .line 34217
+    .line 35631
     if-nez p1, :cond_0
 
-    .line 34218
+    .line 35632
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 34220
+    .line 35634
     :cond_0
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->ensureUninterpretedOptionIsMutable()V
 
-    .line 34221
+    .line 35635
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 34222
+    .line 35636
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34226
+    .line 35640
     :goto_0
     return-object p0
 
-    .line 34224
+    .line 35638
     :cond_1
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
@@ -570,7 +584,7 @@
     .locals 2
 
     .prologue
-    .line 34386
+    .line 35800
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->getUninterpretedOptionFieldBuilder()Lcom/google/protobuf/RepeatedFieldBuilder;
 
     move-result-object v0
@@ -593,7 +607,7 @@
     .parameter "index"
 
     .prologue
-    .line 34398
+    .line 35812
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->getUninterpretedOptionFieldBuilder()Lcom/google/protobuf/RepeatedFieldBuilder;
 
     move-result-object v0
@@ -615,12 +629,12 @@
     .locals 2
 
     .prologue
-    .line 33566
+    .line 34899
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->buildPartial()Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     move-result-object v0
 
-    .line 33567
+    .line 34900
     .local v0, result:Lcom/google/protobuf/DescriptorProtos$StreamOptions;
     invoke-virtual {v0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->isInitialized()Z
 
@@ -628,14 +642,14 @@
 
     if-nez v1, :cond_0
 
-    .line 33568
+    .line 34901
     invoke-static {v0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->newUninitializedMessageException(Lcom/google/protobuf/Message;)Lcom/google/protobuf/UninitializedMessageException;
 
     move-result-object v1
 
     throw v1
 
-    .line 33570
+    .line 34903
     :cond_0
     return-object v0
 .end method
@@ -644,7 +658,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->build()Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     move-result-object v0
@@ -656,7 +670,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->build()Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     move-result-object v0
@@ -668,22 +682,22 @@
     .locals 5
 
     .prologue
-    .line 33574
+    .line 34907
     new-instance v1, Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     const/4 v3, 0x0
 
     invoke-direct {v1, p0, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;-><init>(Lcom/google/protobuf/GeneratedMessage$ExtendableBuilder;Lcom/google/protobuf/DescriptorProtos$1;)V
 
-    .line 33575
+    .line 34908
     .local v1, result:Lcom/google/protobuf/DescriptorProtos$StreamOptions;
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33576
+    .line 34909
     .local v0, from_bitField0_:I
     const/4 v2, 0x0
 
-    .line 33577
+    .line 34910
     .local v2, to_bitField0_:I
     and-int/lit8 v3, v0, 0x1
 
@@ -691,150 +705,184 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 33578
+    .line 34911
     or-int/lit8 v2, v2, 0x1
 
-    .line 33580
+    .line 34913
     :cond_0
     iget-wide v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientInitialTokens_:J
 
     #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->clientInitialTokens_:J
-    invoke-static {v1, v3, v4}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$24502(Lcom/google/protobuf/DescriptorProtos$StreamOptions;J)J
+    invoke-static {v1, v3, v4}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25602(Lcom/google/protobuf/DescriptorProtos$StreamOptions;J)J
 
-    .line 33581
+    .line 34914
     and-int/lit8 v3, v0, 0x2
 
     const/4 v4, 0x2
 
     if-ne v3, v4, :cond_1
 
-    .line 33582
+    .line 34915
     or-int/lit8 v2, v2, 0x2
 
-    .line 33584
+    .line 34917
     :cond_1
     iget-wide v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverInitialTokens_:J
 
     #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->serverInitialTokens_:J
-    invoke-static {v1, v3, v4}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$24602(Lcom/google/protobuf/DescriptorProtos$StreamOptions;J)J
+    invoke-static {v1, v3, v4}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25702(Lcom/google/protobuf/DescriptorProtos$StreamOptions;J)J
 
-    .line 33585
+    .line 34918
     and-int/lit8 v3, v0, 0x4
 
     const/4 v4, 0x4
 
     if-ne v3, v4, :cond_2
 
-    .line 33586
+    .line 34919
     or-int/lit8 v2, v2, 0x4
 
-    .line 33588
+    .line 34921
     :cond_2
     iget-object v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->tokenUnit_:Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
     #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->tokenUnit_:Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
-    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$24702(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;)Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
+    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25802(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;)Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
-    .line 33589
+    .line 34922
     and-int/lit8 v3, v0, 0x8
 
     const/16 v4, 0x8
 
     if-ne v3, v4, :cond_3
 
-    .line 33590
+    .line 34923
     or-int/lit8 v2, v2, 0x8
 
-    .line 33592
+    .line 34925
     :cond_3
     iget-object v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLevel_:Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
     #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->securityLevel_:Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
-    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$24802(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;)Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
+    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25902(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;)Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
-    .line 33593
+    .line 34926
     and-int/lit8 v3, v0, 0x10
 
     const/16 v4, 0x10
 
     if-ne v3, v4, :cond_4
 
-    .line 33594
+    .line 34927
     or-int/lit8 v2, v2, 0x10
 
-    .line 33596
+    .line 34929
     :cond_4
     iget-object v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
 
     #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->securityLabel_:Ljava/lang/Object;
-    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$24902(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26002(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 33597
+    .line 34930
     and-int/lit8 v3, v0, 0x20
 
     const/16 v4, 0x20
 
     if-ne v3, v4, :cond_5
 
-    .line 33598
+    .line 34931
     or-int/lit8 v2, v2, 0x20
 
-    .line 33600
+    .line 34933
     :cond_5
     iget v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientLogging_:I
 
     #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->clientLogging_:I
-    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25002(Lcom/google/protobuf/DescriptorProtos$StreamOptions;I)I
+    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26102(Lcom/google/protobuf/DescriptorProtos$StreamOptions;I)I
 
-    .line 33601
+    .line 34934
     and-int/lit8 v3, v0, 0x40
 
     const/16 v4, 0x40
 
     if-ne v3, v4, :cond_6
 
-    .line 33602
+    .line 34935
     or-int/lit8 v2, v2, 0x40
 
-    .line 33604
+    .line 34937
     :cond_6
     iget v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverLogging_:I
 
     #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->serverLogging_:I
-    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25102(Lcom/google/protobuf/DescriptorProtos$StreamOptions;I)I
+    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26202(Lcom/google/protobuf/DescriptorProtos$StreamOptions;I)I
 
-    .line 33605
+    .line 34938
     and-int/lit16 v3, v0, 0x80
 
     const/16 v4, 0x80
 
     if-ne v3, v4, :cond_7
 
-    .line 33606
+    .line 34939
     or-int/lit16 v2, v2, 0x80
 
-    .line 33608
+    .line 34941
     :cond_7
-    iget-boolean v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deprecated_:Z
+    iget-wide v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deadline_:D
 
-    #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->deprecated_:Z
-    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25202(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Z)Z
+    #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->deadline_:D
+    invoke-static {v1, v3, v4}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26302(Lcom/google/protobuf/DescriptorProtos$StreamOptions;D)D
 
-    .line 33609
-    iget-object v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
-
-    if-nez v3, :cond_9
-
-    .line 33610
-    iget v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
-
-    and-int/lit16 v3, v3, 0x100
+    .line 34942
+    and-int/lit16 v3, v0, 0x100
 
     const/16 v4, 0x100
 
     if-ne v3, v4, :cond_8
 
-    .line 33611
+    .line 34943
+    or-int/lit16 v2, v2, 0x100
+
+    .line 34945
+    :cond_8
+    iget-boolean v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->failFast_:Z
+
+    #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->failFast_:Z
+    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26402(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Z)Z
+
+    .line 34946
+    and-int/lit16 v3, v0, 0x200
+
+    const/16 v4, 0x200
+
+    if-ne v3, v4, :cond_9
+
+    .line 34947
+    or-int/lit16 v2, v2, 0x200
+
+    .line 34949
+    :cond_9
+    iget-boolean v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deprecated_:Z
+
+    #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->deprecated_:Z
+    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26502(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Z)Z
+
+    .line 34950
+    iget-object v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
+
+    if-nez v3, :cond_b
+
+    .line 34951
+    iget v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    and-int/lit16 v3, v3, 0x400
+
+    const/16 v4, 0x400
+
+    if-ne v3, v4, :cond_a
+
+    .line 34952
     iget-object v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-static {v3}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
@@ -843,33 +891,33 @@
 
     iput-object v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
-    .line 33612
+    .line 34953
     iget v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    and-int/lit16 v3, v3, -0x101
+    and-int/lit16 v3, v3, -0x401
 
     iput v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33614
-    :cond_8
+    .line 34955
+    :cond_a
     iget-object v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->uninterpretedOption_:Ljava/util/List;
-    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25302(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Ljava/util/List;)Ljava/util/List;
+    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26602(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Ljava/util/List;)Ljava/util/List;
 
-    .line 33618
+    .line 34959
     :goto_0
     #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->bitField0_:I
-    invoke-static {v1, v2}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25402(Lcom/google/protobuf/DescriptorProtos$StreamOptions;I)I
+    invoke-static {v1, v2}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26702(Lcom/google/protobuf/DescriptorProtos$StreamOptions;I)I
 
-    .line 33619
+    .line 34960
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onBuilt()V
 
-    .line 33620
+    .line 34961
     return-object v1
 
-    .line 33616
-    :cond_9
+    .line 34957
+    :cond_b
     iget-object v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     invoke-virtual {v3}, Lcom/google/protobuf/RepeatedFieldBuilder;->build()Ljava/util/List;
@@ -877,7 +925,7 @@
     move-result-object v3
 
     #setter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->uninterpretedOption_:Ljava/util/List;
-    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25302(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Ljava/util/List;)Ljava/util/List;
+    invoke-static {v1, v3}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26602(Lcom/google/protobuf/DescriptorProtos$StreamOptions;Ljava/util/List;)Ljava/util/List;
 
     goto :goto_0
 .end method
@@ -886,7 +934,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->buildPartial()Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     move-result-object v0
@@ -898,7 +946,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->buildPartial()Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     move-result-object v0
@@ -910,7 +958,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clear()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -919,128 +967,150 @@
 .end method
 
 .method public clear()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
-    .locals 4
+    .locals 5
 
     .prologue
-    const-wide/16 v2, -0x1
+    const-wide/16 v3, -0x1
 
     const/16 v1, 0x100
 
-    .line 33526
+    const/4 v2, 0x0
+
+    .line 34855
     invoke-super {p0}, Lcom/google/protobuf/GeneratedMessage$ExtendableBuilder;->clear()Lcom/google/protobuf/GeneratedMessage$ExtendableBuilder;
 
-    .line 33527
-    iput-wide v2, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientInitialTokens_:J
+    .line 34856
+    iput-wide v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientInitialTokens_:J
 
-    .line 33528
+    .line 34857
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x2
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33529
-    iput-wide v2, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverInitialTokens_:J
+    .line 34858
+    iput-wide v3, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverInitialTokens_:J
 
-    .line 33530
+    .line 34859
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x3
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33531
+    .line 34860
     sget-object v0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;->MESSAGE:Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->tokenUnit_:Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
-    .line 33532
+    .line 34861
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x5
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33533
+    .line 34862
     sget-object v0, Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;->NONE:Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLevel_:Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
-    .line 33534
+    .line 34863
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x9
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33535
+    .line 34864
     const-string v0, ""
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
 
-    .line 33536
+    .line 34865
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x11
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33537
+    .line 34866
     iput v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientLogging_:I
 
-    .line 33538
+    .line 34867
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x21
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33539
+    .line 34868
     iput v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverLogging_:I
 
-    .line 33540
+    .line 34869
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x41
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33541
-    const/4 v0, 0x0
+    .line 34870
+    const-wide/high16 v0, -0x4010
 
-    iput-boolean v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deprecated_:Z
+    iput-wide v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deadline_:D
 
-    .line 33542
+    .line 34871
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit16 v0, v0, -0x81
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33543
-    iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
+    .line 34872
+    iput-boolean v2, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->failFast_:Z
 
-    if-nez v0, :cond_0
-
-    .line 33544
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
-
-    .line 33545
+    .line 34873
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit16 v0, v0, -0x101
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33549
+    .line 34874
+    iput-boolean v2, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deprecated_:Z
+
+    .line 34875
+    iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    and-int/lit16 v0, v0, -0x201
+
+    iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    .line 34876
+    iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
+
+    if-nez v0, :cond_0
+
+    .line 34877
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
+
+    .line 34878
+    iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    and-int/lit16 v0, v0, -0x401
+
+    iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    .line 34882
     :goto_0
     return-object p0
 
-    .line 33547
+    .line 34880
     :cond_0
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
@@ -1053,7 +1123,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clear()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -1065,7 +1135,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clear()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -1077,7 +1147,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clear()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -1089,7 +1159,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clear()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -1101,22 +1171,22 @@
     .locals 2
 
     .prologue
-    .line 33770
+    .line 35117
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x2
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33771
+    .line 35118
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientInitialTokens_:J
 
-    .line 33772
+    .line 35119
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33773
+    .line 35120
     return-object p0
 .end method
 
@@ -1124,22 +1194,45 @@
     .locals 1
 
     .prologue
-    .line 34017
+    .line 35367
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x21
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 34018
+    .line 35368
     const/16 v0, 0x100
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientLogging_:I
 
-    .line 34019
+    .line 35369
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34020
+    .line 35370
+    return-object p0
+.end method
+
+.method public clearDeadline()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
+    .locals 2
+
+    .prologue
+    .line 35431
+    iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    and-int/lit16 v0, v0, -0x81
+
+    iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    .line 35432
+    const-wide/high16 v0, -0x4010
+
+    iput-wide v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deadline_:D
+
+    .line 35433
+    invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
+
+    .line 35434
     return-object p0
 .end method
 
@@ -1147,22 +1240,45 @@
     .locals 1
 
     .prologue
-    .line 34109
+    .line 35523
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    and-int/lit16 v0, v0, -0x81
+    and-int/lit16 v0, v0, -0x201
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 34110
+    .line 35524
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deprecated_:Z
 
-    .line 34111
+    .line 35525
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34112
+    .line 35526
+    return-object p0
+.end method
+
+.method public clearFailFast()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
+    .locals 1
+
+    .prologue
+    .line 35463
+    iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    and-int/lit16 v0, v0, -0x101
+
+    iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    .line 35464
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->failFast_:Z
+
+    .line 35465
+    invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
+
+    .line 35466
     return-object p0
 .end method
 
@@ -1170,14 +1286,14 @@
     .locals 1
 
     .prologue
-    .line 33972
+    .line 35322
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x11
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33973
+    .line 35323
     invoke-static {}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getDefaultInstance()Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     move-result-object v0
@@ -1188,10 +1304,10 @@
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
 
-    .line 33974
+    .line 35324
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33975
+    .line 35325
     return-object p0
 .end method
 
@@ -1199,22 +1315,22 @@
     .locals 1
 
     .prologue
-    .line 33912
+    .line 35259
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x9
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33913
+    .line 35260
     sget-object v0, Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;->NONE:Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLevel_:Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
-    .line 33914
+    .line 35261
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33915
+    .line 35262
     return-object p0
 .end method
 
@@ -1222,22 +1338,22 @@
     .locals 2
 
     .prologue
-    .line 33802
+    .line 35149
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x3
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33803
+    .line 35150
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverInitialTokens_:J
 
-    .line 33804
+    .line 35151
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33805
+    .line 35152
     return-object p0
 .end method
 
@@ -1245,22 +1361,22 @@
     .locals 1
 
     .prologue
-    .line 34049
+    .line 35399
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x41
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 34050
+    .line 35400
     const/16 v0, 0x100
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverLogging_:I
 
-    .line 34051
+    .line 35401
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34052
+    .line 35402
     return-object p0
 .end method
 
@@ -1268,22 +1384,22 @@
     .locals 1
 
     .prologue
-    .line 33861
+    .line 35208
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x5
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33862
+    .line 35209
     sget-object v0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;->MESSAGE:Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->tokenUnit_:Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
-    .line 33863
+    .line 35210
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33864
+    .line 35211
     return-object p0
 .end method
 
@@ -1291,33 +1407,33 @@
     .locals 1
 
     .prologue
-    .line 34312
+    .line 35726
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_0
 
-    .line 34313
+    .line 35727
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
-    .line 34314
+    .line 35728
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    and-int/lit16 v0, v0, -0x101
+    and-int/lit16 v0, v0, -0x401
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 34315
+    .line 35729
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34319
+    .line 35733
     :goto_0
     return-object p0
 
-    .line 34317
+    .line 35731
     :cond_0
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
@@ -1330,7 +1446,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clone()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -1342,7 +1458,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clone()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -1354,7 +1470,7 @@
     .locals 2
 
     .prologue
-    .line 33553
+    .line 34886
     invoke-static {}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->create()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -1374,7 +1490,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clone()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -1386,7 +1502,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clone()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -1398,7 +1514,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clone()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -1410,7 +1526,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clone()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -1427,7 +1543,7 @@
     .end annotation
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clone()Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -1439,7 +1555,7 @@
     .locals 2
 
     .prologue
-    .line 33745
+    .line 35092
     iget-wide v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientInitialTokens_:J
 
     return-wide v0
@@ -1449,17 +1565,27 @@
     .locals 1
 
     .prologue
-    .line 34002
+    .line 35352
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientLogging_:I
 
     return v0
+.end method
+
+.method public getDeadline()D
+    .locals 2
+
+    .prologue
+    .line 35416
+    iget-wide v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deadline_:D
+
+    return-wide v0
 .end method
 
 .method public getDefaultInstanceForType()Lcom/google/protobuf/DescriptorProtos$StreamOptions;
     .locals 1
 
     .prologue
-    .line 33562
+    .line 34895
     invoke-static {}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getDefaultInstance()Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     move-result-object v0
@@ -1471,7 +1597,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->getDefaultInstanceForType()Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     move-result-object v0
@@ -1483,7 +1609,7 @@
     .locals 1
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->getDefaultInstanceForType()Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     move-result-object v0
@@ -1495,7 +1621,7 @@
     .locals 1
 
     .prologue
-    .line 34080
+    .line 35494
     iget-boolean v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deprecated_:Z
 
     return v0
@@ -1505,50 +1631,73 @@
     .locals 1
 
     .prologue
-    .line 33558
-    invoke-static {}, Lcom/google/protobuf/DescriptorProtos;->access$23900()Lcom/google/protobuf/Descriptors$Descriptor;
+    .line 34891
+    invoke-static {}, Lcom/google/protobuf/DescriptorProtos;->access$25000()Lcom/google/protobuf/Descriptors$Descriptor;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getSecurityLabel()Ljava/lang/String;
-    .locals 3
+.method public getFailFast()Z
+    .locals 1
 
     .prologue
-    .line 33929
-    iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
+    .line 35448
+    iget-boolean v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->failFast_:Z
 
-    .line 33930
-    .local v0, ref:Ljava/lang/Object;
-    instance-of v2, v0, Ljava/lang/String;
+    return v0
+.end method
 
-    if-nez v2, :cond_0
+.method public getSecurityLabel()Ljava/lang/String;
+    .locals 4
 
-    .line 33931
+    .prologue
+    .line 35276
+    iget-object v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
+
+    .line 35277
+    .local v1, ref:Ljava/lang/Object;
+    instance-of v3, v1, Ljava/lang/String;
+
+    if-nez v3, :cond_1
+
+    move-object v0, v1
+
+    .line 35278
     check-cast v0, Lcom/google/protobuf/ByteString;
 
-    .end local v0           #ref:Ljava/lang/Object;
+    .line 35280
+    .local v0, bs:Lcom/google/protobuf/ByteString;
     invoke-virtual {v0}, Lcom/google/protobuf/ByteString;->toStringUtf8()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    .line 33933
-    .local v1, s:Ljava/lang/String;
-    iput-object v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
+    .line 35281
+    .local v2, s:Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/google/protobuf/ByteString;->isValidUtf8()Z
 
-    .line 33936
-    .end local v1           #s:Ljava/lang/String;
-    :goto_0
-    return-object v1
+    move-result v3
 
-    .restart local v0       #ref:Ljava/lang/Object;
+    if-eqz v3, :cond_0
+
+    .line 35282
+    iput-object v2, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
+
+    .line 35286
+    .end local v0           #bs:Lcom/google/protobuf/ByteString;
+    .end local v1           #ref:Ljava/lang/Object;
+    .end local v2           #s:Ljava/lang/String;
     :cond_0
-    check-cast v0, Ljava/lang/String;
+    :goto_0
+    return-object v2
 
-    .end local v0           #ref:Ljava/lang/Object;
-    move-object v1, v0
+    .restart local v1       #ref:Ljava/lang/Object;
+    :cond_1
+    check-cast v1, Ljava/lang/String;
+
+    .end local v1           #ref:Ljava/lang/Object;
+    move-object v2, v1
 
     goto :goto_0
 .end method
@@ -1557,16 +1706,16 @@
     .locals 3
 
     .prologue
-    .line 33944
+    .line 35294
     iget-object v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
 
-    .line 33945
+    .line 35295
     .local v1, ref:Ljava/lang/Object;
     instance-of v2, v1, Ljava/lang/String;
 
     if-eqz v2, :cond_0
 
-    .line 33946
+    .line 35296
     check-cast v1, Ljava/lang/String;
 
     .end local v1           #ref:Ljava/lang/Object;
@@ -1574,11 +1723,11 @@
 
     move-result-object v0
 
-    .line 33949
+    .line 35299
     .local v0, b:Lcom/google/protobuf/ByteString;
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
 
-    .line 33952
+    .line 35302
     .end local v0           #b:Lcom/google/protobuf/ByteString;
     :goto_0
     return-object v0
@@ -1597,7 +1746,7 @@
     .locals 1
 
     .prologue
-    .line 33886
+    .line 35233
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLevel_:Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
     return-object v0
@@ -1607,7 +1756,7 @@
     .locals 2
 
     .prologue
-    .line 33787
+    .line 35134
     iget-wide v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverInitialTokens_:J
 
     return-wide v0
@@ -1617,7 +1766,7 @@
     .locals 1
 
     .prologue
-    .line 34034
+    .line 35384
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverLogging_:I
 
     return v0
@@ -1627,7 +1776,7 @@
     .locals 1
 
     .prologue
-    .line 33831
+    .line 35178
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->tokenUnit_:Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
     return-object v0
@@ -1638,12 +1787,12 @@
     .parameter "index"
 
     .prologue
-    .line 34163
+    .line 35577
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_0
 
-    .line 34164
+    .line 35578
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1652,7 +1801,7 @@
 
     check-cast v0, Lcom/google/protobuf/DescriptorProtos$UninterpretedOption;
 
-    .line 34166
+    .line 35580
     :goto_0
     return-object v0
 
@@ -1673,7 +1822,7 @@
     .parameter "index"
 
     .prologue
-    .line 34347
+    .line 35761
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->getUninterpretedOptionFieldBuilder()Lcom/google/protobuf/RepeatedFieldBuilder;
 
     move-result-object v0
@@ -1700,7 +1849,7 @@
     .end annotation
 
     .prologue
-    .line 34410
+    .line 35824
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->getUninterpretedOptionFieldBuilder()Lcom/google/protobuf/RepeatedFieldBuilder;
 
     move-result-object v0
@@ -1716,19 +1865,19 @@
     .locals 1
 
     .prologue
-    .line 34149
+    .line 35563
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_0
 
-    .line 34150
+    .line 35564
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    .line 34152
+    .line 35566
     :goto_0
     return v0
 
@@ -1755,19 +1904,19 @@
     .end annotation
 
     .prologue
-    .line 34135
+    .line 35549
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_0
 
-    .line 34136
+    .line 35550
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v0
 
-    .line 34138
+    .line 35552
     :goto_0
     return-object v0
 
@@ -1786,12 +1935,12 @@
     .parameter "index"
 
     .prologue
-    .line 34358
+    .line 35772
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_0
 
-    .line 34359
+    .line 35773
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1800,7 +1949,7 @@
 
     check-cast v0, Lcom/google/protobuf/DescriptorProtos$UninterpretedOptionOrBuilder;
 
-    .line 34360
+    .line 35774
     :goto_0
     return-object v0
 
@@ -1829,19 +1978,19 @@
     .end annotation
 
     .prologue
-    .line 34372
+    .line 35786
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-eqz v0, :cond_0
 
-    .line 34373
+    .line 35787
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     invoke-virtual {v0}, Lcom/google/protobuf/RepeatedFieldBuilder;->getMessageOrBuilderList()Ljava/util/List;
 
     move-result-object v0
 
-    .line 34375
+    .line 35789
     :goto_0
     return-object v0
 
@@ -1861,7 +2010,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 33734
+    .line 35081
     iget v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v1, v1, 0x1
@@ -1881,7 +2030,7 @@
     .locals 2
 
     .prologue
-    .line 33996
+    .line 35346
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, 0x20
@@ -1901,11 +2050,11 @@
     goto :goto_0
 .end method
 
-.method public hasDeprecated()Z
+.method public hasDeadline()Z
     .locals 2
 
     .prologue
-    .line 34067
+    .line 35410
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit16 v0, v0, 0x80
@@ -1925,11 +2074,59 @@
     goto :goto_0
 .end method
 
+.method public hasDeprecated()Z
+    .locals 2
+
+    .prologue
+    .line 35481
+    iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    and-int/lit16 v0, v0, 0x200
+
+    const/16 v1, 0x200
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public hasFailFast()Z
+    .locals 2
+
+    .prologue
+    .line 35442
+    iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    and-int/lit16 v0, v0, 0x100
+
+    const/16 v1, 0x100
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public hasSecurityLabel()Z
     .locals 2
 
     .prologue
-    .line 33923
+    .line 35270
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, 0x10
@@ -1953,7 +2150,7 @@
     .locals 2
 
     .prologue
-    .line 33876
+    .line 35223
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, 0x8
@@ -1977,7 +2174,7 @@
     .locals 2
 
     .prologue
-    .line 33781
+    .line 35128
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, 0x2
@@ -2001,7 +2198,7 @@
     .locals 2
 
     .prologue
-    .line 34028
+    .line 35378
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, 0x40
@@ -2025,7 +2222,7 @@
     .locals 2
 
     .prologue
-    .line 33819
+    .line 35166
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, 0x4
@@ -2049,8 +2246,8 @@
     .locals 3
 
     .prologue
-    .line 33501
-    invoke-static {}, Lcom/google/protobuf/DescriptorProtos;->access$24000()Lcom/google/protobuf/GeneratedMessage$FieldAccessorTable;
+    .line 34830
+    invoke-static {}, Lcom/google/protobuf/DescriptorProtos;->access$25100()Lcom/google/protobuf/GeneratedMessage$FieldAccessorTable;
 
     move-result-object v0
 
@@ -2071,7 +2268,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 33692
+    .line 35039
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -2082,7 +2279,7 @@
 
     if-ge v0, v2, :cond_2
 
-    .line 33693
+    .line 35040
     invoke-virtual {p0, v0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->getUninterpretedOption(I)Lcom/google/protobuf/DescriptorProtos$UninterpretedOption;
 
     move-result-object v2
@@ -2093,18 +2290,18 @@
 
     if-nez v2, :cond_1
 
-    .line 33702
+    .line 35049
     :cond_0
     :goto_1
     return v1
 
-    .line 33692
+    .line 35039
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 33698
+    .line 35045
     :cond_2
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->extensionsAreInitialized()Z
 
@@ -2112,7 +2309,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 33702
+    .line 35049
     const/4 v1, 0x1
 
     goto :goto_1
@@ -2129,7 +2326,7 @@
     .end annotation
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->mergeFrom(Lcom/google/protobuf/CodedInputStream;Lcom/google/protobuf/ExtensionRegistryLite;)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -2142,7 +2339,7 @@
     .parameter "x0"
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0, p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->mergeFrom(Lcom/google/protobuf/Message;)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -2161,7 +2358,7 @@
     .end annotation
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->mergeFrom(Lcom/google/protobuf/CodedInputStream;Lcom/google/protobuf/ExtensionRegistryLite;)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -2180,10 +2377,10 @@
     .end annotation
 
     .prologue
-    .line 33709
+    .line 35056
     const/4 v2, 0x0
 
-    .line 33711
+    .line 35058
     .local v2, parsedMessage:Lcom/google/protobuf/DescriptorProtos$StreamOptions;
     :try_start_0
     sget-object v3, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->PARSER:Lcom/google/protobuf/Parser;
@@ -2201,21 +2398,21 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Lcom/google/protobuf/InvalidProtocolBufferException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 33716
+    .line 35063
     if-eqz v2, :cond_0
 
-    .line 33717
+    .line 35064
     invoke-virtual {p0, v2}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->mergeFrom(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
-    .line 33720
+    .line 35067
     :cond_0
     return-object p0
 
-    .line 33712
+    .line 35059
     :catch_0
     move-exception v1
 
-    .line 33713
+    .line 35060
     .local v1, e:Lcom/google/protobuf/InvalidProtocolBufferException;
     :try_start_1
     invoke-virtual {v1}, Lcom/google/protobuf/InvalidProtocolBufferException;->getUnfinishedMessage()Lcom/google/protobuf/MessageLite;
@@ -2228,19 +2425,19 @@
 
     move-object v2, v0
 
-    .line 33714
+    .line 35061
     throw v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 33716
+    .line 35063
     .end local v1           #e:Lcom/google/protobuf/InvalidProtocolBufferException;
     :catchall_0
     move-exception v3
 
     if-eqz v2, :cond_1
 
-    .line 33717
+    .line 35064
     invoke-virtual {p0, v2}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->mergeFrom(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     :cond_1
@@ -2254,18 +2451,18 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 33633
+    .line 34974
     invoke-static {}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getDefaultInstance()Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     move-result-object v1
 
     if-ne p1, v1, :cond_0
 
-    .line 33688
+    .line 35035
     :goto_0
     return-object p0
 
-    .line 33634
+    .line 34975
     :cond_0
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->hasClientInitialTokens()Z
 
@@ -2273,14 +2470,14 @@
 
     if-eqz v1, :cond_1
 
-    .line 33635
+    .line 34976
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getClientInitialTokens()J
 
     move-result-wide v1
 
     invoke-virtual {p0, v1, v2}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->setClientInitialTokens(J)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
-    .line 33637
+    .line 34978
     :cond_1
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->hasServerInitialTokens()Z
 
@@ -2288,14 +2485,14 @@
 
     if-eqz v1, :cond_2
 
-    .line 33638
+    .line 34979
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getServerInitialTokens()J
 
     move-result-wide v1
 
     invoke-virtual {p0, v1, v2}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->setServerInitialTokens(J)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
-    .line 33640
+    .line 34981
     :cond_2
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->hasTokenUnit()Z
 
@@ -2303,14 +2500,14 @@
 
     if-eqz v1, :cond_3
 
-    .line 33641
+    .line 34982
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getTokenUnit()Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
     move-result-object v1
 
     invoke-virtual {p0, v1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->setTokenUnit(Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
-    .line 33643
+    .line 34984
     :cond_3
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->hasSecurityLevel()Z
 
@@ -2318,14 +2515,14 @@
 
     if-eqz v1, :cond_4
 
-    .line 33644
+    .line 34985
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getSecurityLevel()Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
     move-result-object v1
 
     invoke-virtual {p0, v1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->setSecurityLevel(Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
-    .line 33646
+    .line 34987
     :cond_4
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->hasSecurityLabel()Z
 
@@ -2333,25 +2530,25 @@
 
     if-eqz v1, :cond_5
 
-    .line 33647
+    .line 34988
     iget v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     or-int/lit8 v1, v1, 0x10
 
     iput v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33648
+    .line 34989
     #getter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->securityLabel_:Ljava/lang/Object;
-    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$24900(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26000(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/lang/Object;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
 
-    .line 33649
+    .line 34990
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33651
+    .line 34992
     :cond_5
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->hasClientLogging()Z
 
@@ -2359,14 +2556,14 @@
 
     if-eqz v1, :cond_6
 
-    .line 33652
+    .line 34993
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getClientLogging()I
 
     move-result v1
 
     invoke-virtual {p0, v1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->setClientLogging(I)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
-    .line 33654
+    .line 34995
     :cond_6
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->hasServerLogging()Z
 
@@ -2374,37 +2571,67 @@
 
     if-eqz v1, :cond_7
 
-    .line 33655
+    .line 34996
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getServerLogging()I
 
     move-result v1
 
     invoke-virtual {p0, v1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->setServerLogging(I)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
-    .line 33657
+    .line 34998
     :cond_7
-    invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->hasDeprecated()Z
+    invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->hasDeadline()Z
 
     move-result v1
 
     if-eqz v1, :cond_8
 
-    .line 33658
+    .line 34999
+    invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getDeadline()D
+
+    move-result-wide v1
+
+    invoke-virtual {p0, v1, v2}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->setDeadline(D)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
+
+    .line 35001
+    :cond_8
+    invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->hasFailFast()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    .line 35002
+    invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getFailFast()Z
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->setFailFast(Z)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
+
+    .line 35004
+    :cond_9
+    invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->hasDeprecated()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_a
+
+    .line 35005
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getDeprecated()Z
 
     move-result v1
 
     invoke-virtual {p0, v1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->setDeprecated(Z)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
-    .line 33660
-    :cond_8
+    .line 35007
+    :cond_a
     iget-object v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_d
 
-    .line 33661
+    .line 35008
     #getter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->uninterpretedOption_:Ljava/util/List;
-    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25300(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/util/List;
+    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26600(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/util/List;
 
     move-result-object v0
 
@@ -2412,42 +2639,42 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_b
 
-    .line 33662
+    .line 35009
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_c
 
-    .line 33663
+    .line 35010
     #getter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->uninterpretedOption_:Ljava/util/List;
-    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25300(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/util/List;
+    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26600(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/util/List;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
-    .line 33664
+    .line 35011
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    and-int/lit16 v0, v0, -0x101
+    and-int/lit16 v0, v0, -0x401
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33669
+    .line 35016
     :goto_1
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33686
-    :cond_9
+    .line 35033
+    :cond_b
     :goto_2
     invoke-virtual {p0, p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->mergeExtensionFields(Lcom/google/protobuf/GeneratedMessage$ExtendableMessage;)V
 
-    .line 33687
+    .line 35034
     invoke-virtual {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->getUnknownFields()Lcom/google/protobuf/UnknownFieldSet;
 
     move-result-object v0
@@ -2456,15 +2683,15 @@
 
     goto/16 :goto_0
 
-    .line 33666
-    :cond_a
+    .line 35013
+    :cond_c
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->ensureUninterpretedOptionIsMutable()V
 
-    .line 33667
+    .line 35014
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     #getter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->uninterpretedOption_:Ljava/util/List;
-    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25300(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/util/List;
+    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26600(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/util/List;
 
     move-result-object v1
 
@@ -2472,10 +2699,10 @@
 
     goto :goto_1
 
-    .line 33672
-    :cond_b
+    .line 35019
+    :cond_d
     #getter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->uninterpretedOption_:Ljava/util/List;
-    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25300(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/util/List;
+    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26600(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/util/List;
 
     move-result-object v1
 
@@ -2483,60 +2710,60 @@
 
     move-result v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_b
 
-    .line 33673
+    .line 35020
     iget-object v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     invoke-virtual {v1}, Lcom/google/protobuf/RepeatedFieldBuilder;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_f
 
-    .line 33674
+    .line 35021
     iget-object v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     invoke-virtual {v1}, Lcom/google/protobuf/RepeatedFieldBuilder;->dispose()V
 
-    .line 33675
+    .line 35022
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
-    .line 33676
+    .line 35023
     #getter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->uninterpretedOption_:Ljava/util/List;
-    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25300(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/util/List;
+    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26600(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/util/List;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
-    .line 33677
+    .line 35024
     iget v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    and-int/lit16 v1, v1, -0x101
+    and-int/lit16 v1, v1, -0x401
 
     iput v1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33678
+    .line 35025
     sget-boolean v1, Lcom/google/protobuf/GeneratedMessage;->alwaysUseFieldBuilders:Z
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_e
 
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->getUninterpretedOptionFieldBuilder()Lcom/google/protobuf/RepeatedFieldBuilder;
 
     move-result-object v0
 
-    :cond_c
+    :cond_e
     iput-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     goto :goto_2
 
-    .line 33682
-    :cond_d
+    .line 35029
+    :cond_f
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     #getter for: Lcom/google/protobuf/DescriptorProtos$StreamOptions;->uninterpretedOption_:Ljava/util/List;
-    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$25300(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/util/List;
+    invoke-static {p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions;->access$26600(Lcom/google/protobuf/DescriptorProtos$StreamOptions;)Ljava/util/List;
 
     move-result-object v1
 
@@ -2550,12 +2777,12 @@
     .parameter "other"
 
     .prologue
-    .line 33624
+    .line 34965
     instance-of v0, p1, Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     if-eqz v0, :cond_0
 
-    .line 33625
+    .line 34966
     check-cast p1, Lcom/google/protobuf/DescriptorProtos$StreamOptions;
 
     .end local p1
@@ -2563,12 +2790,12 @@
 
     move-result-object p0
 
-    .line 33628
+    .line 34969
     .end local p0
     :goto_0
     return-object p0
 
-    .line 33627
+    .line 34968
     .restart local p0
     .restart local p1
     :cond_0
@@ -2588,7 +2815,7 @@
     .end annotation
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->mergeFrom(Lcom/google/protobuf/CodedInputStream;Lcom/google/protobuf/ExtensionRegistryLite;)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -2601,7 +2828,7 @@
     .parameter "x0"
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0, p1}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->mergeFrom(Lcom/google/protobuf/Message;)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -2620,7 +2847,7 @@
     .end annotation
 
     .prologue
-    .line 33489
+    .line 34818
     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->mergeFrom(Lcom/google/protobuf/CodedInputStream;Lcom/google/protobuf/ExtensionRegistryLite;)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
 
     move-result-object v0
@@ -2633,27 +2860,27 @@
     .parameter "index"
 
     .prologue
-    .line 34329
+    .line 35743
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_0
 
-    .line 34330
+    .line 35744
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->ensureUninterpretedOptionIsMutable()V
 
-    .line 34331
+    .line 35745
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    .line 34332
+    .line 35746
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34336
+    .line 35750
     :goto_0
     return-object p0
 
-    .line 34334
+    .line 35748
     :cond_0
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
@@ -2667,20 +2894,20 @@
     .parameter "value"
 
     .prologue
-    .line 33756
+    .line 35103
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     or-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33757
+    .line 35104
     iput-wide p1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientInitialTokens_:J
 
-    .line 33758
+    .line 35105
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33759
+    .line 35106
     return-object p0
 .end method
 
@@ -2689,20 +2916,42 @@
     .parameter "value"
 
     .prologue
-    .line 34008
+    .line 35358
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     or-int/lit8 v0, v0, 0x20
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 34009
+    .line 35359
     iput p1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->clientLogging_:I
 
-    .line 34010
+    .line 35360
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34011
+    .line 35361
+    return-object p0
+.end method
+
+.method public setDeadline(D)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
+    .locals 1
+    .parameter "value"
+
+    .prologue
+    .line 35422
+    iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    or-int/lit16 v0, v0, 0x80
+
+    iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    .line 35423
+    iput-wide p1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deadline_:D
+
+    .line 35424
+    invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
+
+    .line 35425
     return-object p0
 .end method
 
@@ -2711,20 +2960,42 @@
     .parameter "value"
 
     .prologue
-    .line 34093
+    .line 35507
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    or-int/lit16 v0, v0, 0x80
+    or-int/lit16 v0, v0, 0x200
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 34094
+    .line 35508
     iput-boolean p1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->deprecated_:Z
 
-    .line 34095
+    .line 35509
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34096
+    .line 35510
+    return-object p0
+.end method
+
+.method public setFailFast(Z)Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;
+    .locals 1
+    .parameter "value"
+
+    .prologue
+    .line 35454
+    iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    or-int/lit16 v0, v0, 0x100
+
+    iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
+
+    .line 35455
+    iput-boolean p1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->failFast_:Z
+
+    .line 35456
+    invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
+
+    .line 35457
     return-object p0
 .end method
 
@@ -2733,17 +3004,17 @@
     .parameter "value"
 
     .prologue
-    .line 33960
+    .line 35310
     if-nez p1, :cond_0
 
-    .line 33961
+    .line 35311
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 33963
+    .line 35313
     :cond_0
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
@@ -2751,13 +3022,13 @@
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33964
+    .line 35314
     iput-object p1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
 
-    .line 33965
+    .line 35315
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33966
+    .line 35316
     return-object p0
 .end method
 
@@ -2766,17 +3037,17 @@
     .parameter "value"
 
     .prologue
-    .line 33982
+    .line 35332
     if-nez p1, :cond_0
 
-    .line 33983
+    .line 35333
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 33985
+    .line 35335
     :cond_0
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
@@ -2784,13 +3055,13 @@
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33986
+    .line 35336
     iput-object p1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLabel_:Ljava/lang/Object;
 
-    .line 33987
+    .line 35337
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33988
+    .line 35338
     return-object p0
 .end method
 
@@ -2799,17 +3070,17 @@
     .parameter "value"
 
     .prologue
-    .line 33896
+    .line 35243
     if-nez p1, :cond_0
 
-    .line 33897
+    .line 35244
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 33899
+    .line 35246
     :cond_0
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
@@ -2817,13 +3088,13 @@
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33900
+    .line 35247
     iput-object p1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->securityLevel_:Lcom/google/protobuf/DescriptorProtos$MethodOptions$SecurityLevel;
 
-    .line 33901
+    .line 35248
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33902
+    .line 35249
     return-object p0
 .end method
 
@@ -2832,20 +3103,20 @@
     .parameter "value"
 
     .prologue
-    .line 33793
+    .line 35140
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     or-int/lit8 v0, v0, 0x2
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33794
+    .line 35141
     iput-wide p1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverInitialTokens_:J
 
-    .line 33795
+    .line 35142
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33796
+    .line 35143
     return-object p0
 .end method
 
@@ -2854,20 +3125,20 @@
     .parameter "value"
 
     .prologue
-    .line 34040
+    .line 35390
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
     or-int/lit8 v0, v0, 0x40
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 34041
+    .line 35391
     iput p1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->serverLogging_:I
 
-    .line 34042
+    .line 35392
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34043
+    .line 35393
     return-object p0
 .end method
 
@@ -2876,17 +3147,17 @@
     .parameter "value"
 
     .prologue
-    .line 33843
+    .line 35190
     if-nez p1, :cond_0
 
-    .line 33844
+    .line 35191
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 33846
+    .line 35193
     :cond_0
     iget v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
@@ -2894,13 +3165,13 @@
 
     iput v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->bitField0_:I
 
-    .line 33847
+    .line 35194
     iput-object p1, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->tokenUnit_:Lcom/google/protobuf/DescriptorProtos$StreamOptions$TokenUnit;
 
-    .line 33848
+    .line 35195
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 33849
+    .line 35196
     return-object p0
 .end method
 
@@ -2910,15 +3181,15 @@
     .parameter "builderForValue"
 
     .prologue
-    .line 34199
+    .line 35613
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_0
 
-    .line 34200
+    .line 35614
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->ensureUninterpretedOptionIsMutable()V
 
-    .line 34201
+    .line 35615
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-virtual {p2}, Lcom/google/protobuf/DescriptorProtos$UninterpretedOption$Builder;->build()Lcom/google/protobuf/DescriptorProtos$UninterpretedOption;
@@ -2927,14 +3198,14 @@
 
     invoke-interface {v0, p1, v1}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 34202
+    .line 35616
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34206
+    .line 35620
     :goto_0
     return-object p0
 
-    .line 34204
+    .line 35618
     :cond_0
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
@@ -2953,38 +3224,38 @@
     .parameter "value"
 
     .prologue
-    .line 34178
+    .line 35592
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 
     if-nez v0, :cond_1
 
-    .line 34179
+    .line 35593
     if-nez p2, :cond_0
 
-    .line 34180
+    .line 35594
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 34182
+    .line 35596
     :cond_0
     invoke-direct {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->ensureUninterpretedOptionIsMutable()V
 
-    .line 34183
+    .line 35597
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOption_:Ljava/util/List;
 
     invoke-interface {v0, p1, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 34184
+    .line 35598
     invoke-virtual {p0}, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->onChanged()V
 
-    .line 34188
+    .line 35602
     :goto_0
     return-object p0
 
-    .line 34186
+    .line 35600
     :cond_1
     iget-object v0, p0, Lcom/google/protobuf/DescriptorProtos$StreamOptions$Builder;->uninterpretedOptionBuilder_:Lcom/google/protobuf/RepeatedFieldBuilder;
 

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 55
+    .line 53
     iput-object p1, p0, Lcom/google/glass/setup/ShutdownHandler$1;->this$0:Lcom/google/glass/setup/ShutdownHandler;
 
     invoke-direct {p0}, Lcom/google/glass/util/SafeBroadcastReceiver;-><init>()V
@@ -38,7 +38,7 @@
     .locals 2
 
     .prologue
-    .line 68
+    .line 66
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -64,13 +64,13 @@
     return-object v0
 .end method
 
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public onReceiveInternal(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 58
+    .line 56
     invoke-static {}, Lcom/google/glass/setup/ShutdownHandler;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -99,7 +99,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 59
+    .line 57
     const-string v0, "android.intent.action.ACTION_POWER_CONNECTED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -112,18 +112,18 @@
 
     if-eqz v0, :cond_1
 
-    .line 60
+    .line 58
     iget-object v0, p0, Lcom/google/glass/setup/ShutdownHandler$1;->this$0:Lcom/google/glass/setup/ShutdownHandler;
 
     #calls: Lcom/google/glass/setup/ShutdownHandler;->cancelShutDown()V
     invoke-static {v0}, Lcom/google/glass/setup/ShutdownHandler;->access$100(Lcom/google/glass/setup/ShutdownHandler;)V
 
-    .line 64
+    .line 62
     :cond_0
     :goto_0
     return-void
 
-    .line 61
+    .line 59
     :cond_1
     const-string v0, "android.intent.action.ACTION_POWER_DISCONNECTED"
 
@@ -137,7 +137,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 62
+    .line 60
     iget-object v0, p0, Lcom/google/glass/setup/ShutdownHandler$1;->this$0:Lcom/google/glass/setup/ShutdownHandler;
 
     #calls: Lcom/google/glass/setup/ShutdownHandler;->scheduleShutDown()V

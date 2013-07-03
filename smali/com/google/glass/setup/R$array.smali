@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final dynamic_text_sizes:I = 0x7f0a0000
+.field public static final dynamic_text_sizes:I = 0x7f060000
 
 
 # direct methods

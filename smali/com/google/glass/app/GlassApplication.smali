@@ -6,9 +6,7 @@
 # static fields
 .field public static final CACHED_FILES_DIRECTORY:Ljava/lang/String; = null
 
-.field private static final DCIM_DIRECTORY:Ljava/lang/String; = null
-
-.field private static final MAX_BITMAP_CACHE_SIZE:I = 0x40
+.field public static final DCIM_DIRECTORY:Ljava/lang/String; = null
 
 .field private static final MAX_NUM_SDCARD_ATTACHMENTS:I = 0x2710
 
@@ -20,7 +18,7 @@
 
 
 # instance fields
-.field private bitmapFactory:Lcom/google/glass/util/CachedBitmapFactory;
+.field private audioManager:Landroid/media/AudioManager;
 
 .field private connectionState:Lcom/google/glass/util/InetConnectionState;
 
@@ -56,7 +54,7 @@
     .locals 2
 
     .prologue
-    .line 38
+    .line 40
     const-class v0, Lcom/google/glass/app/GlassApplication;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -65,7 +63,7 @@
 
     sput-object v0, Lcom/google/glass/app/GlassApplication;->TAG:Ljava/lang/String;
 
-    .line 60
+    .line 50
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -100,7 +98,7 @@
 
     sput-object v0, Lcom/google/glass/app/GlassApplication;->CACHED_FILES_DIRECTORY:Ljava/lang/String;
 
-    .line 65
+    .line 55
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -154,7 +152,7 @@
     .locals 0
 
     .prologue
-    .line 37
+    .line 39
     invoke-direct {p0}, Landroid/app/Application;-><init>()V
 
     return-void
@@ -164,7 +162,7 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 39
     sget-object v0, Lcom/google/glass/app/GlassApplication;->TAG:Ljava/lang/String;
 
     return-object v0
@@ -175,24 +173,24 @@
     .parameter "context"
 
     .prologue
-    .line 188
+    .line 181
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 189
+    .line 182
     .local v0, applicationContext:Landroid/content/Context;
     instance-of v1, v0, Lcom/google/glass/app/GlassApplication;
 
     if-eqz v1, :cond_0
 
-    .line 190
+    .line 183
     check-cast v0, Lcom/google/glass/app/GlassApplication;
 
     .end local v0           #applicationContext:Landroid/content/Context;
     return-object v0
 
-    .line 192
+    .line 185
     .restart local v0       #applicationContext:Landroid/content/Context;
     :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -212,21 +210,43 @@
     .end annotation
 
     .prologue
-    .line 213
-    iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->ttsHelper:Lcom/google/glass/util/TtsHelper;
+    .line 211
+    invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getTtsHelper()Lcom/google/glass/util/TtsHelper;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Lcom/google/glass/util/TtsHelper;->clearLastTextSynthesized()V
 
-    .line 214
+    .line 212
     return-void
 .end method
 
-.method public getBitmapFactory()Lcom/google/glass/util/CachedBitmapFactory;
+.method public getAudioManager()Landroid/media/AudioManager;
     .locals 1
 
     .prologue
-    .line 264
-    iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->bitmapFactory:Lcom/google/glass/util/CachedBitmapFactory;
+    .line 229
+    iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->audioManager:Landroid/media/AudioManager;
+
+    return-object v0
+.end method
+
+.method public getBitmapFactory()Lcom/google/glass/util/CachedBitmapFactory;
+    .locals 4
+
+    .prologue
+    .line 273
+    new-instance v0, Lcom/google/glass/util/CachedBitmapFactory;
+
+    invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/google/glass/app/GlassApplication;->screenWidthPixels:I
+
+    iget v3, p0, Lcom/google/glass/app/GlassApplication;->screenHeightPixels:I
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/google/glass/util/CachedBitmapFactory;-><init>(Landroid/content/Context;II)V
 
     return-object v0
 .end method
@@ -235,7 +255,7 @@
     .locals 1
 
     .prologue
-    .line 248
+    .line 251
     iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->connectionState:Lcom/google/glass/util/InetConnectionState;
 
     return-object v0
@@ -247,34 +267,16 @@
     .end annotation
 
     .prologue
-    .line 208
-    iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->ttsHelper:Lcom/google/glass/util/TtsHelper;
+    .line 206
+    invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getTtsHelper()Lcom/google/glass/util/TtsHelper;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Lcom/google/glass/util/TtsHelper;->getLastTextSynthesized()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
-.end method
-
-.method protected getMaxBitmapCacheSize()I
-    .locals 1
-
-    .prologue
-    .line 282
-    const/16 v0, 0x40
-
-    return v0
-.end method
-
-.method protected getMaxUrlCacheSize()I
-    .locals 1
-
-    .prologue
-    .line 291
-    const/16 v0, 0x40
-
-    return v0
 .end method
 
 .method public getProfileImageUrlCache()Landroid/util/LruCache;
@@ -291,7 +293,7 @@
     .end annotation
 
     .prologue
-    .line 259
+    .line 268
     iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->profileImageUrlCache:Landroid/util/LruCache;
 
     return-object v0
@@ -301,7 +303,7 @@
     .locals 1
 
     .prologue
-    .line 231
+    .line 234
     iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->requestDispatcher:Lcom/google/glass/net/ProtoRequestDispatcher;
 
     return-object v0
@@ -311,7 +313,7 @@
     .locals 1
 
     .prologue
-    .line 274
+    .line 284
     iget v0, p0, Lcom/google/glass/app/GlassApplication;->screenHeightPixels:I
 
     return v0
@@ -321,7 +323,7 @@
     .locals 1
 
     .prologue
-    .line 269
+    .line 279
     iget v0, p0, Lcom/google/glass/app/GlassApplication;->screenWidthPixels:I
 
     return v0
@@ -331,7 +333,7 @@
     .locals 1
 
     .prologue
-    .line 238
+    .line 241
     iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->secondaryRequestDispatcher:Lcom/google/glass/net/ProtoRequestDispatcher;
 
     return-object v0
@@ -341,8 +343,33 @@
     .locals 1
 
     .prologue
-    .line 226
+    .line 224
     iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->soundManager:Lcom/google/glass/sound/SoundManager;
+
+    return-object v0
+.end method
+
+.method public getTtsHelper()Lcom/google/glass/util/TtsHelper;
+    .locals 1
+    .annotation build Lcom/google/common/annotations/VisibleForTesting;
+    .end annotation
+
+    .prologue
+    .line 302
+    iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->ttsHelper:Lcom/google/glass/util/TtsHelper;
+
+    if-nez v0, :cond_0
+
+    .line 303
+    new-instance v0, Lcom/google/glass/util/TtsHelper;
+
+    invoke-direct {v0, p0}, Lcom/google/glass/util/TtsHelper;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/google/glass/app/GlassApplication;->ttsHelper:Lcom/google/glass/util/TtsHelper;
+
+    .line 305
+    :cond_0
+    iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->ttsHelper:Lcom/google/glass/util/TtsHelper;
 
     return-object v0
 .end method
@@ -351,41 +378,43 @@
     .locals 1
 
     .prologue
-    .line 243
+    .line 246
     iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->userEventHelper:Lcom/google/glass/logging/UserEventHelper;
 
     return-object v0
 .end method
 
-.method public onCreate()V
-    .locals 8
+.method public isSpeaking()Z
+    .locals 1
 
     .prologue
-    const/4 v7, 0x1
+    .line 191
+    invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getTtsHelper()Lcom/google/glass/util/TtsHelper;
 
-    .line 121
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/glass/util/TtsHelper;->isSpeaking()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public onCreate()V
+    .locals 6
+
+    .prologue
+    const/4 v5, 0x1
+
+    .line 111
     invoke-super {p0}, Landroid/app/Application;->onCreate()V
 
-    .line 124
+    .line 114
     sget-object v2, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
     invoke-static {v2}, Lcom/google/glass/util/HiddenApiHelper;->setDefaultExecutor(Ljava/util/concurrent/Executor;)V
 
-    .line 126
-    new-instance v2, Lcom/google/glass/util/TtsHelper;
-
-    invoke-direct {v2, p0}, Lcom/google/glass/util/TtsHelper;-><init>(Landroid/content/Context;)V
-
-    iput-object v2, p0, Lcom/google/glass/app/GlassApplication;->ttsHelper:Lcom/google/glass/util/TtsHelper;
-
-    .line 129
-    new-instance v2, Lcom/google/glass/sound/SoundManager;
-
-    invoke-direct {v2, p0}, Lcom/google/glass/sound/SoundManager;-><init>(Landroid/content/Context;)V
-
-    iput-object v2, p0, Lcom/google/glass/app/GlassApplication;->soundManager:Lcom/google/glass/sound/SoundManager;
-
-    .line 132
+    .line 117
     invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -394,60 +423,64 @@
 
     move-result-object v0
 
-    .line 133
+    .line 118
     .local v0, displayMetrics:Landroid/util/DisplayMetrics;
     iget v2, v0, Landroid/util/DisplayMetrics;->widthPixels:I
 
     iput v2, p0, Lcom/google/glass/app/GlassApplication;->screenWidthPixels:I
 
-    .line 134
+    .line 119
     iget v2, v0, Landroid/util/DisplayMetrics;->heightPixels:I
 
     iput v2, p0, Lcom/google/glass/app/GlassApplication;->screenHeightPixels:I
 
-    .line 135
-    new-instance v2, Lcom/google/glass/util/CachedBitmapFactory;
+    .line 121
+    invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getTtsHelper()Lcom/google/glass/util/TtsHelper;
 
-    invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getApplicationContext()Landroid/content/Context;
+    move-result-object v2
 
-    move-result-object v3
+    iput-object v2, p0, Lcom/google/glass/app/GlassApplication;->ttsHelper:Lcom/google/glass/util/TtsHelper;
 
-    iget v4, p0, Lcom/google/glass/app/GlassApplication;->screenWidthPixels:I
+    .line 124
+    new-instance v2, Lcom/google/glass/sound/SoundManager;
 
-    iget v5, p0, Lcom/google/glass/app/GlassApplication;->screenHeightPixels:I
+    invoke-direct {v2, p0}, Lcom/google/glass/sound/SoundManager;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getMaxBitmapCacheSize()I
+    iput-object v2, p0, Lcom/google/glass/app/GlassApplication;->soundManager:Lcom/google/glass/sound/SoundManager;
 
-    move-result v6
+    .line 126
+    const-string v2, "audio"
 
-    invoke-direct {v2, v3, v4, v5, v6}, Lcom/google/glass/util/CachedBitmapFactory;-><init>(Landroid/content/Context;III)V
+    invoke-virtual {p0, v2}, Lcom/google/glass/app/GlassApplication;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    iput-object v2, p0, Lcom/google/glass/app/GlassApplication;->bitmapFactory:Lcom/google/glass/util/CachedBitmapFactory;
+    move-result-object v2
 
-    .line 138
+    check-cast v2, Landroid/media/AudioManager;
+
+    iput-object v2, p0, Lcom/google/glass/app/GlassApplication;->audioManager:Landroid/media/AudioManager;
+
+    .line 128
     new-instance v2, Landroid/util/LruCache;
 
-    invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getMaxUrlCacheSize()I
-
-    move-result v3
+    const/16 v3, 0x40
 
     invoke-direct {v2, v3}, Landroid/util/LruCache;-><init>(I)V
 
     iput-object v2, p0, Lcom/google/glass/app/GlassApplication;->profileImageUrlCache:Landroid/util/LruCache;
 
-    .line 140
+    .line 130
     new-instance v2, Lcom/google/glass/logging/UserEventHelper;
 
     invoke-direct {v2, p0}, Lcom/google/glass/logging/UserEventHelper;-><init>(Landroid/content/Context;)V
 
     iput-object v2, p0, Lcom/google/glass/app/GlassApplication;->userEventHelper:Lcom/google/glass/logging/UserEventHelper;
 
-    .line 144
+    .line 134
     new-instance v1, Lcom/google/glass/net/AndroidHttpRequestDispatcher;
 
     invoke-direct {v1}, Lcom/google/glass/net/AndroidHttpRequestDispatcher;-><init>()V
 
-    .line 145
+    .line 135
     .local v1, httpRequestDispatcher:Lcom/google/glass/net/AndroidHttpRequestDispatcher;
     new-instance v2, Lcom/google/glass/net/ProtoRequestDispatcher;
 
@@ -459,11 +492,11 @@
 
     move-result-object v4
 
-    invoke-direct {v2, v3, v1, v7, v4}, Lcom/google/glass/net/ProtoRequestDispatcher;-><init>(Landroid/content/Context;Lcom/google/glass/net/HttpRequestDispatcher;ZLjava/util/concurrent/Executor;)V
+    invoke-direct {v2, v3, v1, v5, v4}, Lcom/google/glass/net/ProtoRequestDispatcher;-><init>(Landroid/content/Context;Lcom/google/glass/net/HttpRequestDispatcher;ZLjava/util/concurrent/Executor;)V
 
     iput-object v2, p0, Lcom/google/glass/app/GlassApplication;->requestDispatcher:Lcom/google/glass/net/ProtoRequestDispatcher;
 
-    .line 147
+    .line 137
     new-instance v2, Lcom/google/glass/app/GlassApplication$1;
 
     iget-object v3, p0, Lcom/google/glass/app/GlassApplication;->requestDispatcher:Lcom/google/glass/net/ProtoRequestDispatcher;
@@ -472,7 +505,7 @@
 
     invoke-virtual {v2}, Lcom/google/glass/app/GlassApplication$1;->start()V
 
-    .line 150
+    .line 140
     new-instance v2, Lcom/google/glass/net/ProtoRequestDispatcher;
 
     invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getApplicationContext()Landroid/content/Context;
@@ -483,11 +516,11 @@
 
     move-result-object v4
 
-    invoke-direct {v2, v3, v1, v7, v4}, Lcom/google/glass/net/ProtoRequestDispatcher;-><init>(Landroid/content/Context;Lcom/google/glass/net/HttpRequestDispatcher;ZLjava/util/concurrent/Executor;)V
+    invoke-direct {v2, v3, v1, v5, v4}, Lcom/google/glass/net/ProtoRequestDispatcher;-><init>(Landroid/content/Context;Lcom/google/glass/net/HttpRequestDispatcher;ZLjava/util/concurrent/Executor;)V
 
     iput-object v2, p0, Lcom/google/glass/app/GlassApplication;->secondaryRequestDispatcher:Lcom/google/glass/net/ProtoRequestDispatcher;
 
-    .line 152
+    .line 142
     new-instance v2, Lcom/google/glass/app/GlassApplication$2;
 
     iget-object v3, p0, Lcom/google/glass/app/GlassApplication;->secondaryRequestDispatcher:Lcom/google/glass/net/ProtoRequestDispatcher;
@@ -496,30 +529,33 @@
 
     invoke-virtual {v2}, Lcom/google/glass/app/GlassApplication$2;->start()V
 
-    .line 157
+    .line 147
     new-instance v2, Lcom/google/glass/util/InetConnectionState;
 
     invoke-direct {v2, p0}, Lcom/google/glass/util/InetConnectionState;-><init>(Landroid/content/Context;)V
 
     iput-object v2, p0, Lcom/google/glass/app/GlassApplication;->connectionState:Lcom/google/glass/util/InetConnectionState;
 
-    .line 160
+    .line 150
     invoke-static {p0}, Lcom/google/glass/location/GlassLocationManager;->init(Landroid/content/Context;)V
 
-    .line 163
+    .line 153
+    invoke-static {p0}, Lcom/google/glass/maps/MapHelper;->initialize(Landroid/content/Context;)V
+
+    .line 156
     invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->setupDcimFileWriter()V
 
-    .line 166
+    .line 159
     invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->setupCachedFilesManager()V
 
-    .line 169
+    .line 162
     new-instance v2, Lcom/google/glass/entity/EntityHelper;
 
     invoke-direct {v2}, Lcom/google/glass/entity/EntityHelper;-><init>()V
 
     invoke-static {v2}, Lcom/google/glass/entity/EntityHelper;->setSharedInstance(Lcom/google/glass/entity/EntityHelper;)V
 
-    .line 170
+    .line 163
     invoke-static {}, Lcom/google/glass/util/AsyncThreadExecutorManager;->getThreadPoolExecutor()Ljava/util/concurrent/Executor;
 
     move-result-object v2
@@ -530,14 +566,14 @@
 
     invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 179
+    .line 172
     invoke-static {}, Lcom/google/glass/entity/EntityHelper;->getSharedInstance()Lcom/google/glass/entity/EntityHelper;
 
     move-result-object v2
 
     invoke-virtual {v2, p0}, Lcom/google/glass/entity/EntityHelper;->registerSyncChanged(Landroid/content/Context;)V
 
-    .line 180
+    .line 173
     return-void
 .end method
 
@@ -548,13 +584,30 @@
     .end annotation
 
     .prologue
-    .line 253
+    .line 256
     invoke-static {}, Lcom/google/glass/util/Assert;->assertIsTest()V
 
-    .line 254
+    .line 257
     iput-object p1, p0, Lcom/google/glass/app/GlassApplication;->connectionState:Lcom/google/glass/util/InetConnectionState;
 
-    .line 255
+    .line 258
+    return-void
+.end method
+
+.method public setSoundManagerForTest(Lcom/google/glass/sound/SoundManager;)V
+    .locals 0
+    .parameter "soundManager"
+    .annotation build Lcom/google/common/annotations/VisibleForTesting;
+    .end annotation
+
+    .prologue
+    .line 262
+    invoke-static {}, Lcom/google/glass/util/Assert;->assertIsTest()V
+
+    .line 263
+    iput-object p1, p0, Lcom/google/glass/app/GlassApplication;->soundManager:Lcom/google/glass/sound/SoundManager;
+
+    .line 264
     return-void
 .end method
 
@@ -562,7 +615,7 @@
     .locals 5
 
     .prologue
-    .line 297
+    .line 290
     new-instance v0, Lcom/google/glass/util/CachedFilesManager;
 
     sget-object v1, Lcom/google/glass/app/GlassApplication;->CACHED_FILES_DIRECTORY:Ljava/lang/String;
@@ -575,7 +628,7 @@
 
     invoke-static {v0}, Lcom/google/glass/util/CachedFilesManager;->setSharedInstance(Lcom/google/glass/util/CachedFilesManager;)V
 
-    .line 299
+    .line 292
     return-void
 .end method
 
@@ -583,7 +636,7 @@
     .locals 2
 
     .prologue
-    .line 304
+    .line 297
     new-instance v0, Lcom/google/glass/util/FileSaver;
 
     sget-object v1, Lcom/google/glass/app/GlassApplication;->DCIM_DIRECTORY:Ljava/lang/String;
@@ -592,7 +645,7 @@
 
     invoke-static {v0}, Lcom/google/glass/util/FileSaver;->setSharedInstance(Lcom/google/glass/util/FileSaver;)V
 
-    .line 305
+    .line 298
     return-void
 .end method
 
@@ -601,12 +654,14 @@
     .parameter "textToSynthesize"
 
     .prologue
-    .line 203
-    iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->ttsHelper:Lcom/google/glass/util/TtsHelper;
+    .line 201
+    invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getTtsHelper()Lcom/google/glass/util/TtsHelper;
+
+    move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/google/glass/util/TtsHelper;->speakText(Ljava/lang/String;)V
 
-    .line 204
+    .line 202
     return-void
 .end method
 
@@ -616,12 +671,14 @@
     .parameter "listener"
 
     .prologue
-    .line 221
-    iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->ttsHelper:Lcom/google/glass/util/TtsHelper;
+    .line 219
+    invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getTtsHelper()Lcom/google/glass/util/TtsHelper;
+
+    move-result-object v0
 
     invoke-virtual {v0, p1, p2}, Lcom/google/glass/util/TtsHelper;->speakText(Ljava/lang/String;Landroid/speech/tts/UtteranceProgressListener;)V
 
-    .line 222
+    .line 220
     return-void
 .end method
 
@@ -629,11 +686,13 @@
     .locals 1
 
     .prologue
-    .line 198
-    iget-object v0, p0, Lcom/google/glass/app/GlassApplication;->ttsHelper:Lcom/google/glass/util/TtsHelper;
+    .line 196
+    invoke-virtual {p0}, Lcom/google/glass/app/GlassApplication;->getTtsHelper()Lcom/google/glass/util/TtsHelper;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Lcom/google/glass/util/TtsHelper;->stopSpeaking()V
 
-    .line 199
+    .line 197
     return-void
 .end method

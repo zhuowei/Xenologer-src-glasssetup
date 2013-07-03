@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 781
+    .line 780
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$10$1;->this$1:Lcom/google/glass/setup/SetupActivity$10;
 
     iput-wide p2, p0, Lcom/google/glass/setup/SetupActivity$10$1;->val$dialogStartTimeMs:J
@@ -46,7 +46,7 @@
     .locals 8
 
     .prologue
-    .line 786
+    .line 785
     const-wide/16 v2, 0x7d0
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -65,7 +65,7 @@
 
     move-result-wide v0
 
-    .line 789
+    .line 788
     .local v0, delayMs:J
     iget-object v2, p0, Lcom/google/glass/setup/SetupActivity$10$1;->this$1:Lcom/google/glass/setup/SetupActivity$10;
 
@@ -82,6 +82,6 @@
 
     invoke-virtual {v2, v3, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 796
+    .line 795
     return-void
 .end method

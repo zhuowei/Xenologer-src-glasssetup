@@ -79,7 +79,7 @@
 
     iput-object v0, p0, Lcom/google/glass/setup/SetupActivity;->screenOnOffReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
-    .line 174
+    .line 173
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/google/glass/setup/SetupActivity;->setupSucceeded:Z
@@ -591,7 +591,7 @@
     .locals 4
 
     .prologue
-    .line 856
+    .line 850
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v0
@@ -600,7 +600,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 857
+    .line 851
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity;->packageManager:Landroid/content/pm/PackageManager;
 
     sget-object v1, Lcom/google/glass/util/SetupHelper;->SETUP_COMPONENT_NAME:Landroid/content/ComponentName;
@@ -611,7 +611,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
 
-    .line 859
+    .line 853
     return-void
 .end method
 
@@ -619,7 +619,7 @@
     .locals 2
 
     .prologue
-    .line 760
+    .line 759
     invoke-static {}, Lcom/google/glass/util/MainThreadExecutorManager;->getMainThreadExecutor()Ljava/util/concurrent/Executor;
 
     move-result-object v0
@@ -630,7 +630,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 800
+    .line 799
     return-void
 .end method
 
@@ -644,7 +644,7 @@
     .parameter "skipAccountSetup"
 
     .prologue
-    .line 456
+    .line 455
     new-instance v0, Lcom/google/glass/util/AuthUtils;
 
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getApplicationContext()Landroid/content/Context;
@@ -657,7 +657,7 @@
 
     move-result-object v8
 
-    .line 457
+    .line 456
     .local v8, existingAccount:Landroid/accounts/Account;
     const-string v0, "account"
 
@@ -667,11 +667,11 @@
 
     check-cast v1, Landroid/accounts/AccountManager;
 
-    .line 460
+    .line 459
     .local v1, accountManager:Landroid/accounts/AccountManager;
     if-eqz v8, :cond_0
 
-    .line 461
+    .line 460
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v0
@@ -698,10 +698,10 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 462
+    .line 461
     invoke-direct {p0, p6, p4}, Lcom/google/glass/setup/SetupActivity;->onLoginSucceeded(ZLjava/lang/String;)V
 
-    .line 467
+    .line 466
     :goto_0
     return-void
 
@@ -720,7 +720,7 @@
 
     move v7, p6
 
-    .line 464
+    .line 463
     invoke-virtual/range {v0 .. v7}, Lcom/google/glass/setup/SetupActivity;->internalAddGoogleAccount(Landroid/accounts/AccountManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)Z
 
     goto :goto_0
@@ -733,19 +733,19 @@
     .parameter "btDeviceForPair"
 
     .prologue
-    .line 634
+    .line 633
     invoke-static {p0}, Lcom/google/glass/setup/SetupApplication;->from(Landroid/content/Context;)Lcom/google/glass/setup/SetupApplication;
 
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/google/glass/setup/SetupApplication;->onSetupFinish()V
 
-    .line 637
+    .line 636
     iget-boolean v1, p0, Lcom/google/glass/setup/SetupActivity;->setupSucceeded:Z
 
     if-eqz v1, :cond_0
 
-    .line 638
+    .line 637
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v1
@@ -754,34 +754,34 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 709
+    .line 708
     :goto_0
     return-void
 
-    .line 643
+    .line 642
     :cond_0
     new-instance v0, Lcom/google/glass/util/AuthUtils;
 
     invoke-direct {v0, p0}, Lcom/google/glass/util/AuthUtils;-><init>(Landroid/content/Context;)V
 
-    .line 646
+    .line 645
     .local v0, authUtils:Lcom/google/glass/util/AuthUtils;
     if-eqz p2, :cond_1
 
-    .line 647
+    .line 646
     invoke-static {p0}, Lcom/google/glass/setup/SetupApplication;->from(Landroid/content/Context;)Lcom/google/glass/setup/SetupApplication;
 
     move-result-object v1
 
     invoke-virtual {v1, p2}, Lcom/google/glass/setup/SetupApplication;->prepareProfileImage(Ljava/lang/String;)V
 
-    .line 650
+    .line 649
     :cond_1
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/google/glass/setup/SetupActivity;->setupSucceeded:Z
 
-    .line 652
+    .line 651
     new-instance v1, Lcom/google/glass/setup/SetupActivity$9;
 
     invoke-direct {v1, p0, v0, p1, p3}, Lcom/google/glass/setup/SetupActivity$9;-><init>(Lcom/google/glass/setup/SetupActivity;Lcom/google/glass/util/AuthUtils;Ljava/lang/String;Ljava/lang/String;)V
@@ -797,10 +797,10 @@
     .parameter "btDeviceForPair"
 
     .prologue
-    .line 573
+    .line 572
     if-eqz p1, :cond_0
 
-    .line 574
+    .line 573
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v0
@@ -809,24 +809,24 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 575
+    .line 574
     const-string v0, "ACCOUNT_SETUP_SKIPPED"
 
     const/4 v1, 0x0
 
     invoke-direct {p0, v0, v1, p2}, Lcom/google/glass/setup/SetupActivity;->onAccountSetupSucceeded(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 580
+    .line 579
     :goto_0
     return-void
 
-    .line 577
+    .line 576
     :cond_0
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/google/glass/setup/SetupActivity;->setupUserAccountRetryCount:I
 
-    .line 578
+    .line 577
     invoke-direct {p0, p2}, Lcom/google/glass/setup/SetupActivity;->setupUserAccount(Ljava/lang/String;)V
 
     goto :goto_0
@@ -836,7 +836,7 @@
     .locals 9
 
     .prologue
-    .line 730
+    .line 729
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v7
@@ -845,14 +845,14 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 731
+    .line 730
     const/4 v7, 0x7
 
     new-array v5, v7, [I
 
     fill-array-data v5, :array_0
 
-    .line 740
+    .line 739
     .local v5, streams:[I
     const-string v7, "audio"
 
@@ -862,7 +862,7 @@
 
     check-cast v1, Landroid/media/AudioManager;
 
-    .line 741
+    .line 740
     .local v1, audio:Landroid/media/AudioManager;
     move-object v0, v5
 
@@ -878,30 +878,30 @@
 
     aget v4, v0, v2
 
-    .line 742
+    .line 741
     .local v4, stream:I
     invoke-virtual {v1, v4}, Landroid/media/AudioManager;->getStreamMaxVolume(I)I
 
     move-result v6
 
-    .line 743
+    .line 742
     .local v6, targetVolume:I
     const/4 v7, 0x0
 
     invoke-virtual {v1, v4, v6, v7}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
-    .line 741
+    .line 740
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 745
+    .line 744
     .end local v4           #stream:I
     .end local v6           #targetVolume:I
     :cond_0
     return-void
 
-    .line 731
+    .line 730
     :array_0
     .array-data 0x4
         0x4t 0x0t 0x0t 0x0t
@@ -924,16 +924,16 @@
     .parameter "skipAccountSetup"
 
     .prologue
-    .line 411
+    .line 410
     new-instance v2, Landroid/text/format/Time;
 
     invoke-direct {v2}, Landroid/text/format/Time;-><init>()V
 
-    .line 412
+    .line 411
     .local v2, now:Landroid/text/format/Time;
     invoke-virtual {v2}, Landroid/text/format/Time;->setToNow()V
 
-    .line 413
+    .line 412
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v0
@@ -980,7 +980,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 414
+    .line 413
     const/4 v0, 0x1
 
     invoke-virtual {v2, v0}, Landroid/text/format/Time;->toMillis(Z)J
@@ -993,7 +993,7 @@
 
     if-gez v0, :cond_0
 
-    .line 415
+    .line 414
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v0
@@ -1024,7 +1024,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 416
+    .line 415
     new-instance v0, Lcom/google/glass/setup/SetupActivity$6;
 
     move-object v1, p0
@@ -1045,7 +1045,7 @@
 
     iput-object v0, p0, Lcom/google/glass/setup/SetupActivity;->ntpTimeReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
-    .line 438
+    .line 437
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity;->ntpTimeReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
     const/4 v1, 0x1
@@ -1060,14 +1060,14 @@
 
     invoke-virtual {v0, p0, v1}, Lcom/google/glass/util/SafeBroadcastReceiver;->register(Landroid/content/Context;[Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 441
+    .line 440
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity;->handler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/google/glass/setup/SetupActivity;->ntpTimeoutRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 442
+    .line 441
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity;->handler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/google/glass/setup/SetupActivity;->ntpTimeoutRunnable:Ljava/lang/Runnable;
@@ -1076,11 +1076,11 @@
 
     invoke-virtual {v0, v1, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 449
+    .line 448
     :goto_0
     return-void
 
-    .line 446
+    .line 445
     :cond_0
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
@@ -1118,7 +1118,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 447
+    .line 446
     invoke-direct/range {p0 .. p6}, Lcom/google/glass/setup/SetupActivity;->login(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V
 
     goto :goto_0
@@ -1133,7 +1133,7 @@
 
     const/4 v3, 0x0
 
-    .line 349
+    .line 348
     new-instance v1, Lcom/google/glass/widget/MessageDialog$Builder;
 
     invoke-direct {v1, p0}, Lcom/google/glass/widget/MessageDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -1180,7 +1180,7 @@
 
     invoke-virtual {p0, v1}, Lcom/google/glass/setup/SetupActivity;->showMessage(Lcom/google/glass/widget/MessageDialog;)V
 
-    .line 365
+    .line 364
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getContentView()Landroid/view/View;
 
     move-result-object v1
@@ -1189,12 +1189,12 @@
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 367
+    .line 366
     new-instance v0, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;
 
     invoke-direct {v0, p0, p1}, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;-><init>(Lcom/google/glass/setup/SetupActivity;Landroid/os/Bundle;)V
 
-    .line 369
+    .line 368
     .local v0, loginFields:Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;
     iget-object v1, p0, Lcom/google/glass/setup/SetupActivity;->wifiHelper:Lcom/google/glass/util/WifiHelper;
 
@@ -1210,7 +1210,7 @@
 
     invoke-virtual {v1, v2, v3, v4, v5}, Lcom/google/glass/util/WifiHelper;->connect(Ljava/lang/String;Lcom/google/glass/util/WifiHelper$Encryption;Ljava/lang/String;Lcom/google/glass/util/WifiHelper$WifiConnectionCallback;)V
 
-    .line 390
+    .line 389
     return-void
 .end method
 
@@ -1219,7 +1219,7 @@
     .parameter "btDeviceForPair"
 
     .prologue
-    .line 584
+    .line 583
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v0
@@ -1228,7 +1228,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 586
+    .line 585
     new-instance v0, Lcom/google/glass/setup/SetupActivity$8;
 
     invoke-direct {v0, p0, p1}, Lcom/google/glass/setup/SetupActivity$8;-><init>(Lcom/google/glass/setup/SetupActivity;Ljava/lang/String;)V
@@ -1239,7 +1239,7 @@
 
     invoke-virtual {v0, v1}, Lcom/google/glass/setup/SetupActivity$8;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 628
+    .line 627
     return-void
 .end method
 
@@ -1248,14 +1248,14 @@
     .parameter "error"
 
     .prologue
-    .line 749
+    .line 748
     invoke-static {p0}, Lcom/google/glass/setup/SetupApplication;->from(Landroid/content/Context;)Lcom/google/glass/setup/SetupApplication;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/google/glass/setup/SetupApplication;->onUserActionEnd()V
 
-    .line 750
+    .line 749
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v0
@@ -1280,10 +1280,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 751
+    .line 750
     invoke-virtual {p0, p1}, Lcom/google/glass/setup/SetupActivity;->showMessage(Ljava/lang/String;)V
 
-    .line 752
+    .line 751
     return-void
 .end method
 
@@ -1292,7 +1292,7 @@
     .parameter "errorTipsId"
 
     .prologue
-    .line 804
+    .line 803
     invoke-static {}, Lcom/google/glass/util/MainThreadExecutorManager;->getMainThreadExecutor()Ljava/util/concurrent/Executor;
 
     move-result-object v0
@@ -1303,7 +1303,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 835
+    .line 834
     return-void
 .end method
 
@@ -1312,7 +1312,7 @@
     .parameter "name"
 
     .prologue
-    .line 712
+    .line 711
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -1331,18 +1331,18 @@
 
     move-result-object p1
 
-    .line 714
+    .line 713
     invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
 
     move-result-object v0
 
-    .line 715
+    .line 714
     .local v0, btAdapter:Landroid/bluetooth/BluetoothAdapter;
     invoke-virtual {v0, p1}, Landroid/bluetooth/BluetoothAdapter;->setName(Ljava/lang/String;)Z
 
     move-result v1
 
-    .line 716
+    .line 715
     .local v1, success:Z
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
@@ -1378,7 +1378,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 717
+    .line 716
     return-void
 .end method
 
@@ -1397,12 +1397,12 @@
     .end annotation
 
     .prologue
-    .line 475
+    .line 474
     new-instance v5, Landroid/os/Bundle;
 
     invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
 
-    .line 476
+    .line 475
     .local v5, options:Landroid/os/Bundle;
     const-string v1, "username"
 
@@ -1410,21 +1410,21 @@
 
     invoke-virtual {v5, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 477
+    .line 476
     invoke-static/range {p3 .. p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 478
+    .line 477
     const-string v1, "password"
 
     move-object/from16 v0, p3
 
     invoke-virtual {v5, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 488
+    .line 487
     :goto_0
     const-string v2, "com.google"
 
@@ -1444,7 +1444,7 @@
 
     move-result-object v8
 
-    .line 492
+    .line 491
     .local v8, addAccountFuture:Landroid/accounts/AccountManagerFuture;,"Landroid/accounts/AccountManagerFuture<Landroid/os/Bundle;>;"
     new-instance v6, Lcom/google/glass/setup/SetupActivity$7;
 
@@ -1468,11 +1468,11 @@
 
     move-result-object v14
 
-    .line 549
+    .line 548
     .local v14, newAccountTask:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<Ljava/lang/Void;Ljava/lang/Void;Ljava/lang/Boolean;>;"
     if-eqz p6, :cond_3
 
-    .line 550
+    .line 549
     invoke-virtual/range {p0 .. p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v1
@@ -1481,7 +1481,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 552
+    .line 551
     :try_start_0
     invoke-virtual {v14}, Landroid/os/AsyncTask;->get()Ljava/lang/Object;
 
@@ -1493,11 +1493,11 @@
 
     move-result v15
 
-    .line 553
+    .line 552
     .local v15, result:Z
     if-eqz v15, :cond_2
 
-    .line 554
+    .line 553
     invoke-virtual/range {p0 .. p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v1
@@ -1509,14 +1509,14 @@
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 565
+    .line 564
     .end local v8           #addAccountFuture:Landroid/accounts/AccountManagerFuture;,"Landroid/accounts/AccountManagerFuture<Landroid/os/Bundle;>;"
     .end local v14           #newAccountTask:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<Ljava/lang/Void;Ljava/lang/Void;Ljava/lang/Boolean;>;"
     .end local v15           #result:Z
     :goto_1
     return v15
 
-    .line 479
+    .line 478
     :cond_0
     invoke-static/range {p4 .. p4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1524,7 +1524,7 @@
 
     if-nez v1, :cond_1
 
-    .line 480
+    .line 479
     const-string v1, "password"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1551,7 +1551,7 @@
 
     goto :goto_0
 
-    .line 482
+    .line 481
     :cond_1
     invoke-virtual/range {p0 .. p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
@@ -1561,19 +1561,19 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 483
+    .line 482
     sget v1, Lcom/google/glass/setup/R$string;->sign_in_failed_tips:I
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v1}, Lcom/google/glass/setup/SetupActivity;->showErrorDialog(I)V
 
-    .line 484
+    .line 483
     const/4 v15, 0x0
 
     goto :goto_1
 
-    .line 556
+    .line 555
     .restart local v8       #addAccountFuture:Landroid/accounts/AccountManagerFuture;,"Landroid/accounts/AccountManagerFuture<Landroid/os/Bundle;>;"
     .restart local v14       #newAccountTask:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<Ljava/lang/Void;Ljava/lang/Void;Ljava/lang/Boolean;>;"
     .restart local v15       #result:Z
@@ -1592,29 +1592,29 @@
 
     goto :goto_1
 
-    .line 559
+    .line 558
     .end local v15           #result:Z
     :catch_0
     move-exception v13
 
-    .line 560
+    .line 559
     .local v13, e:Ljava/lang/InterruptedException;
     const/4 v15, 0x0
 
     goto :goto_1
 
-    .line 561
+    .line 560
     .end local v13           #e:Ljava/lang/InterruptedException;
     :catch_1
     move-exception v13
 
-    .line 562
+    .line 561
     .local v13, e:Ljava/util/concurrent/ExecutionException;
     const/4 v15, 0x0
 
     goto :goto_1
 
-    .line 565
+    .line 564
     .end local v13           #e:Ljava/util/concurrent/ExecutionException;
     :cond_3
     const/4 v15, 0x1
@@ -1630,7 +1630,7 @@
 
     const/4 v2, 0x0
 
-    .line 254
+    .line 253
     new-instance v3, Lcom/google/glass/util/AuthUtils;
 
     invoke-direct {v3, p0}, Lcom/google/glass/util/AuthUtils;-><init>(Landroid/content/Context;)V
@@ -1641,11 +1641,11 @@
 
     if-nez v3, :cond_0
 
-    .line 262
+    .line 261
     :goto_0
     return v2
 
-    .line 258
+    .line 257
     :cond_0
     :try_start_0
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getContentResolver()Landroid/content/ContentResolver;
@@ -1672,11 +1672,11 @@
 
     goto :goto_1
 
-    .line 260
+    .line 259
     :catch_0
     move-exception v0
 
-    .line 261
+    .line 260
     .local v0, e:Landroid/provider/Settings$SettingNotFoundException;
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
@@ -1696,14 +1696,14 @@
     .parameter "data"
 
     .prologue
-    .line 331
+    .line 330
     packed-switch p2, :pswitch_data_0
 
-    .line 343
+    .line 342
     :goto_0
     return-void
 
-    .line 333
+    .line 332
     :pswitch_0
     invoke-virtual {p3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -1713,11 +1713,11 @@
 
     goto :goto_0
 
-    .line 336
+    .line 335
     :pswitch_1
     if-eqz p3, :cond_0
 
-    .line 337
+    .line 336
     const-string v0, "return_error"
 
     invoke-virtual {p3, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -1728,7 +1728,7 @@
 
     goto :goto_0
 
-    .line 339
+    .line 338
     :cond_0
     invoke-static {p0}, Lcom/google/glass/setup/SetupApplication;->from(Landroid/content/Context;)Lcom/google/glass/setup/SetupApplication;
 
@@ -1738,7 +1738,7 @@
 
     goto :goto_0
 
-    .line 331
+    .line 330
     :pswitch_data_0
     .packed-switch -0x1
         :pswitch_0
@@ -1750,14 +1750,14 @@
     .locals 3
 
     .prologue
-    .line 283
+    .line 282
     invoke-static {p0}, Lcom/google/glass/setup/SetupApplication;->from(Landroid/content/Context;)Lcom/google/glass/setup/SetupApplication;
 
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/google/glass/setup/SetupApplication;->onUserActionStart()V
 
-    .line 286
+    .line 285
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getSoundManager()Lcom/google/glass/sound/SoundManager;
 
     move-result-object v1
@@ -1766,20 +1766,20 @@
 
     invoke-virtual {v1, v2}, Lcom/google/glass/sound/SoundManager;->playSound(Lcom/google/glass/sound/SoundManager$SoundId;)I
 
-    .line 287
+    .line 286
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/google/glass/setup/BarcodeScanActivity;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 288
+    .line 287
     .local v0, barcodeScanIntent:Landroid/content/Intent;
     const/4 v1, 0x0
 
     invoke-virtual {p0, v0, v1}, Lcom/google/glass/setup/SetupActivity;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 289
+    .line 288
     const/4 v1, 0x1
 
     return v1
@@ -1790,41 +1790,41 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 178
+    .line 177
     invoke-super {p0, p1}, Lcom/google/glass/app/GlassActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 180
+    .line 179
     new-instance v1, Lcom/google/glass/util/PowerHelper;
 
     invoke-direct {v1, p0}, Lcom/google/glass/util/PowerHelper;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/google/glass/setup/SetupActivity;->powerHelper:Lcom/google/glass/util/PowerHelper;
 
-    .line 181
+    .line 180
     new-instance v1, Lcom/google/glass/util/WifiHelper;
 
     invoke-direct {v1, p0}, Lcom/google/glass/util/WifiHelper;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/google/glass/setup/SetupActivity;->wifiHelper:Lcom/google/glass/util/WifiHelper;
 
-    .line 183
+    .line 182
     new-instance v1, Landroid/os/Handler;
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
     iput-object v1, p0, Lcom/google/glass/setup/SetupActivity;->handler:Landroid/os/Handler;
 
-    .line 186
+    .line 185
     invoke-direct {p0}, Lcom/google/glass/setup/SetupActivity;->setVolumeToMax()V
 
-    .line 188
+    .line 187
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/google/glass/setup/SetupActivity;->packageManager:Landroid/content/pm/PackageManager;
 
-    .line 190
+    .line 189
     invoke-static {p0}, Lcom/google/glass/app/GlassApplication;->from(Landroid/content/Context;)Lcom/google/glass/app/GlassApplication;
 
     move-result-object v1
@@ -1835,50 +1835,50 @@
 
     iput-object v1, p0, Lcom/google/glass/setup/SetupActivity;->requestDispatcher:Lcom/google/glass/net/ProtoRequestDispatcher;
 
-    .line 192
+    .line 191
     invoke-static {p0}, Lcom/google/glass/util/SetupHelper;->wasSetupFinished(Landroid/content/Context;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 193
+    .line 192
     invoke-static {p0}, Lcom/google/glass/setup/SetupApplication;->from(Landroid/content/Context;)Lcom/google/glass/setup/SetupApplication;
 
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/google/glass/setup/SetupApplication;->onSetupStart()V
 
-    .line 196
+    .line 195
     invoke-static {p0}, Lcom/google/glass/setup/SetupApplication;->from(Landroid/content/Context;)Lcom/google/glass/setup/SetupApplication;
 
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/google/glass/setup/SetupApplication;->onUserActionEnd()V
 
-    .line 199
+    .line 198
     :cond_0
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 200
+    .line 199
     .local v0, screenOnOffIntentFilter:Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 201
+    .line 200
     const-string v1, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 202
+    .line 201
     iget-object v1, p0, Lcom/google/glass/setup/SetupActivity;->screenOnOffReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
     invoke-virtual {v1, p0, v0}, Lcom/google/glass/util/SafeBroadcastReceiver;->register(Landroid/content/Context;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 203
+    .line 202
     return-void
 .end method
 
@@ -1886,41 +1886,41 @@
     .locals 1
 
     .prologue
-    .line 268
+    .line 267
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity;->ntpTimeReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
     if-eqz v0, :cond_0
 
-    .line 269
+    .line 268
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity;->ntpTimeReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
     invoke-virtual {v0, p0}, Lcom/google/glass/util/SafeBroadcastReceiver;->unregister(Landroid/content/Context;)V
 
-    .line 270
+    .line 269
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/google/glass/setup/SetupActivity;->ntpTimeReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
-    .line 273
+    .line 272
     :cond_0
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity;->screenOnOffReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
     invoke-virtual {v0, p0}, Lcom/google/glass/util/SafeBroadcastReceiver;->unregister(Landroid/content/Context;)V
 
-    .line 275
+    .line 274
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity;->wifiHelper:Lcom/google/glass/util/WifiHelper;
 
     invoke-virtual {v0}, Lcom/google/glass/util/WifiHelper;->release()V
 
-    .line 276
+    .line 275
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity;->requestDispatcher:Lcom/google/glass/net/ProtoRequestDispatcher;
 
     invoke-virtual {v0}, Lcom/google/glass/net/ProtoRequestDispatcher;->exit()V
 
-    .line 278
+    .line 277
     invoke-super {p0}, Lcom/google/glass/app/GlassActivity;->onDestroy()V
 
-    .line 279
+    .line 278
     return-void
 .end method
 
@@ -1929,12 +1929,12 @@
     .parameter "dismissAction"
 
     .prologue
-    .line 294
+    .line 293
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity;->powerHelper:Lcom/google/glass/util/PowerHelper;
 
     invoke-virtual {v0}, Lcom/google/glass/util/PowerHelper;->goToSleep()V
 
-    .line 295
+    .line 294
     const/4 v0, 0x0
 
     return v0
@@ -1945,10 +1945,10 @@
     .parameter "data"
 
     .prologue
-    .line 300
+    .line 299
     invoke-super {p0, p1}, Lcom/google/glass/app/GlassActivity;->onNewIntent(Landroid/content/Intent;)V
 
-    .line 301
+    .line 300
     const-string v1, "com.google.glass.setup.CONFIGURE_ACCOUNT"
 
     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -1961,7 +1961,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 302
+    .line 301
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v1
@@ -1970,7 +1970,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 304
+    .line 303
     new-instance v0, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;
 
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
@@ -1979,7 +1979,7 @@
 
     invoke-direct {v0, p0, v1}, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;-><init>(Lcom/google/glass/setup/SetupActivity;Landroid/os/Bundle;)V
 
-    .line 306
+    .line 305
     .local v0, loginFields:Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
@@ -1989,7 +1989,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 307
+    .line 306
     iget-object v1, p0, Lcom/google/glass/setup/SetupActivity;->wifiHelper:Lcom/google/glass/util/WifiHelper;
 
     iget-object v2, v0, Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;->ssid:Ljava/lang/String;
@@ -2004,7 +2004,7 @@
 
     invoke-virtual {v1, v2, v3, v4, v5}, Lcom/google/glass/util/WifiHelper;->connect(Ljava/lang/String;Lcom/google/glass/util/WifiHelper$Encryption;Ljava/lang/String;Lcom/google/glass/util/WifiHelper$WifiConnectionCallback;)V
 
-    .line 327
+    .line 326
     .end local v0           #loginFields:Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;
     :cond_0
     return-void
@@ -2016,10 +2016,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 212
+    .line 211
     invoke-super {p0}, Lcom/google/glass/app/GlassActivity;->onResume()V
 
-    .line 216
+    .line 215
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->isMessageShowing()Z
 
     move-result v3
@@ -2032,7 +2032,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 218
+    .line 217
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v2
@@ -2041,15 +2041,15 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 219
+    .line 218
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->finish()V
 
-    .line 247
+    .line 246
     :cond_0
     :goto_0
     return-void
 
-    .line 222
+    .line 221
     :cond_1
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->isDeviceSetup()Z
 
@@ -2057,7 +2057,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 227
+    .line 226
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v2
@@ -2066,15 +2066,15 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 228
+    .line 227
     invoke-direct {p0}, Lcom/google/glass/setup/SetupActivity;->disableSetup()V
 
-    .line 229
+    .line 228
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->finish()V
 
     goto :goto_0
 
-    .line 234
+    .line 233
     :cond_2
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->isMessageShowing()Z
 
@@ -2082,20 +2082,20 @@
 
     if-nez v3, :cond_3
 
-    .line 235
+    .line 234
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getContentView()Landroid/view/View;
 
     move-result-object v3
 
     invoke-virtual {v3, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 239
+    .line 238
     :cond_3
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 240
+    .line 239
     .local v0, intent:Landroid/content/Intent;
     if-eqz v0, :cond_4
 
@@ -2109,12 +2109,12 @@
 
     const/4 v1, 0x1
 
-    .line 242
+    .line 241
     .local v1, unblockScreen:Z
     :goto_1
     if-eqz v1, :cond_0
 
-    .line 243
+    .line 242
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
 
     move-result-object v3
@@ -2123,10 +2123,10 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 244
+    .line 243
     invoke-static {p0, v2}, Lcom/google/glass/hidden/HiddenPowerManager;->preventScreenOn(Landroid/content/Context;Z)V
 
-    .line 245
+    .line 244
     const-string v2, "screen_turned_on"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->removeExtra(Ljava/lang/String;)V
@@ -2137,7 +2137,7 @@
     :cond_4
     move v1, v2
 
-    .line 240
+    .line 239
     goto :goto_1
 .end method
 
@@ -2145,7 +2145,7 @@
     .locals 1
 
     .prologue
-    .line 207
+    .line 206
     sget v0, Lcom/google/glass/setup/R$layout;->setup_activity:I
 
     return v0
@@ -2155,7 +2155,7 @@
     .locals 1
 
     .prologue
-    .line 839
+    .line 838
     const/4 v0, 0x0
 
     return v0
@@ -2165,28 +2165,8 @@
     .locals 1
 
     .prologue
-    .line 849
+    .line 843
     const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method protected shouldAllowLongPress()Z
-    .locals 1
-
-    .prologue
-    .line 874
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method protected shouldAllowVoiceInput()Z
-    .locals 1
-
-    .prologue
-    .line 844
-    const/4 v0, 0x0
 
     return v0
 .end method
@@ -2195,7 +2175,7 @@
     .locals 1
 
     .prologue
-    .line 867
+    .line 861
     const/4 v0, 0x0
 
     return v0
@@ -2205,7 +2185,7 @@
     .locals 1
 
     .prologue
-    .line 725
+    .line 724
     const/4 v0, 0x0
 
     return v0

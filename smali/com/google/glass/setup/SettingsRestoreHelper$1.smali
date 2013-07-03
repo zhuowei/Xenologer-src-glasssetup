@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 62
+    .line 61
     iput-object p1, p0, Lcom/google/glass/setup/SettingsRestoreHelper$1;->val$restoreSession:Ljava/lang/Object;
 
     iput-object p2, p0, Lcom/google/glass/setup/SettingsRestoreHelper$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
@@ -54,12 +54,12 @@
     .end annotation
 
     .prologue
-    .line 65
+    .line 64
     invoke-virtual {p2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 66
+    .line 65
     .local v0, methodName:Ljava/lang/String;
     invoke-static {}, Lcom/google/glass/setup/SettingsRestoreHelper;->access$000()Ljava/lang/String;
 
@@ -83,9 +83,13 @@
 
     move-result-object v8
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v9, 0x0
 
-    .line 67
+    new-array v9, v9, [Ljava/lang/Object;
+
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    .line 66
     const-string v7, "onNewestRestoreSetAvailable"
 
     invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -94,7 +98,7 @@
 
     if-eqz v7, :cond_4
 
-    .line 68
+    .line 67
     if-eqz p3, :cond_0
 
     array-length v7, p3
@@ -103,7 +107,7 @@
 
     if-eq v7, v8, :cond_1
 
-    .line 69
+    .line 68
     :cond_0
     new-instance v7, Ljava/lang/IllegalArgumentException;
 
@@ -113,34 +117,38 @@
 
     throw v7
 
-    .line 73
+    .line 72
     :cond_1
     const/4 v7, 0x0
 
     aget-object v3, p3, v7
 
-    .line 74
+    .line 73
     .local v3, restoreSet:Ljava/lang/Object;
     if-nez v3, :cond_2
 
-    .line 75
+    .line 74
     invoke-static {}, Lcom/google/glass/setup/SettingsRestoreHelper;->access$000()Ljava/lang/String;
 
     move-result-object v7
 
     const-string v8, "No restore set available."
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v9, 0x0
 
-    .line 76
+    new-array v9, v9, [Ljava/lang/Object;
+
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->e(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    .line 75
     const/4 v7, 0x0
 
-    .line 101
+    .line 100
     .end local v3           #restoreSet:Ljava/lang/Object;
     :goto_0
     return-object v7
 
-    .line 78
+    .line 77
     .restart local v3       #restoreSet:Ljava/lang/Object;
     :cond_2
     invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -157,7 +165,7 @@
 
     move-result-wide v5
 
-    .line 79
+    .line 78
     .local v5, token:J
     invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -177,7 +185,7 @@
 
     move-result-object v1
 
-    .line 80
+    .line 79
     .local v1, name:Ljava/lang/String;
     invoke-static {}, Lcom/google/glass/setup/SettingsRestoreHelper;->access$000()Ljava/lang/String;
 
@@ -215,9 +223,13 @@
 
     move-result-object v8
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v9, 0x0
 
-    .line 84
+    new-array v9, v9, [Ljava/lang/Object;
+
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    .line 83
     const/4 v7, 0x1
 
     new-array v2, v7, [Ljava/lang/String;
@@ -228,7 +240,7 @@
 
     aput-object v8, v2, v7
 
-    .line 85
+    .line 84
     .local v2, packages:[Ljava/lang/String;
     iget-object v7, p0, Lcom/google/glass/setup/SettingsRestoreHelper$1;->val$restoreSession:Ljava/lang/Object;
 
@@ -236,7 +248,7 @@
 
     move-result v4
 
-    .line 86
+    .line 85
     .local v4, result:I
     invoke-static {}, Lcom/google/glass/setup/SettingsRestoreHelper;->access$000()Ljava/lang/String;
 
@@ -260,9 +272,13 @@
 
     move-result-object v8
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v9, 0x0
 
-    .line 101
+    new-array v9, v9, [Ljava/lang/Object;
+
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    .line 100
     .end local v1           #name:Ljava/lang/String;
     .end local v2           #packages:[Ljava/lang/String;
     .end local v3           #restoreSet:Ljava/lang/Object;
@@ -274,7 +290,7 @@
 
     goto :goto_0
 
-    .line 87
+    .line 86
     :cond_4
     const-string v7, "restoreStarting"
 
@@ -284,18 +300,22 @@
 
     if-eqz v7, :cond_5
 
-    .line 88
+    .line 87
     invoke-static {}, Lcom/google/glass/setup/SettingsRestoreHelper;->access$000()Ljava/lang/String;
 
     move-result-object v7
 
     const-string v8, "Restore has successfully started..."
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v9, 0x0
+
+    new-array v9, v9, [Ljava/lang/Object;
+
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_1
 
-    .line 89
+    .line 88
     :cond_5
     const-string v7, "restoreFinished"
 
@@ -305,37 +325,45 @@
 
     if-eqz v7, :cond_6
 
-    .line 90
+    .line 89
     invoke-static {}, Lcom/google/glass/setup/SettingsRestoreHelper;->access$000()Ljava/lang/String;
 
     move-result-object v7
 
     const-string v8, "Restore has completed."
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v9, 0x0
 
-    .line 93
+    new-array v9, v9, [Ljava/lang/Object;
+
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    .line 92
     iget-object v7, p0, Lcom/google/glass/setup/SettingsRestoreHelper$1;->val$restoreSession:Ljava/lang/Object;
 
     invoke-static {v7}, Lcom/google/glass/util/HiddenApiHelper;->endRestoreSession(Ljava/lang/Object;)V
 
-    .line 94
+    .line 93
     invoke-static {}, Lcom/google/glass/setup/SettingsRestoreHelper;->access$000()Ljava/lang/String;
 
     move-result-object v7
 
     const-string v8, "Restore session ended, re-enabling wifi."
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v9, 0x0
 
-    .line 97
+    new-array v9, v9, [Ljava/lang/Object;
+
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    .line 96
     iget-object v7, p0, Lcom/google/glass/setup/SettingsRestoreHelper$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-static {v7}, Lcom/google/glass/util/HiddenApiHelper;->reloadSupplicantConfiguration(Landroid/net/wifi/WifiManager;)Z
 
     goto :goto_1
 
-    .line 98
+    .line 97
     :cond_6
     invoke-virtual {p2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
@@ -349,7 +377,7 @@
 
     if-eqz v7, :cond_3
 
-    .line 99
+    .line 98
     const-string v7, "[ProxiedGlassRestoreSetListener]"
 
     goto/16 :goto_0

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 675
+    .line 674
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$9$1;->this$1:Lcom/google/glass/setup/SetupActivity$9;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 678
+    .line 677
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$9$1;->this$1:Lcom/google/glass/setup/SetupActivity$9;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$9;->this$0:Lcom/google/glass/setup/SetupActivity;
@@ -118,7 +118,7 @@
 
     invoke-virtual {v0, v1}, Lcom/google/glass/setup/SetupActivity;->showMessage(Lcom/google/glass/widget/MessageDialog;)V
 
-    .line 704
+    .line 703
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$9$1;->this$1:Lcom/google/glass/setup/SetupActivity$9;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$9;->this$0:Lcom/google/glass/setup/SetupActivity;
@@ -131,6 +131,6 @@
 
     invoke-virtual {v0, v1}, Lcom/google/glass/setup/SetupActivity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 705
+    .line 704
     return-void
 .end method

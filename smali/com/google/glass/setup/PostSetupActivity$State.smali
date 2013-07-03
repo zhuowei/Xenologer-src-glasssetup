@@ -44,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 50
+    .line 51
     new-instance v0, Lcom/google/glass/setup/PostSetupActivity$State;
 
     const-string v1, "TAP_TO_PAIR"
@@ -53,7 +53,7 @@
 
     sput-object v0, Lcom/google/glass/setup/PostSetupActivity$State;->TAP_TO_PAIR:Lcom/google/glass/setup/PostSetupActivity$State;
 
-    .line 52
+    .line 53
     new-instance v0, Lcom/google/glass/setup/PostSetupActivity$State;
 
     const-string v1, "PAIRING"
@@ -62,7 +62,7 @@
 
     sput-object v0, Lcom/google/glass/setup/PostSetupActivity$State;->PAIRING:Lcom/google/glass/setup/PostSetupActivity$State;
 
-    .line 54
+    .line 55
     new-instance v0, Lcom/google/glass/setup/PostSetupActivity$State;
 
     const-string v1, "WELCOME"
@@ -71,7 +71,7 @@
 
     sput-object v0, Lcom/google/glass/setup/PostSetupActivity$State;->WELCOME:Lcom/google/glass/setup/PostSetupActivity$State;
 
-    .line 48
+    .line 49
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/google/glass/setup/PostSetupActivity$State;
@@ -104,7 +104,7 @@
     .end annotation
 
     .prologue
-    .line 48
+    .line 49
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -115,7 +115,7 @@
     .parameter "name"
 
     .prologue
-    .line 48
+    .line 49
     const-class v0, Lcom/google/glass/setup/PostSetupActivity$State;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -131,7 +131,7 @@
     .locals 1
 
     .prologue
-    .line 48
+    .line 49
     sget-object v0, Lcom/google/glass/setup/PostSetupActivity$State;->$VALUES:[Lcom/google/glass/setup/PostSetupActivity$State;
 
     invoke-virtual {v0}, [Lcom/google/glass/setup/PostSetupActivity$State;->clone()Ljava/lang/Object;

@@ -39,6 +39,8 @@
 
 .field public static final ACTIVATED_GLOBAL_LOOK_UP:Ljava/lang/String; = "7"
 
+.field public static final ACTIVATED_GUARD_PHRASE:Ljava/lang/String; = "12"
+
 .field public static final ACTIVATED_LONG_PRESS:Ljava/lang/String; = "1"
 
 .field public static final ACTIVATED_POWER_CONNECTED:Ljava/lang/String; = "6"
@@ -87,11 +89,15 @@
 
 .field public static final BATTERY_STATE_KEY_CHARGING:Ljava/lang/String; = "cg"
 
+.field public static final BATTERY_STATE_KEY_GAS_GAUGE_DATA:Ljava/lang/String; = "gg"
+
 .field public static final BATTERY_STATE_KEY_PERCENT:Ljava/lang/String; = "p"
 
 .field public static final BATTERY_STATE_KEY_POWERED:Ljava/lang/String; = "ip"
 
 .field public static final BATTERY_STATE_KEY_TIME_TO_EMPTY:Ljava/lang/String; = "t"
+
+.field public static final BATTERY_STATE_VALUE_ACTION_BOOT:Ljava/lang/String; = "boot"
 
 .field public static final BATTERY_STATE_VALUE_ACTION_LOW:Ljava/lang/String; = "low"
 
@@ -113,7 +119,19 @@
 
 .field public static final enum BROWSER_PAGE_REQUESTED_IMPLICIT:Lcom/google/glass/logging/UserEventAction; = null
 
+.field public static final enum BROWSER_PRELOAD_ERROR:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum BROWSER_PRELOAD_REQUESTED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum BROWSER_PRELOAD_SUCCESS:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum BROWSER_PRELOAD_WASTED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum BROWSER_SESSION_METRICS:Lcom/google/glass/logging/UserEventAction; = null
+
 .field public static final enum BROWSER_TWO_FINGER_ZOOM:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final BUGREPORT_AUDIO_CONTENTION:Ljava/lang/String; = "14"
 
 .field public static final BUGREPORT_BT_DHCP:Ljava/lang/String; = "11"
 
@@ -136,6 +154,12 @@
 .field public static final CAMERA_TIMINGS_CAPTURED:Ljava/lang/String; = "c"
 
 .field public static final CAMERA_TIMINGS_GCAM:Ljava/lang/String; = "g"
+
+.field public static final CAMERA_TIMINGS_GCAM_TYPE_GCAM:Ljava/lang/String; = "1"
+
+.field public static final CAMERA_TIMINGS_GCAM_TYPE_HQ:Ljava/lang/String; = "0"
+
+.field public static final CAMERA_TIMINGS_GCAM_TYPE_HQ_FALLBACK:Ljava/lang/String; = "2"
 
 .field public static final CAMERA_TIMINGS_REQUEST_JPEG:Ljava/lang/String; = "j"
 
@@ -166,6 +190,28 @@
 .field public static final enum CONNECTIVITY_STATE_SCREEN_ON:Lcom/google/glass/logging/UserEventAction; = null
 
 .field public static final enum CONNECTIVITY_STATE_TIME:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum DEFERRED_CONTENT_LOAD:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final DEFERRED_CONTENT_LOAD_TAG:Ljava/lang/String; = "t"
+
+.field public static final DEFERRED_CONTENT_LOAD_TAG_ENTITY_IMAGE:Ljava/lang/String; = "ei"
+
+.field public static final DEFERRED_CONTENT_LOAD_TAG_GLASSWARE_ICON:Ljava/lang/String; = "gi"
+
+.field public static final DEFERRED_CONTENT_LOAD_TAG_GLASSWARE_MESSAGES:Ljava/lang/String; = "gm"
+
+.field public static final DEFERRED_CONTENT_LOAD_TAG_IMAGE_ATTACHMENT:Ljava/lang/String; = "ia"
+
+.field public static final DEFERRED_CONTENT_LOAD_TAG_IMAGE_PROXY:Ljava/lang/String; = "ip"
+
+.field public static final DEFERRED_CONTENT_LOAD_TAG_IMAGE_PROXY_BITMAP:Ljava/lang/String; = "ipb"
+
+.field public static final DEFERRED_CONTENT_LOAD_TAG_SEARCH_HTML:Ljava/lang/String; = "sh"
+
+.field public static final DEFERRED_CONTENT_LOAD_TAG_SEARCH_PROTO:Ljava/lang/String; = "sp"
+
+.field public static final DEFERRED_CONTENT_LOAD_TAG_VIDEO:Ljava/lang/String; = "v"
 
 .field public static final enum DELETE_COMPLETED:Lcom/google/glass/logging/UserEventAction; = null
 
@@ -225,6 +271,12 @@
 
 .field public static final FAILED_TO_UPLOAD_ALL_ATTACHMENTS:Ljava/lang/String; = "1"
 
+.field public static final enum FILTERED_TIMELINE_DISMISS:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final FILTERED_TIMELINE_DISMISS_POSITION_KEY:Ljava/lang/String; = "p"
+
+.field public static final enum FORCE_EVENT_LOG_FLUSH:Lcom/google/glass/logging/UserEventAction; = null
+
 .field public static final enum GUEST_MODE_TURNED_OFF:Lcom/google/glass/logging/UserEventAction; = null
 
 .field public static final enum GUEST_MODE_TURNED_ON:Lcom/google/glass/logging/UserEventAction; = null
@@ -264,6 +316,8 @@
 .field public static final HANGOUTS_ENDED_LOG_OUTGOING_FRAMERATE_KEY:Ljava/lang/String; = "f"
 
 .field public static final HANGOUTS_ENDED_LOG_PACKETS_LOST_KEY:Ljava/lang/String; = "l"
+
+.field public static final HANGOUTS_ENDED_LOG_PACKETS_RETRANSMIT_KEY:Ljava/lang/String; = "rx"
 
 .field public static final HANGOUTS_ENDED_LOG_PACKETS_SENT_KEY:Ljava/lang/String; = "o"
 
@@ -345,6 +399,14 @@
 
 .field public static final enum HANGOUTS_WAITING_SCREEN_DISMISSED:Lcom/google/glass/logging/UserEventAction; = null
 
+.field public static final enum HEADSET_PLUG:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final HEADSET_PLUG_MICROPHONE:Ljava/lang/String; = "m"
+
+.field public static final HEADSET_PLUG_NAME:Ljava/lang/String; = "n"
+
+.field public static final HEADSET_PLUG_STATE:Ljava/lang/String; = "s"
+
 .field public static final enum HEAD_GESTURES_HEAD_WAKE_ANGLE_SETTING:Lcom/google/glass/logging/UserEventAction; = null
 
 .field public static final enum HEAD_GESTURES_HEAD_WAKE_DISABLED:Lcom/google/glass/logging/UserEventAction; = null
@@ -354,6 +416,8 @@
 .field public static final enum HOME_ACTIVATED:Lcom/google/glass/logging/UserEventAction; = null
 
 .field public static final enum HOME_DISMISSED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum MESSAGE_REPLY_NO_COMPANION:Lcom/google/glass/logging/UserEventAction; = null
 
 .field private static final NAME_TO_ACTION:Lcom/google/common/collect/ImmutableMap; = null
     .annotation system Ldalvik/annotation/Signature;
@@ -373,9 +437,33 @@
 
 .field public static final enum NAVIGATION_TRAVEL_MODE_CHANGE:Lcom/google/glass/logging/UserEventAction; = null
 
+.field public static final enum PEOPLE_GRID_FILTERED_TIMELINE:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum PEOPLE_GRID_ITEM_SELECTED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final PEOPLE_GRID_SELECTED_LAUNCH_OTHER:Ljava/lang/String; = "o"
+
+.field public static final PEOPLE_GRID_SELECTED_LAUNCH_SELF:Ljava/lang/String; = "s"
+
+.field public static final enum PEOPLE_GRID_SEND_MESSAGE:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final PEOPLE_GRID_SEND_MESSAGE_LOCATION_GRID:Ljava/lang/String; = "g"
+
+.field public static final PEOPLE_GRID_SEND_MESSAGE_LOCATION_KEY:Ljava/lang/String; = "loc"
+
+.field public static final PEOPLE_GRID_SEND_MESSAGE_LOCATION_TIMELINE:Ljava/lang/String; = "t"
+
+.field public static final enum PEOPLE_GRID_START:Lcom/google/glass/logging/UserEventAction; = null
+
 .field public static final enum PHONE_CALL:Lcom/google/glass/logging/UserEventAction; = null
 
+.field public static final PHONE_CALL_ACTION:Ljava/lang/String; = "a"
+
 .field public static final PHONE_CALL_CONNECTED:Ljava/lang/String; = "6"
+
+.field public static final PHONE_CALL_DURATION:Ljava/lang/String; = "12"
+
+.field public static final PHONE_CALL_DURATION_KEY:Ljava/lang/String; = "t"
 
 .field public static final PHONE_CALL_ERROR:Ljava/lang/String; = "8"
 
@@ -390,6 +478,31 @@
 .field public static final PHONE_CALL_MUTED:Ljava/lang/String; = "7"
 
 .field public static final PHONE_CALL_OUTGOING_CALL:Ljava/lang/String; = "5"
+
+.field public static final PHONE_CALL_OUTGOING_INTERNATIONAL:Ljava/lang/String; = "10"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final PHONE_CALL_OUTGOING_NATIONAL:Ljava/lang/String; = "9"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final PHONE_CALL_OUTGOING_REGION:Ljava/lang/String; = "13"
+
+.field public static final PHONE_CALL_OUTGOING_REGION_INTERNATIONAL:Ljava/lang/String; = "i"
+
+.field public static final PHONE_CALL_OUTGOING_REGION_KEY:Ljava/lang/String; = "r"
+
+.field public static final PHONE_CALL_OUTGOING_REGION_NATIONAL:Ljava/lang/String; = "n"
+
+.field public static final PHONE_CALL_OUTGOING_REGION_UNKNOWN:Ljava/lang/String; = "u"
+
+.field public static final PHONE_CALL_OUTGOING_UNKNOWN:Ljava/lang/String; = "11"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final PRD_BYTES_REQUEST:Ljava/lang/String; = "breq"
 
@@ -427,6 +540,8 @@
 
 .field public static final enum REPLY_INITIATED:Lcom/google/glass/logging/UserEventAction; = null
 
+.field public static final RESUMABLE_UPLOADER_PAYLOAD_IDENTIFIER:Ljava/lang/String; = "m"
+
 .field public static final enum RESUMABLE_UPLOADER_UPLOAD_FATAL_ERROR:Lcom/google/glass/logging/UserEventAction; = null
 
 .field public static final enum RESUMABLE_UPLOADER_UPLOAD_FINISHED:Lcom/google/glass/logging/UserEventAction; = null
@@ -447,15 +562,35 @@
 
 .field public static final enum SEND_MESSAGE_INITIATED:Lcom/google/glass/logging/UserEventAction; = null
 
+.field public static final enum SESSION_MANAGER_SESSION_BROKEN:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum SESSION_MANAGER_SESSION_ESTABLISHED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum SESSION_MANAGER_SESSION_FINISHED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum SESSION_MANAGER_SESSION_INVALID:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum SESSION_MANAGER_SESSION_NEW:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum SESSION_MANAGER_SESSION_VALID:Lcom/google/glass/logging/UserEventAction; = null
+
 .field public static final enum SETUP_ACCOUNT_FAILED:Lcom/google/glass/logging/UserEventAction; = null
 
 .field public static final enum SETUP_BARCODE_SCANNED:Lcom/google/glass/logging/UserEventAction; = null
 
-.field public static final SHARED_PHOTO:Ljava/lang/String; = "1"
+.field public static final SHARED_ANNOTATED:Ljava/lang/String; = "a"
 
-.field public static final SHARED_UNKNOWN:Ljava/lang/String; = "0"
+.field public static final SHARED_ANNOTATED_FALSE:Ljava/lang/String; = "0"
 
-.field public static final SHARED_VIDEO:Ljava/lang/String; = "2"
+.field public static final SHARED_ANNOTATED_TRUE:Ljava/lang/String; = "1"
+
+.field public static final SHARED_TYPE:Ljava/lang/String; = "t"
+
+.field public static final SHARED_TYPE_PHOTO:Ljava/lang/String; = "1"
+
+.field public static final SHARED_TYPE_UNKNOWN:Ljava/lang/String; = "0"
+
+.field public static final SHARED_TYPE_VIDEO:Ljava/lang/String; = "2"
 
 .field public static final enum SHUTDOWN_IN_SETUP:Lcom/google/glass/logging/UserEventAction; = null
 
@@ -468,6 +603,12 @@
 .field public static final enum TIMELINE_ITEM_INSERTED:Lcom/google/glass/logging/UserEventAction; = null
 
 .field public static final enum TIMELINE_ITEM_SHARED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum TIMELINE_NAVIGATION:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final TIMELINE_NAVIGATION_DIST_FROM_CLOCK:Ljava/lang/String; = "d"
+
+.field public static final TIMELINE_NAVIGATION_NUM_ITEMS:Ljava/lang/String; = "n"
 
 .field public static final TIMELINE_SYNC_BYTES:Ljava/lang/String; = "b"
 
@@ -489,6 +630,16 @@
 
 .field public static final enum TIMELINE_UPSTREAM_SYNC_STARTED:Lcom/google/glass/logging/UserEventAction; = null
 
+.field public static final TOUCH_MENU_ENTITY_IS_PREPEND_FALSE:Ljava/lang/String; = "0"
+
+.field public static final TOUCH_MENU_ENTITY_IS_PREPEND_KEY:Ljava/lang/String; = "pre"
+
+.field public static final TOUCH_MENU_ENTITY_IS_PREPEND_TRUE:Ljava/lang/String; = "1"
+
+.field public static final TOUCH_MENU_ENTITY_POSITION_KEY:Ljava/lang/String; = "pos"
+
+.field public static final enum TOUCH_MENU_ENTITY_SELECTED:Lcom/google/glass/logging/UserEventAction; = null
+
 .field public static final enum TWO_FINGER_ZOOM_OUT:Lcom/google/glass/logging/UserEventAction; = null
 
 .field public static final UI_PERFORMANCE_AVERAGE:Ljava/lang/String; = "a"
@@ -501,6 +652,14 @@
 
 .field public static final enum UI_TIME_TO_RENDER:Lcom/google/glass/logging/UserEventAction; = null
 
+.field public static final enum UPLOAD_SESSION_CANCELLED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum UPLOAD_SESSION_FINISHED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum UPLOAD_SESSION_SERVER_FAILED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum UPLOAD_SESSION_STARTED:Lcom/google/glass/logging/UserEventAction; = null
+
 .field public static final enum USER_EVENT_QUEUE_FULL:Lcom/google/glass/logging/UserEventAction; = null
 
 .field public static final enum USER_INITIATED_SCREEN_ON:Lcom/google/glass/logging/UserEventAction; = null
@@ -509,11 +668,31 @@
 
 .field public static final enum USER_IS_THERE:Lcom/google/glass/logging/UserEventAction; = null
 
+.field public static final enum VIDEO_PLAYBACK:Lcom/google/glass/logging/UserEventAction; = null
+
 .field public static final enum VIDEO_TIMINGS:Lcom/google/glass/logging/UserEventAction; = null
 
 .field public static final VIDEO_TIMINGS_REQUEST_START:Ljava/lang/String; = "st"
 
 .field public static final enum VIEWED_BUNDLE:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum VOICE_INPUT_DISMISS:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum VOICE_INPUT_END_OF_SPEECH:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum VOICE_INPUT_ERROR:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum VOICE_INPUT_FIRST_RECOGNITION:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum VOICE_INPUT_NO_SPEECH_DETECTED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum VOICE_INPUT_RECOGNITION:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final enum VOICE_INPUT_STARTED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final VOICE_MENU_COMMAND_ANSWER_CALL_PHONE:Ljava/lang/String; = "16"
+
+.field public static final VOICE_MENU_COMMAND_ANSWER_CALL_VIDEO:Ljava/lang/String; = "17"
 
 .field public static final VOICE_MENU_COMMAND_GET_DIRECTIONS_TO:Ljava/lang/String; = "5"
 
@@ -521,9 +700,21 @@
 
 .field public static final VOICE_MENU_COMMAND_HANG_OUT_WITH:Ljava/lang/String; = "8"
 
+.field public static final VOICE_MENU_COMMAND_IGNORE_CALL_PHONE:Ljava/lang/String; = "18"
+
+.field public static final VOICE_MENU_COMMAND_IGNORE_CALL_VIDEO:Ljava/lang/String; = "19"
+
 .field public static final VOICE_MENU_COMMAND_MAKE_A_CALL_TO:Ljava/lang/String; = "7"
 
-.field public static final VOICE_MENU_COMMAND_OK_GLASS:Ljava/lang/String; = "1"
+.field public static final VOICE_MENU_COMMAND_OK_GLASS_HOME:Ljava/lang/String; = "1"
+
+.field public static final VOICE_MENU_COMMAND_OK_GLASS_INCOMING_PHONE_CALL:Ljava/lang/String; = "14"
+
+.field public static final VOICE_MENU_COMMAND_OK_GLASS_INCOMING_VIDEO_CALL:Ljava/lang/String; = "15"
+
+.field public static final VOICE_MENU_COMMAND_OK_GLASS_NOTIFICATION:Ljava/lang/String; = "12"
+
+.field public static final VOICE_MENU_COMMAND_OK_GLASS_PICTURE:Ljava/lang/String; = "13"
 
 .field public static final VOICE_MENU_COMMAND_READ_ALOUD:Ljava/lang/String; = "9"
 
@@ -533,35 +724,25 @@
 
 .field public static final VOICE_MENU_COMMAND_SEND_A_MESSAGE_TO:Ljava/lang/String; = "6"
 
+.field public static final VOICE_MENU_COMMAND_SHARE_WITH:Ljava/lang/String; = "20"
+
 .field public static final enum VOICE_MENU_COMMAND_SPOKEN:Lcom/google/glass/logging/UserEventAction; = null
 
 .field public static final enum VOICE_MENU_COMMAND_SPOKEN_SCREEN_OFF:Lcom/google/glass/logging/UserEventAction; = null
 
 .field public static final VOICE_MENU_COMMAND_TAKE_A_PICTURE:Ljava/lang/String; = "3"
 
-.field public static final enum VOICE_MENU_COMMAND_TAPPED:Lcom/google/glass/logging/UserEventAction;
+.field public static final enum VOICE_MENU_COMMAND_TAPPED:Lcom/google/glass/logging/UserEventAction; = null
+
+.field public static final VOICE_MENU_COMMAND_VIDEO_CALL:Ljava/lang/String; = "11"
 
 .field public static final enum VOICE_MESSAGE_DISMISS:Lcom/google/glass/logging/UserEventAction;
 
-.field public static final enum VOICE_SEARCH_DISMISS:Lcom/google/glass/logging/UserEventAction;
-
-.field public static final enum VOICE_SEARCH_END_OF_SPEECH:Lcom/google/glass/logging/UserEventAction;
-
-.field public static final enum VOICE_SEARCH_ERROR:Lcom/google/glass/logging/UserEventAction;
-
-.field public static final enum VOICE_SEARCH_FIRST_RECOGNITION:Lcom/google/glass/logging/UserEventAction;
-
 .field public static final enum VOICE_SEARCH_FROM_TIMELINE:Lcom/google/glass/logging/UserEventAction;
-
-.field public static final enum VOICE_SEARCH_MAJEL_RESULT:Lcom/google/glass/logging/UserEventAction;
 
 .field public static final enum VOICE_SEARCH_NO_ANSWER:Lcom/google/glass/logging/UserEventAction;
 
-.field public static final enum VOICE_SEARCH_NO_SPEECH_DETECTED:Lcom/google/glass/logging/UserEventAction;
-
-.field public static final enum VOICE_SEARCH_RECOGNITION:Lcom/google/glass/logging/UserEventAction;
-
-.field public static final enum VOICE_SEARCH_STARTED:Lcom/google/glass/logging/UserEventAction;
+.field public static final enum VOICE_SEARCH_RESULT:Lcom/google/glass/logging/UserEventAction;
 
 .field public static final enum VOICE_SEARCH_SWIPE:Lcom/google/glass/logging/UserEventAction;
 
@@ -744,7 +925,7 @@
     .line 32
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
-    const-string v5, "VOICE_SEARCH_STARTED"
+    const-string v5, "VOICE_INPUT_STARTED"
 
     const/16 v6, 0xc
 
@@ -752,77 +933,77 @@
 
     invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
-    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_STARTED:Lcom/google/glass/logging/UserEventAction;
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_STARTED:Lcom/google/glass/logging/UserEventAction;
 
     .line 33
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
-    const-string v5, "VOICE_SEARCH_RECOGNITION"
+    const-string v5, "VOICE_INPUT_FIRST_RECOGNITION"
 
     const/16 v6, 0xd
-
-    const-string v7, "3022"
-
-    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
-
-    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_RECOGNITION:Lcom/google/glass/logging/UserEventAction;
-
-    .line 34
-    new-instance v4, Lcom/google/glass/logging/UserEventAction;
-
-    const-string v5, "VOICE_SEARCH_MAJEL_RESULT"
-
-    const/16 v6, 0xe
-
-    const-string v7, "3023"
-
-    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
-
-    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_MAJEL_RESULT:Lcom/google/glass/logging/UserEventAction;
-
-    .line 35
-    new-instance v4, Lcom/google/glass/logging/UserEventAction;
-
-    const-string v5, "VOICE_SEARCH_END_OF_SPEECH"
-
-    const/16 v6, 0xf
-
-    const-string v7, "3024"
-
-    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
-
-    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_END_OF_SPEECH:Lcom/google/glass/logging/UserEventAction;
-
-    .line 36
-    new-instance v4, Lcom/google/glass/logging/UserEventAction;
-
-    const-string v5, "VOICE_SEARCH_FIRST_RECOGNITION"
-
-    const/16 v6, 0x10
 
     const-string v7, "3025"
 
     invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
-    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_FIRST_RECOGNITION:Lcom/google/glass/logging/UserEventAction;
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_FIRST_RECOGNITION:Lcom/google/glass/logging/UserEventAction;
 
-    .line 37
+    .line 34
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
-    const-string v5, "VOICE_SEARCH_ERROR"
+    const-string v5, "VOICE_INPUT_END_OF_SPEECH"
 
-    const/16 v6, 0x11
+    const/16 v6, 0xe
+
+    const-string v7, "3024"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_END_OF_SPEECH:Lcom/google/glass/logging/UserEventAction;
+
+    .line 35
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "VOICE_INPUT_RECOGNITION"
+
+    const/16 v6, 0xf
+
+    const-string v7, "3022"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_RECOGNITION:Lcom/google/glass/logging/UserEventAction;
+
+    .line 36
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "VOICE_INPUT_ERROR"
+
+    const/16 v6, 0x10
 
     const-string v7, "3026"
 
     invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
-    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_ERROR:Lcom/google/glass/logging/UserEventAction;
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_ERROR:Lcom/google/glass/logging/UserEventAction;
+
+    .line 37
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "VOICE_INPUT_NO_SPEECH_DETECTED"
+
+    const/16 v6, 0x11
+
+    const-string v7, "3010"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_NO_SPEECH_DETECTED:Lcom/google/glass/logging/UserEventAction;
 
     .line 38
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
-    const-string v5, "VOICE_SEARCH_DISMISS"
+    const-string v5, "VOICE_INPUT_DISMISS"
 
     const/16 v6, 0x12
 
@@ -830,7 +1011,7 @@
 
     invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
-    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_DISMISS:Lcom/google/glass/logging/UserEventAction;
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_DISMISS:Lcom/google/glass/logging/UserEventAction;
 
     .line 39
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
@@ -848,9 +1029,22 @@
     .line 40
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
-    const-string v5, "VOICE_SEARCH_NO_ANSWER"
+    const-string v5, "VOICE_SEARCH_RESULT"
 
     const/16 v6, 0x14
+
+    const-string v7, "3023"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_RESULT:Lcom/google/glass/logging/UserEventAction;
+
+    .line 41
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "VOICE_SEARCH_NO_ANSWER"
+
+    const/16 v6, 0x15
 
     const-string v7, "3007"
 
@@ -858,12 +1052,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_NO_ANSWER:Lcom/google/glass/logging/UserEventAction;
 
-    .line 41
+    .line 42
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "VOICE_SEARCH_FROM_TIMELINE"
 
-    const/16 v6, 0x15
+    const/16 v6, 0x16
 
     const-string v7, "3008"
 
@@ -871,31 +1065,18 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_FROM_TIMELINE:Lcom/google/glass/logging/UserEventAction;
 
-    .line 42
+    .line 43
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "VOICE_SEARCH_SWIPE"
 
-    const/16 v6, 0x16
+    const/16 v6, 0x17
 
     const-string v7, "3009"
 
     invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_SWIPE:Lcom/google/glass/logging/UserEventAction;
-
-    .line 43
-    new-instance v4, Lcom/google/glass/logging/UserEventAction;
-
-    const-string v5, "VOICE_SEARCH_NO_SPEECH_DETECTED"
-
-    const/16 v6, 0x17
-
-    const-string v7, "3010"
-
-    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
-
-    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_NO_SPEECH_DETECTED:Lcom/google/glass/logging/UserEventAction;
 
     .line 44
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
@@ -1001,12 +1182,77 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->PRESS_TO_SEARCH_DISMISSED:Lcom/google/glass/logging/UserEventAction;
 
+    .line 52
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "FORCE_EVENT_LOG_FLUSH"
+
+    const/16 v6, 0x20
+
+    const-string v7, "3125"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->FORCE_EVENT_LOG_FLUSH:Lcom/google/glass/logging/UserEventAction;
+
+    .line 53
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "TIMELINE_NAVIGATION"
+
+    const/16 v6, 0x21
+
+    const-string v7, "3126"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->TIMELINE_NAVIGATION:Lcom/google/glass/logging/UserEventAction;
+
     .line 54
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "VIDEO_PLAYBACK"
+
+    const/16 v6, 0x22
+
+    const-string v7, "3127"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->VIDEO_PLAYBACK:Lcom/google/glass/logging/UserEventAction;
+
+    .line 55
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "DEFERRED_CONTENT_LOAD"
+
+    const/16 v6, 0x23
+
+    const-string v7, "3128"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->DEFERRED_CONTENT_LOAD:Lcom/google/glass/logging/UserEventAction;
+
+    .line 56
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "HEADSET_PLUG"
+
+    const/16 v6, 0x24
+
+    const-string v7, "3132"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->HEADSET_PLUG:Lcom/google/glass/logging/UserEventAction;
+
+    .line 59
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "WIFI_BARCODE_SCANNED"
 
-    const/16 v6, 0x20
+    const/16 v6, 0x25
 
     const-string v7, "3012"
 
@@ -1014,12 +1260,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->WIFI_BARCODE_SCANNED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 55
+    .line 60
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "WIFI_SCAN_RESULT_TAPPED"
 
-    const/16 v6, 0x21
+    const/16 v6, 0x26
 
     const-string v7, "14001"
 
@@ -1027,12 +1273,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->WIFI_SCAN_RESULT_TAPPED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 56
+    .line 61
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "WIFI_SETUP_VIA_COMPANION"
 
-    const/16 v6, 0x22
+    const/16 v6, 0x27
 
     const-string v7, "14002"
 
@@ -1040,12 +1286,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->WIFI_SETUP_VIA_COMPANION:Lcom/google/glass/logging/UserEventAction;
 
-    .line 57
+    .line 62
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "WIFI_CONNECTED"
 
-    const/16 v6, 0x23
+    const/16 v6, 0x28
 
     const-string v7, "3013"
 
@@ -1053,12 +1299,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->WIFI_CONNECTED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 61
+    .line 66
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "SEND_MESSAGE_INITIATED"
 
-    const/16 v6, 0x24
+    const/16 v6, 0x29
 
     const-string v7, "3030"
 
@@ -1066,12 +1312,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->SEND_MESSAGE_INITIATED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 62
+    .line 67
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "SEND_MESSAGE_COMPLETED"
 
-    const/16 v6, 0x25
+    const/16 v6, 0x2a
 
     const-string v7, "3031"
 
@@ -1079,12 +1325,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->SEND_MESSAGE_COMPLETED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 63
+    .line 68
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "REPLY_INITIATED"
 
-    const/16 v6, 0x26
+    const/16 v6, 0x2b
 
     const-string v7, "3032"
 
@@ -1092,12 +1338,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->REPLY_INITIATED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 64
+    .line 69
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "REPLY_COMPLETED"
 
-    const/16 v6, 0x27
+    const/16 v6, 0x2c
 
     const-string v7, "3033"
 
@@ -1105,12 +1351,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->REPLY_COMPLETED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 65
+    .line 70
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "REPLY_ALL_INITIATED"
 
-    const/16 v6, 0x28
+    const/16 v6, 0x2d
 
     const-string v7, "3034"
 
@@ -1118,12 +1364,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->REPLY_ALL_INITIATED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 66
+    .line 71
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "REPLY_ALL_COMPLETED"
 
-    const/16 v6, 0x29
+    const/16 v6, 0x2e
 
     const-string v7, "3035"
 
@@ -1131,12 +1377,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->REPLY_ALL_COMPLETED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 67
+    .line 72
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "DELETE_INITIATED"
 
-    const/16 v6, 0x2a
+    const/16 v6, 0x2f
 
     const-string v7, "3036"
 
@@ -1144,12 +1390,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->DELETE_INITIATED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 68
+    .line 73
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "DELETE_COMPLETED"
 
-    const/16 v6, 0x2b
+    const/16 v6, 0x30
 
     const-string v7, "3037"
 
@@ -1157,12 +1403,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->DELETE_COMPLETED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 69
+    .line 74
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "RETRY_REPLY"
 
-    const/16 v6, 0x2c
+    const/16 v6, 0x31
 
     const-string v7, "3038"
 
@@ -1170,12 +1416,25 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->RETRY_REPLY:Lcom/google/glass/logging/UserEventAction;
 
-    .line 72
+    .line 75
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "MESSAGE_REPLY_NO_COMPANION"
+
+    const/16 v6, 0x32
+
+    const-string v7, "3039"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->MESSAGE_REPLY_NO_COMPANION:Lcom/google/glass/logging/UserEventAction;
+
+    .line 78
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "TIMELINE_DOWNSTREAM_SYNC_STARTED"
 
-    const/16 v6, 0x2d
+    const/16 v6, 0x33
 
     const-string v7, "3050"
 
@@ -1183,12 +1442,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->TIMELINE_DOWNSTREAM_SYNC_STARTED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 73
+    .line 79
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "TIMELINE_DOWNSTREAM_SYNC_FINISHED"
 
-    const/16 v6, 0x2e
+    const/16 v6, 0x34
 
     const-string v7, "3051"
 
@@ -1196,12 +1455,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->TIMELINE_DOWNSTREAM_SYNC_FINISHED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 74
+    .line 80
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "TIMELINE_DOWNSTREAM_SYNC_BACKOFF"
 
-    const/16 v6, 0x2f
+    const/16 v6, 0x35
 
     const-string v7, "3052"
 
@@ -1209,12 +1468,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->TIMELINE_DOWNSTREAM_SYNC_BACKOFF:Lcom/google/glass/logging/UserEventAction;
 
-    .line 75
+    .line 81
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "TIMELINE_UPSTREAM_SYNC_STARTED"
 
-    const/16 v6, 0x30
+    const/16 v6, 0x36
 
     const-string v7, "3055"
 
@@ -1222,12 +1481,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->TIMELINE_UPSTREAM_SYNC_STARTED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 76
+    .line 82
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "TIMELINE_UPSTREAM_SYNC_FINISHED_SUCCESSFULLY"
 
-    const/16 v6, 0x31
+    const/16 v6, 0x37
 
     const-string v7, "3056"
 
@@ -1235,12 +1494,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->TIMELINE_UPSTREAM_SYNC_FINISHED_SUCCESSFULLY:Lcom/google/glass/logging/UserEventAction;
 
-    .line 77
+    .line 83
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "TIMELINE_UPSTREAM_SYNC_FINISHED_WITH_ERROR"
 
-    const/16 v6, 0x32
+    const/16 v6, 0x38
 
     const-string v7, "3057"
 
@@ -1248,12 +1507,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->TIMELINE_UPSTREAM_SYNC_FINISHED_WITH_ERROR:Lcom/google/glass/logging/UserEventAction;
 
-    .line 78
+    .line 84
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "TIMELINE_UPSTREAM_SYNC_BACKOFF"
 
-    const/16 v6, 0x33
+    const/16 v6, 0x39
 
     const-string v7, "3058"
 
@@ -1261,12 +1520,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->TIMELINE_UPSTREAM_SYNC_BACKOFF:Lcom/google/glass/logging/UserEventAction;
 
-    .line 79
+    .line 85
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "TIMELINE_SYNC_TRIGGERED_WITH_NO_CONNECTIVITY"
 
-    const/16 v6, 0x34
+    const/16 v6, 0x3a
 
     const-string v7, "3059"
 
@@ -1274,12 +1533,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->TIMELINE_SYNC_TRIGGERED_WITH_NO_CONNECTIVITY:Lcom/google/glass/logging/UserEventAction;
 
-    .line 80
+    .line 86
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "RESUMABLE_UPLOADER_UPLOAD_STARTED"
 
-    const/16 v6, 0x35
+    const/16 v6, 0x3b
 
     const-string v7, "3060"
 
@@ -1287,12 +1546,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_STARTED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 81
+    .line 87
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "RESUMABLE_UPLOADER_UPLOAD_RECOVERABLE_ERROR"
 
-    const/16 v6, 0x36
+    const/16 v6, 0x3c
 
     const-string v7, "3061"
 
@@ -1300,12 +1559,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_RECOVERABLE_ERROR:Lcom/google/glass/logging/UserEventAction;
 
-    .line 82
+    .line 88
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "RESUMABLE_UPLOADER_UPLOAD_FATAL_ERROR"
 
-    const/16 v6, 0x37
+    const/16 v6, 0x3d
 
     const-string v7, "3062"
 
@@ -1313,12 +1572,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_FATAL_ERROR:Lcom/google/glass/logging/UserEventAction;
 
-    .line 83
+    .line 89
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "RESUMABLE_UPLOADER_UPLOAD_RESUMED"
 
-    const/16 v6, 0x38
+    const/16 v6, 0x3e
 
     const-string v7, "3063"
 
@@ -1326,12 +1585,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_RESUMED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 84
+    .line 90
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "RESUMABLE_UPLOADER_UPLOAD_FINISHED"
 
-    const/16 v6, 0x39
+    const/16 v6, 0x3f
 
     const-string v7, "3064"
 
@@ -1339,12 +1598,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_FINISHED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 85
+    .line 91
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "ENTITY_SYNC_STARTED"
 
-    const/16 v6, 0x3a
+    const/16 v6, 0x40
 
     const-string v7, "3070"
 
@@ -1352,12 +1611,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->ENTITY_SYNC_STARTED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 86
+    .line 92
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "ENTITY_SYNC_FINISHED"
 
-    const/16 v6, 0x3b
+    const/16 v6, 0x41
 
     const-string v7, "3071"
 
@@ -1365,12 +1624,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->ENTITY_SYNC_FINISHED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 87
+    .line 93
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "ENTITY_SYNC_BACKOFF"
 
-    const/16 v6, 0x3c
+    const/16 v6, 0x42
 
     const-string v7, "3072"
 
@@ -1378,12 +1637,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->ENTITY_SYNC_BACKOFF:Lcom/google/glass/logging/UserEventAction;
 
-    .line 90
+    .line 96
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "DON_DETECTOR_ENABLED"
 
-    const/16 v6, 0x3d
+    const/16 v6, 0x43
 
     const-string v7, "3080"
 
@@ -1391,12 +1650,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->DON_DETECTOR_ENABLED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 91
+    .line 97
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "DON_DETECTOR_DISABLED"
 
-    const/16 v6, 0x3e
+    const/16 v6, 0x44
 
     const-string v7, "3081"
 
@@ -1404,12 +1663,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->DON_DETECTOR_DISABLED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 92
+    .line 98
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "DONNED"
 
-    const/16 v6, 0x3f
+    const/16 v6, 0x45
 
     const-string v7, "3082"
 
@@ -1417,12 +1676,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->DONNED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 93
+    .line 99
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "DOFFED"
 
-    const/16 v6, 0x40
+    const/16 v6, 0x46
 
     const-string v7, "3083"
 
@@ -1430,12 +1689,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->DOFFED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 96
+    .line 102
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "VOICE_MENU_COMMAND_SPOKEN"
 
-    const/16 v6, 0x41
+    const/16 v6, 0x47
 
     const-string v7, "3090"
 
@@ -1443,12 +1702,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_MENU_COMMAND_SPOKEN:Lcom/google/glass/logging/UserEventAction;
 
-    .line 97
+    .line 103
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "VOICE_MENU_COMMAND_TAPPED"
 
-    const/16 v6, 0x42
+    const/16 v6, 0x48
 
     const-string v7, "3091"
 
@@ -1456,12 +1715,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_MENU_COMMAND_TAPPED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 98
+    .line 104
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "VOICE_MENU_COMMAND_SPOKEN_SCREEN_OFF"
 
-    const/16 v6, 0x43
+    const/16 v6, 0x49
 
     const-string v7, "3092"
 
@@ -1469,12 +1728,25 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->VOICE_MENU_COMMAND_SPOKEN_SCREEN_OFF:Lcom/google/glass/logging/UserEventAction;
 
-    .line 101
+    .line 105
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "TOUCH_MENU_ENTITY_SELECTED"
+
+    const/16 v6, 0x4a
+
+    const-string v7, "3093"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->TOUCH_MENU_ENTITY_SELECTED:Lcom/google/glass/logging/UserEventAction;
+
+    .line 108
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "BARCODE_SUCCESSFUL_SCAN"
 
-    const/16 v6, 0x44
+    const/16 v6, 0x4b
 
     const-string v7, "3100"
 
@@ -1482,12 +1754,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->BARCODE_SUCCESSFUL_SCAN:Lcom/google/glass/logging/UserEventAction;
 
-    .line 102
+    .line 109
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "BARCODE_FAILED_SCAN"
 
-    const/16 v6, 0x45
+    const/16 v6, 0x4c
 
     const-string v7, "3101"
 
@@ -1495,12 +1767,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->BARCODE_FAILED_SCAN:Lcom/google/glass/logging/UserEventAction;
 
-    .line 103
+    .line 110
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "BARCODE_PICTURE_SCAN"
 
-    const/16 v6, 0x46
+    const/16 v6, 0x4d
 
     const-string v7, "3102"
 
@@ -1508,12 +1780,77 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->BARCODE_PICTURE_SCAN:Lcom/google/glass/logging/UserEventAction;
 
-    .line 106
+    .line 113
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "PEOPLE_GRID_START"
+
+    const/16 v6, 0x4e
+
+    const-string v7, "3129"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->PEOPLE_GRID_START:Lcom/google/glass/logging/UserEventAction;
+
+    .line 114
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "PEOPLE_GRID_ITEM_SELECTED"
+
+    const/16 v6, 0x4f
+
+    const-string v7, "3133"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->PEOPLE_GRID_ITEM_SELECTED:Lcom/google/glass/logging/UserEventAction;
+
+    .line 115
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "PEOPLE_GRID_FILTERED_TIMELINE"
+
+    const/16 v6, 0x50
+
+    const-string v7, "3130"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->PEOPLE_GRID_FILTERED_TIMELINE:Lcom/google/glass/logging/UserEventAction;
+
+    .line 116
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "PEOPLE_GRID_SEND_MESSAGE"
+
+    const/16 v6, 0x51
+
+    const-string v7, "3131"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->PEOPLE_GRID_SEND_MESSAGE:Lcom/google/glass/logging/UserEventAction;
+
+    .line 117
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "FILTERED_TIMELINE_DISMISS"
+
+    const/16 v6, 0x52
+
+    const-string v7, "3134"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->FILTERED_TIMELINE_DISMISS:Lcom/google/glass/logging/UserEventAction;
+
+    .line 120
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "NAVIGATION_START"
 
-    const/16 v6, 0x47
+    const/16 v6, 0x53
 
     const-string v7, "4001"
 
@@ -1521,12 +1858,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->NAVIGATION_START:Lcom/google/glass/logging/UserEventAction;
 
-    .line 107
+    .line 121
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "NAVIGATION_END"
 
-    const/16 v6, 0x48
+    const/16 v6, 0x54
 
     const-string v7, "4002"
 
@@ -1534,12 +1871,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->NAVIGATION_END:Lcom/google/glass/logging/UserEventAction;
 
-    .line 108
+    .line 122
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "NAVIGATION_TRAVEL_MODE_CHANGE"
 
-    const/16 v6, 0x49
+    const/16 v6, 0x55
 
     const-string v7, "4003"
 
@@ -1547,12 +1884,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->NAVIGATION_TRAVEL_MODE_CHANGE:Lcom/google/glass/logging/UserEventAction;
 
-    .line 111
+    .line 125
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "RECORD_VIDEO_START"
 
-    const/16 v6, 0x4a
+    const/16 v6, 0x56
 
     const-string v7, "4100"
 
@@ -1560,12 +1897,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->RECORD_VIDEO_START:Lcom/google/glass/logging/UserEventAction;
 
-    .line 112
+    .line 126
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "RECORD_VIDEO_END"
 
-    const/16 v6, 0x4b
+    const/16 v6, 0x57
 
     const-string v7, "4101"
 
@@ -1573,12 +1910,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->RECORD_VIDEO_END:Lcom/google/glass/logging/UserEventAction;
 
-    .line 115
+    .line 129
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "PROTO_REQUEST_DISPATCHER_BATCH"
 
-    const/16 v6, 0x4c
+    const/16 v6, 0x58
 
     const-string v7, "5000"
 
@@ -1586,12 +1923,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->PROTO_REQUEST_DISPATCHER_BATCH:Lcom/google/glass/logging/UserEventAction;
 
-    .line 116
+    .line 130
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "COMPANION_CONNECTION"
 
-    const/16 v6, 0x4d
+    const/16 v6, 0x59
 
     const-string v7, "5002"
 
@@ -1599,12 +1936,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->COMPANION_CONNECTION:Lcom/google/glass/logging/UserEventAction;
 
-    .line 117
+    .line 131
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "ANDROID_CHECK_IN"
 
-    const/16 v6, 0x4e
+    const/16 v6, 0x5a
 
     const-string v7, "5003"
 
@@ -1612,12 +1949,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->ANDROID_CHECK_IN:Lcom/google/glass/logging/UserEventAction;
 
-    .line 118
+    .line 132
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "DEVICE_STORAGE_STATE_CHANGED"
 
-    const/16 v6, 0x4f
+    const/16 v6, 0x5b
 
     const-string v7, "5004"
 
@@ -1625,12 +1962,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->DEVICE_STORAGE_STATE_CHANGED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 119
+    .line 133
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "USER_EVENT_QUEUE_FULL"
 
-    const/16 v6, 0x50
+    const/16 v6, 0x5c
 
     const-string v7, "5005"
 
@@ -1638,12 +1975,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->USER_EVENT_QUEUE_FULL:Lcom/google/glass/logging/UserEventAction;
 
-    .line 120
+    .line 134
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "PROTO_REQUEST_DISPATCHER_REQUEST_SIZE"
 
-    const/16 v6, 0x51
+    const/16 v6, 0x5d
 
     const-string v7, "5006"
 
@@ -1651,12 +1988,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->PROTO_REQUEST_DISPATCHER_REQUEST_SIZE:Lcom/google/glass/logging/UserEventAction;
 
-    .line 123
+    .line 137
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_ERROR"
 
-    const/16 v6, 0x52
+    const/16 v6, 0x5e
 
     const-string v7, "6001"
 
@@ -1664,12 +2001,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ERROR:Lcom/google/glass/logging/UserEventAction;
 
-    .line 124
+    .line 138
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_ENTERED"
 
-    const/16 v6, 0x53
+    const/16 v6, 0x5f
 
     const-string v7, "6002"
 
@@ -1677,12 +2014,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ENTERED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 125
+    .line 139
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_CREATED"
 
-    const/16 v6, 0x54
+    const/16 v6, 0x60
 
     const-string v7, "6003"
 
@@ -1690,12 +2027,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_CREATED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 126
+    .line 140
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_CHAT_MESSAGE_RECEIVED"
 
-    const/16 v6, 0x55
+    const/16 v6, 0x61
 
     const-string v7, "6004"
 
@@ -1703,12 +2040,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_CHAT_MESSAGE_RECEIVED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 127
+    .line 141
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_MUTE_REMOTE"
 
-    const/16 v6, 0x56
+    const/16 v6, 0x62
 
     const-string v7, "6005"
 
@@ -1716,12 +2053,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_MUTE_REMOTE:Lcom/google/glass/logging/UserEventAction;
 
-    .line 128
+    .line 142
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_MUTE_MY_VIDEO"
 
-    const/16 v6, 0x57
+    const/16 v6, 0x63
 
     const-string v7, "6006"
 
@@ -1729,12 +2066,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_MUTE_MY_VIDEO:Lcom/google/glass/logging/UserEventAction;
 
-    .line 129
+    .line 143
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_UNMUTE_MY_VIDEO"
 
-    const/16 v6, 0x58
+    const/16 v6, 0x64
 
     const-string v7, "6007"
 
@@ -1742,12 +2079,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_UNMUTE_MY_VIDEO:Lcom/google/glass/logging/UserEventAction;
 
-    .line 130
+    .line 144
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_MUTE_MY_AUDIO"
 
-    const/16 v6, 0x59
+    const/16 v6, 0x65
 
     const-string v7, "6008"
 
@@ -1755,12 +2092,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_MUTE_MY_AUDIO:Lcom/google/glass/logging/UserEventAction;
 
-    .line 131
+    .line 145
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_UNMUTE_MY_AUDIO"
 
-    const/16 v6, 0x5a
+    const/16 v6, 0x66
 
     const-string v7, "6009"
 
@@ -1768,12 +2105,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_UNMUTE_MY_AUDIO:Lcom/google/glass/logging/UserEventAction;
 
-    .line 132
+    .line 146
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_SET_PARTICIPANT_AUTO"
 
-    const/16 v6, 0x5b
+    const/16 v6, 0x67
 
     const-string v7, "6010"
 
@@ -1781,12 +2118,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_SET_PARTICIPANT_AUTO:Lcom/google/glass/logging/UserEventAction;
 
-    .line 133
+    .line 147
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_SET_PARTICIPANT_SPECIFIC"
 
-    const/16 v6, 0x5c
+    const/16 v6, 0x68
 
     const-string v7, "6011"
 
@@ -1794,12 +2131,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_SET_PARTICIPANT_SPECIFIC:Lcom/google/glass/logging/UserEventAction;
 
-    .line 134
+    .line 148
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_INVITE"
 
-    const/16 v6, 0x5d
+    const/16 v6, 0x69
 
     const-string v7, "6012"
 
@@ -1807,12 +2144,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_INVITE:Lcom/google/glass/logging/UserEventAction;
 
-    .line 135
+    .line 149
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_ENDED"
 
-    const/16 v6, 0x5e
+    const/16 v6, 0x6a
 
     const-string v7, "6013"
 
@@ -1820,12 +2157,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ENDED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 136
+    .line 150
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_WAITING_SCREEN_DISMISSED"
 
-    const/16 v6, 0x5f
+    const/16 v6, 0x6b
 
     const-string v7, "6014"
 
@@ -1833,12 +2170,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_WAITING_SCREEN_DISMISSED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 137
+    .line 151
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_ENTERED_FROM_ACTIVE_CARD"
 
-    const/16 v6, 0x60
+    const/16 v6, 0x6c
 
     const-string v7, "6015"
 
@@ -1846,12 +2183,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ENTERED_FROM_ACTIVE_CARD:Lcom/google/glass/logging/UserEventAction;
 
-    .line 138
+    .line 152
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_ENDED_FROM_ACTIVE_CARD"
 
-    const/16 v6, 0x61
+    const/16 v6, 0x6d
 
     const-string v7, "6016"
 
@@ -1859,12 +2196,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ENDED_FROM_ACTIVE_CARD:Lcom/google/glass/logging/UserEventAction;
 
-    .line 139
+    .line 153
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HANGOUTS_INCOMING_HANGOUT"
 
-    const/16 v6, 0x62
+    const/16 v6, 0x6e
 
     const-string v7, "6017"
 
@@ -1872,12 +2209,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_INCOMING_HANGOUT:Lcom/google/glass/logging/UserEventAction;
 
-    .line 142
+    .line 156
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "WAKE_UP_DELAY"
 
-    const/16 v6, 0x63
+    const/16 v6, 0x6f
 
     const-string v7, "7001"
 
@@ -1885,12 +2222,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->WAKE_UP_DELAY:Lcom/google/glass/logging/UserEventAction;
 
-    .line 143
+    .line 157
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "CAMERA_TIMINGS"
 
-    const/16 v6, 0x64
+    const/16 v6, 0x70
 
     const-string v7, "7002"
 
@@ -1898,12 +2235,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->CAMERA_TIMINGS:Lcom/google/glass/logging/UserEventAction;
 
-    .line 144
+    .line 158
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "UI_THREAD_QUEUE"
 
-    const/16 v6, 0x65
+    const/16 v6, 0x71
 
     const-string v7, "7003"
 
@@ -1911,12 +2248,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->UI_THREAD_QUEUE:Lcom/google/glass/logging/UserEventAction;
 
-    .line 145
+    .line 159
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "UI_TIME_BETWEEN_RENDERS"
 
-    const/16 v6, 0x66
+    const/16 v6, 0x72
 
     const-string v7, "7004"
 
@@ -1924,12 +2261,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->UI_TIME_BETWEEN_RENDERS:Lcom/google/glass/logging/UserEventAction;
 
-    .line 146
+    .line 160
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "UI_TIME_TO_RENDER"
 
-    const/16 v6, 0x67
+    const/16 v6, 0x73
 
     const-string v7, "7005"
 
@@ -1937,12 +2274,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->UI_TIME_TO_RENDER:Lcom/google/glass/logging/UserEventAction;
 
-    .line 147
+    .line 161
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "VIDEO_TIMINGS"
 
-    const/16 v6, 0x68
+    const/16 v6, 0x74
 
     const-string v7, "7006"
 
@@ -1950,12 +2287,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->VIDEO_TIMINGS:Lcom/google/glass/logging/UserEventAction;
 
-    .line 150
+    .line 164
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "ARE_YOU_THERE_DIALOG_SHOWN"
 
-    const/16 v6, 0x69
+    const/16 v6, 0x75
 
     const-string v7, "8001"
 
@@ -1963,12 +2300,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->ARE_YOU_THERE_DIALOG_SHOWN:Lcom/google/glass/logging/UserEventAction;
 
-    .line 151
+    .line 165
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "USER_IS_THERE"
 
-    const/16 v6, 0x6a
+    const/16 v6, 0x76
 
     const-string v7, "8002"
 
@@ -1976,12 +2313,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->USER_IS_THERE:Lcom/google/glass/logging/UserEventAction;
 
-    .line 152
+    .line 166
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "USER_IS_NOT_THERE"
 
-    const/16 v6, 0x6b
+    const/16 v6, 0x77
 
     const-string v7, "8003"
 
@@ -1989,12 +2326,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->USER_IS_NOT_THERE:Lcom/google/glass/logging/UserEventAction;
 
-    .line 155
+    .line 169
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "CONNECTIVITY_BT_PAIRED"
 
-    const/16 v6, 0x6c
+    const/16 v6, 0x78
 
     const-string v7, "9001"
 
@@ -2002,12 +2339,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_BT_PAIRED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 156
+    .line 170
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "CONNECTIVITY_CHECKER"
 
-    const/16 v6, 0x6d
+    const/16 v6, 0x79
 
     const-string v7, "9002"
 
@@ -2015,12 +2352,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_CHECKER:Lcom/google/glass/logging/UserEventAction;
 
-    .line 157
+    .line 171
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "CONNECTIVITY_BROKEN_NETWORK"
 
-    const/16 v6, 0x6e
+    const/16 v6, 0x7a
 
     const-string v7, "9003"
 
@@ -2028,12 +2365,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_BROKEN_NETWORK:Lcom/google/glass/logging/UserEventAction;
 
-    .line 158
+    .line 172
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "CONNECTIVITY_STATE_PERCENTAGE"
 
-    const/16 v6, 0x6f
+    const/16 v6, 0x7b
 
     const-string v7, "9004"
 
@@ -2041,12 +2378,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_STATE_PERCENTAGE:Lcom/google/glass/logging/UserEventAction;
 
-    .line 159
+    .line 173
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "CONNECTIVITY_STATE_TIME"
 
-    const/16 v6, 0x70
+    const/16 v6, 0x7c
 
     const-string v7, "9005"
 
@@ -2054,12 +2391,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_STATE_TIME:Lcom/google/glass/logging/UserEventAction;
 
-    .line 160
+    .line 174
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "CONNECTIVITY_STATE_SCREEN_ON"
 
-    const/16 v6, 0x71
+    const/16 v6, 0x7d
 
     const-string v7, "9006"
 
@@ -2067,12 +2404,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_STATE_SCREEN_ON:Lcom/google/glass/logging/UserEventAction;
 
-    .line 161
+    .line 175
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "CONNECTIVITY_BT_PAIRING_LOCAL_CANCEL"
 
-    const/16 v6, 0x72
+    const/16 v6, 0x7e
 
     const-string v7, "9007"
 
@@ -2080,12 +2417,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_BT_PAIRING_LOCAL_CANCEL:Lcom/google/glass/logging/UserEventAction;
 
-    .line 162
+    .line 176
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "CONNECTIVITY_BT_PAIRING_REMOTE_CANCEL"
 
-    const/16 v6, 0x73
+    const/16 v6, 0x7f
 
     const-string v7, "9008"
 
@@ -2093,12 +2430,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_BT_PAIRING_REMOTE_CANCEL:Lcom/google/glass/logging/UserEventAction;
 
-    .line 165
+    .line 179
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HEAD_GESTURES_HEAD_WAKE_ENABLED"
 
-    const/16 v6, 0x74
+    const/16 v6, 0x80
 
     const-string v7, "10000"
 
@@ -2106,12 +2443,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HEAD_GESTURES_HEAD_WAKE_ENABLED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 166
+    .line 180
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HEAD_GESTURES_HEAD_WAKE_DISABLED"
 
-    const/16 v6, 0x75
+    const/16 v6, 0x81
 
     const-string v7, "10001"
 
@@ -2119,12 +2456,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HEAD_GESTURES_HEAD_WAKE_DISABLED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 167
+    .line 181
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "HEAD_GESTURES_HEAD_WAKE_ANGLE_SETTING"
 
-    const/16 v6, 0x76
+    const/16 v6, 0x82
 
     const-string v7, "10002"
 
@@ -2132,12 +2469,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->HEAD_GESTURES_HEAD_WAKE_ANGLE_SETTING:Lcom/google/glass/logging/UserEventAction;
 
-    .line 170
+    .line 184
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "EYE_GESTURES_WINK_ENABLED"
 
-    const/16 v6, 0x77
+    const/16 v6, 0x83
 
     const-string v7, "11000"
 
@@ -2145,12 +2482,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_ENABLED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 171
+    .line 185
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "EYE_GESTURES_WINK_DISABLED"
 
-    const/16 v6, 0x78
+    const/16 v6, 0x84
 
     const-string v7, "11001"
 
@@ -2158,12 +2495,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_DISABLED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 172
+    .line 186
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "EYE_GESTURES_WINK_CALIBRATION_SUCCESS"
 
-    const/16 v6, 0x79
+    const/16 v6, 0x85
 
     const-string v7, "11002"
 
@@ -2171,12 +2508,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_CALIBRATION_SUCCESS:Lcom/google/glass/logging/UserEventAction;
 
-    .line 173
+    .line 187
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "EYE_GESTURES_WINK_CALIBRATION_FAILURE"
 
-    const/16 v6, 0x7a
+    const/16 v6, 0x86
 
     const-string v7, "11003"
 
@@ -2184,12 +2521,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_CALIBRATION_FAILURE:Lcom/google/glass/logging/UserEventAction;
 
-    .line 174
+    .line 188
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "EYE_GESTURES_WINK_TAKE_PHOTO"
 
-    const/16 v6, 0x7b
+    const/16 v6, 0x87
 
     const-string v7, "11010"
 
@@ -2197,12 +2534,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_TAKE_PHOTO:Lcom/google/glass/logging/UserEventAction;
 
-    .line 177
+    .line 191
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "BROWSER_PAGE_REQUESTED_EXPLICIT"
 
-    const/16 v6, 0x7c
+    const/16 v6, 0x88
 
     const-string v7, "12000"
 
@@ -2210,12 +2547,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->BROWSER_PAGE_REQUESTED_EXPLICIT:Lcom/google/glass/logging/UserEventAction;
 
-    .line 178
+    .line 192
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "BROWSER_PAGE_REQUESTED_IMPLICIT"
 
-    const/16 v6, 0x7d
+    const/16 v6, 0x89
 
     const-string v7, "12001"
 
@@ -2223,12 +2560,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->BROWSER_PAGE_REQUESTED_IMPLICIT:Lcom/google/glass/logging/UserEventAction;
 
-    .line 179
+    .line 193
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "BROWSER_PAGE_LOADED"
 
-    const/16 v6, 0x7e
+    const/16 v6, 0x8a
 
     const-string v7, "12002"
 
@@ -2236,12 +2573,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->BROWSER_PAGE_LOADED:Lcom/google/glass/logging/UserEventAction;
 
-    .line 180
+    .line 194
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "BROWSER_MENU_OPTION"
 
-    const/16 v6, 0x7f
+    const/16 v6, 0x8b
 
     const-string v7, "12003"
 
@@ -2249,12 +2586,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->BROWSER_MENU_OPTION:Lcom/google/glass/logging/UserEventAction;
 
-    .line 181
+    .line 195
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "BROWSER_TWO_FINGER_ZOOM"
 
-    const/16 v6, 0x80
+    const/16 v6, 0x8c
 
     const-string v7, "12004"
 
@@ -2262,12 +2599,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->BROWSER_TWO_FINGER_ZOOM:Lcom/google/glass/logging/UserEventAction;
 
-    .line 182
+    .line 196
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "BROWSER_ERROR"
 
-    const/16 v6, 0x81
+    const/16 v6, 0x8d
 
     const-string v7, "12005"
 
@@ -2275,12 +2612,77 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->BROWSER_ERROR:Lcom/google/glass/logging/UserEventAction;
 
-    .line 185
+    .line 197
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "BROWSER_PRELOAD_REQUESTED"
+
+    const/16 v6, 0x8e
+
+    const-string v7, "12006"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->BROWSER_PRELOAD_REQUESTED:Lcom/google/glass/logging/UserEventAction;
+
+    .line 198
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "BROWSER_PRELOAD_SUCCESS"
+
+    const/16 v6, 0x8f
+
+    const-string v7, "12007"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->BROWSER_PRELOAD_SUCCESS:Lcom/google/glass/logging/UserEventAction;
+
+    .line 199
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "BROWSER_PRELOAD_ERROR"
+
+    const/16 v6, 0x90
+
+    const-string v7, "12008"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->BROWSER_PRELOAD_ERROR:Lcom/google/glass/logging/UserEventAction;
+
+    .line 200
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "BROWSER_PRELOAD_WASTED"
+
+    const/16 v6, 0x91
+
+    const-string v7, "12009"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->BROWSER_PRELOAD_WASTED:Lcom/google/glass/logging/UserEventAction;
+
+    .line 201
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "BROWSER_SESSION_METRICS"
+
+    const/16 v6, 0x92
+
+    const-string v7, "12010"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->BROWSER_SESSION_METRICS:Lcom/google/glass/logging/UserEventAction;
+
+    .line 204
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "GUEST_MODE_TURNED_ON"
 
-    const/16 v6, 0x82
+    const/16 v6, 0x93
 
     const-string v7, "13000"
 
@@ -2288,12 +2690,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->GUEST_MODE_TURNED_ON:Lcom/google/glass/logging/UserEventAction;
 
-    .line 186
+    .line 205
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "GUEST_MODE_TURNED_OFF"
 
-    const/16 v6, 0x83
+    const/16 v6, 0x94
 
     const-string v7, "13001"
 
@@ -2301,12 +2703,12 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->GUEST_MODE_TURNED_OFF:Lcom/google/glass/logging/UserEventAction;
 
-    .line 189
+    .line 208
     new-instance v4, Lcom/google/glass/logging/UserEventAction;
 
     const-string v5, "COMPANION_SCREENCAST"
 
-    const/16 v6, 0x84
+    const/16 v6, 0x95
 
     const-string v7, "14000"
 
@@ -2314,8 +2716,138 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->COMPANION_SCREENCAST:Lcom/google/glass/logging/UserEventAction;
 
+    .line 211
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "SESSION_MANAGER_SESSION_NEW"
+
+    const/16 v6, 0x96
+
+    const-string v7, "15000"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->SESSION_MANAGER_SESSION_NEW:Lcom/google/glass/logging/UserEventAction;
+
+    .line 212
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "SESSION_MANAGER_SESSION_ESTABLISHED"
+
+    const/16 v6, 0x97
+
+    const-string v7, "15001"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->SESSION_MANAGER_SESSION_ESTABLISHED:Lcom/google/glass/logging/UserEventAction;
+
+    .line 213
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "SESSION_MANAGER_SESSION_VALID"
+
+    const/16 v6, 0x98
+
+    const-string v7, "15002"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->SESSION_MANAGER_SESSION_VALID:Lcom/google/glass/logging/UserEventAction;
+
+    .line 214
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "SESSION_MANAGER_SESSION_INVALID"
+
+    const/16 v6, 0x99
+
+    const-string v7, "15003"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->SESSION_MANAGER_SESSION_INVALID:Lcom/google/glass/logging/UserEventAction;
+
+    .line 215
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "SESSION_MANAGER_SESSION_FINISHED"
+
+    const/16 v6, 0x9a
+
+    const-string v7, "15004"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->SESSION_MANAGER_SESSION_FINISHED:Lcom/google/glass/logging/UserEventAction;
+
+    .line 216
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "SESSION_MANAGER_SESSION_BROKEN"
+
+    const/16 v6, 0x9b
+
+    const-string v7, "15005"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->SESSION_MANAGER_SESSION_BROKEN:Lcom/google/glass/logging/UserEventAction;
+
+    .line 217
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "UPLOAD_SESSION_STARTED"
+
+    const/16 v6, 0x9c
+
+    const-string v7, "15100"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->UPLOAD_SESSION_STARTED:Lcom/google/glass/logging/UserEventAction;
+
+    .line 218
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "UPLOAD_SESSION_CANCELLED"
+
+    const/16 v6, 0x9d
+
+    const-string v7, "15101"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->UPLOAD_SESSION_CANCELLED:Lcom/google/glass/logging/UserEventAction;
+
+    .line 219
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "UPLOAD_SESSION_SERVER_FAILED"
+
+    const/16 v6, 0x9e
+
+    const-string v7, "15102"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->UPLOAD_SESSION_SERVER_FAILED:Lcom/google/glass/logging/UserEventAction;
+
+    .line 220
+    new-instance v4, Lcom/google/glass/logging/UserEventAction;
+
+    const-string v5, "UPLOAD_SESSION_FINISHED"
+
+    const/16 v6, 0x9f
+
+    const-string v7, "15103"
+
+    invoke-direct {v4, v5, v6, v7}, Lcom/google/glass/logging/UserEventAction;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v4, Lcom/google/glass/logging/UserEventAction;->UPLOAD_SESSION_FINISHED:Lcom/google/glass/logging/UserEventAction;
+
     .line 19
-    const/16 v4, 0x85
+    const/16 v4, 0xa0
 
     new-array v4, v4, [Lcom/google/glass/logging/UserEventAction;
 
@@ -2383,43 +2915,43 @@
 
     const/16 v5, 0xc
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_STARTED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_STARTED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0xd
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_RECOGNITION:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_FIRST_RECOGNITION:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0xe
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_MAJEL_RESULT:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_END_OF_SPEECH:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0xf
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_END_OF_SPEECH:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_RECOGNITION:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x10
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_FIRST_RECOGNITION:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_ERROR:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x11
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_ERROR:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_NO_SPEECH_DETECTED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x12
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_DISMISS:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_INPUT_DISMISS:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
@@ -2431,25 +2963,25 @@
 
     const/16 v5, 0x14
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_NO_ANSWER:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_RESULT:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x15
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_FROM_TIMELINE:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_NO_ANSWER:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x16
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_SWIPE:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_FROM_TIMELINE:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x17
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_NO_SPEECH_DETECTED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_SEARCH_SWIPE:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
@@ -2503,626 +3035,788 @@
 
     const/16 v5, 0x20
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->WIFI_BARCODE_SCANNED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->FORCE_EVENT_LOG_FLUSH:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x21
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->WIFI_SCAN_RESULT_TAPPED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_NAVIGATION:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x22
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->WIFI_SETUP_VIA_COMPANION:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VIDEO_PLAYBACK:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x23
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->WIFI_CONNECTED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DEFERRED_CONTENT_LOAD:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x24
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->SEND_MESSAGE_INITIATED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HEADSET_PLUG:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x25
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->SEND_MESSAGE_COMPLETED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->WIFI_BARCODE_SCANNED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x26
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->REPLY_INITIATED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->WIFI_SCAN_RESULT_TAPPED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x27
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->REPLY_COMPLETED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->WIFI_SETUP_VIA_COMPANION:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x28
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->REPLY_ALL_INITIATED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->WIFI_CONNECTED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x29
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->REPLY_ALL_COMPLETED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->SEND_MESSAGE_INITIATED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x2a
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DELETE_INITIATED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->SEND_MESSAGE_COMPLETED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x2b
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DELETE_COMPLETED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->REPLY_INITIATED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x2c
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RETRY_REPLY:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->REPLY_COMPLETED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x2d
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_DOWNSTREAM_SYNC_STARTED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->REPLY_ALL_INITIATED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x2e
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_DOWNSTREAM_SYNC_FINISHED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->REPLY_ALL_COMPLETED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x2f
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_DOWNSTREAM_SYNC_BACKOFF:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DELETE_INITIATED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x30
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_UPSTREAM_SYNC_STARTED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DELETE_COMPLETED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x31
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_UPSTREAM_SYNC_FINISHED_SUCCESSFULLY:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RETRY_REPLY:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x32
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_UPSTREAM_SYNC_FINISHED_WITH_ERROR:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->MESSAGE_REPLY_NO_COMPANION:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x33
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_UPSTREAM_SYNC_BACKOFF:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_DOWNSTREAM_SYNC_STARTED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x34
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_SYNC_TRIGGERED_WITH_NO_CONNECTIVITY:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_DOWNSTREAM_SYNC_FINISHED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x35
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_STARTED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_DOWNSTREAM_SYNC_BACKOFF:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x36
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_RECOVERABLE_ERROR:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_UPSTREAM_SYNC_STARTED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x37
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_FATAL_ERROR:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_UPSTREAM_SYNC_FINISHED_SUCCESSFULLY:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x38
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_RESUMED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_UPSTREAM_SYNC_FINISHED_WITH_ERROR:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x39
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_FINISHED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_UPSTREAM_SYNC_BACKOFF:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x3a
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->ENTITY_SYNC_STARTED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TIMELINE_SYNC_TRIGGERED_WITH_NO_CONNECTIVITY:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x3b
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->ENTITY_SYNC_FINISHED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_STARTED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x3c
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->ENTITY_SYNC_BACKOFF:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_RECOVERABLE_ERROR:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x3d
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DON_DETECTOR_ENABLED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_FATAL_ERROR:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x3e
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DON_DETECTOR_DISABLED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_RESUMED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x3f
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DONNED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RESUMABLE_UPLOADER_UPLOAD_FINISHED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x40
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DOFFED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->ENTITY_SYNC_STARTED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x41
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_MENU_COMMAND_SPOKEN:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->ENTITY_SYNC_FINISHED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x42
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_MENU_COMMAND_TAPPED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->ENTITY_SYNC_BACKOFF:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x43
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_MENU_COMMAND_SPOKEN_SCREEN_OFF:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DON_DETECTOR_ENABLED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x44
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BARCODE_SUCCESSFUL_SCAN:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DON_DETECTOR_DISABLED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x45
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BARCODE_FAILED_SCAN:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DONNED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x46
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BARCODE_PICTURE_SCAN:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DOFFED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x47
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->NAVIGATION_START:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_MENU_COMMAND_SPOKEN:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x48
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->NAVIGATION_END:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_MENU_COMMAND_TAPPED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x49
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->NAVIGATION_TRAVEL_MODE_CHANGE:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VOICE_MENU_COMMAND_SPOKEN_SCREEN_OFF:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x4a
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RECORD_VIDEO_START:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->TOUCH_MENU_ENTITY_SELECTED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x4b
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RECORD_VIDEO_END:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BARCODE_SUCCESSFUL_SCAN:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x4c
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->PROTO_REQUEST_DISPATCHER_BATCH:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BARCODE_FAILED_SCAN:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x4d
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->COMPANION_CONNECTION:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BARCODE_PICTURE_SCAN:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x4e
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->ANDROID_CHECK_IN:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->PEOPLE_GRID_START:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x4f
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DEVICE_STORAGE_STATE_CHANGED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->PEOPLE_GRID_ITEM_SELECTED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x50
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->USER_EVENT_QUEUE_FULL:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->PEOPLE_GRID_FILTERED_TIMELINE:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x51
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->PROTO_REQUEST_DISPATCHER_REQUEST_SIZE:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->PEOPLE_GRID_SEND_MESSAGE:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x52
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ERROR:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->FILTERED_TIMELINE_DISMISS:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x53
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ENTERED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->NAVIGATION_START:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x54
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_CREATED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->NAVIGATION_END:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x55
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_CHAT_MESSAGE_RECEIVED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->NAVIGATION_TRAVEL_MODE_CHANGE:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x56
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_MUTE_REMOTE:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RECORD_VIDEO_START:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x57
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_MUTE_MY_VIDEO:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->RECORD_VIDEO_END:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x58
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_UNMUTE_MY_VIDEO:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->PROTO_REQUEST_DISPATCHER_BATCH:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x59
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_MUTE_MY_AUDIO:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->COMPANION_CONNECTION:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x5a
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_UNMUTE_MY_AUDIO:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->ANDROID_CHECK_IN:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x5b
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_SET_PARTICIPANT_AUTO:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->DEVICE_STORAGE_STATE_CHANGED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x5c
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_SET_PARTICIPANT_SPECIFIC:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->USER_EVENT_QUEUE_FULL:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x5d
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_INVITE:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->PROTO_REQUEST_DISPATCHER_REQUEST_SIZE:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x5e
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ENDED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ERROR:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x5f
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_WAITING_SCREEN_DISMISSED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ENTERED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x60
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ENTERED_FROM_ACTIVE_CARD:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_CREATED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x61
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ENDED_FROM_ACTIVE_CARD:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_CHAT_MESSAGE_RECEIVED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x62
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_INCOMING_HANGOUT:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_MUTE_REMOTE:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x63
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->WAKE_UP_DELAY:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_MUTE_MY_VIDEO:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x64
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CAMERA_TIMINGS:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_UNMUTE_MY_VIDEO:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x65
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->UI_THREAD_QUEUE:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_MUTE_MY_AUDIO:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x66
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->UI_TIME_BETWEEN_RENDERS:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_UNMUTE_MY_AUDIO:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x67
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->UI_TIME_TO_RENDER:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_SET_PARTICIPANT_AUTO:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x68
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VIDEO_TIMINGS:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_SET_PARTICIPANT_SPECIFIC:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x69
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->ARE_YOU_THERE_DIALOG_SHOWN:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_INVITE:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x6a
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->USER_IS_THERE:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ENDED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x6b
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->USER_IS_NOT_THERE:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_WAITING_SCREEN_DISMISSED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x6c
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_BT_PAIRED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ENTERED_FROM_ACTIVE_CARD:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x6d
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_CHECKER:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_ENDED_FROM_ACTIVE_CARD:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x6e
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_BROKEN_NETWORK:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HANGOUTS_INCOMING_HANGOUT:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x6f
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_STATE_PERCENTAGE:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->WAKE_UP_DELAY:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x70
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_STATE_TIME:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CAMERA_TIMINGS:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x71
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_STATE_SCREEN_ON:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->UI_THREAD_QUEUE:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x72
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_BT_PAIRING_LOCAL_CANCEL:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->UI_TIME_BETWEEN_RENDERS:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x73
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_BT_PAIRING_REMOTE_CANCEL:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->UI_TIME_TO_RENDER:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x74
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HEAD_GESTURES_HEAD_WAKE_ENABLED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->VIDEO_TIMINGS:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x75
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HEAD_GESTURES_HEAD_WAKE_DISABLED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->ARE_YOU_THERE_DIALOG_SHOWN:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x76
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HEAD_GESTURES_HEAD_WAKE_ANGLE_SETTING:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->USER_IS_THERE:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x77
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_ENABLED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->USER_IS_NOT_THERE:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x78
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_DISABLED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_BT_PAIRED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x79
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_CALIBRATION_SUCCESS:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_CHECKER:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x7a
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_CALIBRATION_FAILURE:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_BROKEN_NETWORK:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x7b
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_TAKE_PHOTO:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_STATE_PERCENTAGE:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x7c
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_PAGE_REQUESTED_EXPLICIT:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_STATE_TIME:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x7d
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_PAGE_REQUESTED_IMPLICIT:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_STATE_SCREEN_ON:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x7e
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_PAGE_LOADED:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_BT_PAIRING_LOCAL_CANCEL:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x7f
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_MENU_OPTION:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->CONNECTIVITY_BT_PAIRING_REMOTE_CANCEL:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x80
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_TWO_FINGER_ZOOM:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HEAD_GESTURES_HEAD_WAKE_ENABLED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x81
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_ERROR:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HEAD_GESTURES_HEAD_WAKE_DISABLED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x82
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->GUEST_MODE_TURNED_ON:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->HEAD_GESTURES_HEAD_WAKE_ANGLE_SETTING:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x83
 
-    sget-object v6, Lcom/google/glass/logging/UserEventAction;->GUEST_MODE_TURNED_OFF:Lcom/google/glass/logging/UserEventAction;
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_ENABLED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     const/16 v5, 0x84
 
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_DISABLED:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x85
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_CALIBRATION_SUCCESS:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x86
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_CALIBRATION_FAILURE:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x87
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->EYE_GESTURES_WINK_TAKE_PHOTO:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x88
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_PAGE_REQUESTED_EXPLICIT:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x89
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_PAGE_REQUESTED_IMPLICIT:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x8a
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_PAGE_LOADED:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x8b
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_MENU_OPTION:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x8c
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_TWO_FINGER_ZOOM:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x8d
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_ERROR:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x8e
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_PRELOAD_REQUESTED:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x8f
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_PRELOAD_SUCCESS:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x90
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_PRELOAD_ERROR:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x91
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_PRELOAD_WASTED:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x92
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->BROWSER_SESSION_METRICS:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x93
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->GUEST_MODE_TURNED_ON:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x94
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->GUEST_MODE_TURNED_OFF:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x95
+
     sget-object v6, Lcom/google/glass/logging/UserEventAction;->COMPANION_SCREENCAST:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x96
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->SESSION_MANAGER_SESSION_NEW:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x97
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->SESSION_MANAGER_SESSION_ESTABLISHED:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x98
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->SESSION_MANAGER_SESSION_VALID:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x99
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->SESSION_MANAGER_SESSION_INVALID:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x9a
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->SESSION_MANAGER_SESSION_FINISHED:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x9b
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->SESSION_MANAGER_SESSION_BROKEN:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x9c
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->UPLOAD_SESSION_STARTED:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x9d
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->UPLOAD_SESSION_CANCELLED:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x9e
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->UPLOAD_SESSION_SERVER_FAILED:Lcom/google/glass/logging/UserEventAction;
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x9f
+
+    sget-object v6, Lcom/google/glass/logging/UserEventAction;->UPLOAD_SESSION_FINISHED:Lcom/google/glass/logging/UserEventAction;
 
     aput-object v6, v4, v5
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->$VALUES:[Lcom/google/glass/logging/UserEventAction;
 
-    .line 427
+    .line 533
     const-class v4, Lcom/google/glass/logging/UserEventAction;
 
     invoke-static {v4}, Ljava/util/EnumSet;->allOf(Ljava/lang/Class;)Ljava/util/EnumSet;
 
     move-result-object v1
 
-    .line 428
+    .line 534
     .local v1, actionEnumSet:Ljava/util/EnumSet;,"Ljava/util/EnumSet<Lcom/google/glass/logging/UserEventAction;>;"
     invoke-static {}, Lcom/google/common/collect/ImmutableMap;->builder()Lcom/google/common/collect/ImmutableMap$Builder;
 
     move-result-object v3
 
-    .line 429
+    .line 535
     .local v3, nameToActionBuilder:Lcom/google/common/collect/ImmutableMap$Builder;,"Lcom/google/common/collect/ImmutableMap$Builder<Ljava/lang/String;Lcom/google/glass/logging/UserEventAction;>;"
     invoke-virtual {v1}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
 
@@ -3142,7 +3836,7 @@
 
     check-cast v0, Lcom/google/glass/logging/UserEventAction;
 
-    .line 430
+    .line 536
     .local v0, actionEnum:Lcom/google/glass/logging/UserEventAction;
     iget-object v4, v0, Lcom/google/glass/logging/UserEventAction;->action:Ljava/lang/String;
 
@@ -3150,7 +3844,7 @@
 
     goto :goto_0
 
-    .line 432
+    .line 538
     .end local v0           #actionEnum:Lcom/google/glass/logging/UserEventAction;
     :cond_0
     invoke-virtual {v3}, Lcom/google/common/collect/ImmutableMap$Builder;->build()Lcom/google/common/collect/ImmutableMap;
@@ -3159,7 +3853,7 @@
 
     sput-object v4, Lcom/google/glass/logging/UserEventAction;->NAME_TO_ACTION:Lcom/google/common/collect/ImmutableMap;
 
-    .line 433
+    .line 539
     return-void
 .end method
 
@@ -3177,13 +3871,13 @@
     .end annotation
 
     .prologue
-    .line 420
+    .line 526
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 421
+    .line 527
     iput-object p3, p0, Lcom/google/glass/logging/UserEventAction;->action:Ljava/lang/String;
 
-    .line 422
+    .line 528
     return-void
 .end method
 
@@ -3192,7 +3886,7 @@
     .parameter "action"
 
     .prologue
-    .line 440
+    .line 546
     sget-object v0, Lcom/google/glass/logging/UserEventAction;->NAME_TO_ACTION:Lcom/google/common/collect/ImmutableMap;
 
     invoke-virtual {v0, p0}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;

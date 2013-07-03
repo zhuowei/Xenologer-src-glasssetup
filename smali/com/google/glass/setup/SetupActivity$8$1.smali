@@ -37,7 +37,7 @@
     .parameter
 
     .prologue
-    .line 599
+    .line 598
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$8$1;->this$1:Lcom/google/glass/setup/SetupActivity$8;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
     .locals 2
 
     .prologue
-    .line 602
+    .line 601
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$8$1;->this$1:Lcom/google/glass/setup/SetupActivity$8;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$8;->this$0:Lcom/google/glass/setup/SetupActivity;
@@ -65,7 +65,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 603
+    .line 602
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$8$1;->this$1:Lcom/google/glass/setup/SetupActivity$8;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$8;->this$0:Lcom/google/glass/setup/SetupActivity;
@@ -73,7 +73,7 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->handleSetupAccountError()V
     invoke-static {v0}, Lcom/google/glass/setup/SetupActivity;->access$2500(Lcom/google/glass/setup/SetupActivity;)V
 
-    .line 604
+    .line 603
     return-void
 .end method
 
@@ -82,7 +82,7 @@
     .parameter "errorCode"
 
     .prologue
-    .line 608
+    .line 607
     sget-object v0, Lcom/google/googlex/glass/common/proto/ResponseWrapper$ErrorCode;->NETWORK_ERROR:Lcom/google/googlex/glass/common/proto/ResponseWrapper$ErrorCode;
 
     if-ne p1, v0, :cond_0
@@ -100,14 +100,14 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 610
+    .line 609
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$8$1;->this$1:Lcom/google/glass/setup/SetupActivity$8;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$8;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     invoke-static {v0}, Lcom/google/glass/setup/SetupActivity;->access$2608(Lcom/google/glass/setup/SetupActivity;)I
 
-    .line 611
+    .line 610
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$8$1;->this$1:Lcom/google/glass/setup/SetupActivity$8;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$8;->this$0:Lcom/google/glass/setup/SetupActivity;
@@ -152,7 +152,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 613
+    .line 612
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$8$1;->this$1:Lcom/google/glass/setup/SetupActivity$8;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$8;->this$0:Lcom/google/glass/setup/SetupActivity;
@@ -164,11 +164,11 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->setupUserAccount(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/google/glass/setup/SetupActivity;->access$2800(Lcom/google/glass/setup/SetupActivity;Ljava/lang/String;)V
 
-    .line 618
+    .line 617
     :goto_0
     return-void
 
-    .line 615
+    .line 614
     :cond_0
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$8$1;->this$1:Lcom/google/glass/setup/SetupActivity$8;
 
@@ -183,7 +183,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 616
+    .line 615
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$8$1;->this$1:Lcom/google/glass/setup/SetupActivity$8;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$8;->this$0:Lcom/google/glass/setup/SetupActivity;
@@ -199,7 +199,7 @@
     .parameter "responseProto"
 
     .prologue
-    .line 622
+    .line 621
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$8$1;->this$1:Lcom/google/glass/setup/SetupActivity$8;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$8;->this$0:Lcom/google/glass/setup/SetupActivity;
@@ -219,7 +219,7 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->onAccountSetupSucceeded(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v0, v1, v2, v3}, Lcom/google/glass/setup/SetupActivity;->access$3000(Lcom/google/glass/setup/SetupActivity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 624
+    .line 623
     return-void
 .end method
 
@@ -228,7 +228,7 @@
     .parameter "x0"
 
     .prologue
-    .line 599
+    .line 598
     check-cast p1, Lcom/google/googlex/glass/common/proto/SetupUserAccountResponse;
 
     .end local p1

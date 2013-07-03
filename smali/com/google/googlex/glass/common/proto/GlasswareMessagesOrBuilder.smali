@@ -43,6 +43,12 @@
 .method public abstract getShortDescriptionBytes()Lcom/google/protobuf/ByteString;
 .end method
 
+.method public abstract getSpeakableName()Ljava/lang/String;
+.end method
+
+.method public abstract getSpeakableNameBytes()Lcom/google/protobuf/ByteString;
+.end method
+
 .method public abstract hasDescription()Z
 .end method
 
@@ -59,4 +65,7 @@
 .end method
 
 .method public abstract hasShortDescription()Z
+.end method
+
+.method public abstract hasSpeakableName()Z
 .end method

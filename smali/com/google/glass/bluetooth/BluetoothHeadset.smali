@@ -141,7 +141,7 @@
 .end method
 
 .method public static attemptDial(Lcom/google/glass/app/GlassActivity;Ljava/lang/String;)Z
-    .locals 4
+    .locals 3
     .parameter "context"
     .parameter "phoneNumber"
 
@@ -158,15 +158,9 @@
     if-eqz v2, :cond_0
 
     .line 236
-    new-instance v2, Lcom/google/glass/app/GlassError;
+    new-instance v0, Lcom/google/glass/app/GlassError;
 
-    invoke-direct {v2}, Lcom/google/glass/app/GlassError;-><init>()V
-
-    sget v3, Lcom/google/glass/common/R$drawable;->ic_exclamation_big:I
-
-    invoke-virtual {v2, v3}, Lcom/google/glass/app/GlassError;->setIconId(I)Lcom/google/glass/app/GlassError;
-
-    move-result-object v0
+    invoke-direct {v0}, Lcom/google/glass/app/GlassError;-><init>()V
 
     .line 237
     .local v0, error:Lcom/google/glass/app/GlassError;
@@ -187,11 +181,11 @@
 
     invoke-virtual {v1, v2}, Lcom/google/glass/app/GlassError;->setSecondaryMessageId(I)Lcom/google/glass/app/GlassError;
 
-    .line 251
+    .line 252
     :goto_0
     invoke-virtual {v0, p0}, Lcom/google/glass/app/GlassError;->show(Lcom/google/glass/app/GlassActivity;)V
 
-    .line 253
+    .line 254
     .end local v0           #error:Lcom/google/glass/app/GlassError;
     :cond_0
     const/4 v1, 0x0
@@ -225,9 +219,15 @@
 
     invoke-virtual {v1, v2}, Lcom/google/glass/app/GlassError;->setOnConfirmAction(Lcom/google/glass/app/GlassError$OnConfirmAction;)Lcom/google/glass/app/GlassError;
 
+    move-result-object v1
+
+    sget v2, Lcom/google/glass/common/R$drawable;->ic_cloud_sad_big:I
+
+    invoke-virtual {v1, v2}, Lcom/google/glass/app/GlassError;->setIconId(I)Lcom/google/glass/app/GlassError;
+
     goto :goto_0
 
-    .line 245
+    .line 246
     :cond_2
     invoke-static {p0}, Lcom/google/glass/bluetooth/BluetoothHeadset;->isInCallOrCallSetup(Landroid/content/Context;)Z
 
@@ -235,7 +235,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 246
+    .line 247
     sget v2, Lcom/google/glass/common/R$string;->error_phone_in_use:I
 
     invoke-virtual {v0, v2}, Lcom/google/glass/app/GlassError;->setPrimaryMessageId(I)Lcom/google/glass/app/GlassError;
@@ -246,7 +246,7 @@
 
     goto :goto_0
 
-    .line 248
+    .line 249
     :cond_3
     invoke-static {p0, p1}, Lcom/google/glass/bluetooth/BluetoothHeadset;->broadcastDial(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -432,25 +432,21 @@
 .end method
 
 .method public static broadcastDial(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 3
+    .locals 2
     .parameter "context"
     .parameter "phoneNumber"
 
     .prologue
-    .line 261
+    .line 262
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 262
+    .line 263
     .local v0, broadcast:Landroid/content/Intent;
     const-string v1, "com.google.glass.extra.PHONE_NUMBER"
 
-    invoke-static {p1}, Lcom/google/glass/util/PhoneNumberUtils;->formatPhoneNumberForDial(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 264
     const-string v1, "com.google.glass.action.CALL_DIAL"
@@ -525,6 +521,29 @@
     return-void
 .end method
 
+.method public static broadcastRedial(Landroid/content/Context;)V
+    .locals 2
+    .parameter "context"
+
+    .prologue
+    .line 269
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    .line 270
+    .local v0, broadcast:Landroid/content/Intent;
+    const-string v1, "com.google.glass.action.CALL_REDIAL"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 271
+    invoke-virtual {p0, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 272
+    return-void
+.end method
+
 .method public static broadcastRejectCall(Landroid/content/Context;)V
     .locals 2
     .parameter "context"
@@ -565,29 +584,6 @@
     invoke-virtual {p0, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 336
-    return-void
-.end method
-
-.method public static brodcastRedial(Landroid/content/Context;)V
-    .locals 2
-    .parameter "context"
-
-    .prologue
-    .line 269
-    new-instance v0, Landroid/content/Intent;
-
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
-
-    .line 270
-    .local v0, broadcast:Landroid/content/Intent;
-    const-string v1, "com.google.glass.action.CALL_REDIAL"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 271
-    invoke-virtual {p0, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 272
     return-void
 .end method
 

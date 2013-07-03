@@ -34,7 +34,7 @@
     .locals 3
 
     .prologue
-    .line 25
+    .line 23
     const-class v0, Lcom/google/glass/setup/ShutdownHandler;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -43,7 +43,7 @@
 
     sput-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
-    .line 29
+    .line 27
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/String;
@@ -72,49 +72,49 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 72
+    .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 44
+    .line 42
     iput-boolean v2, p0, Lcom/google/glass/setup/ShutdownHandler;->isScheduled:Z
 
-    .line 47
+    .line 45
     iput-boolean v2, p0, Lcom/google/glass/setup/ShutdownHandler;->enabled:Z
 
-    .line 50
+    .line 48
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/google/glass/setup/ShutdownHandler;->isActive:Z
 
-    .line 55
+    .line 53
     new-instance v1, Lcom/google/glass/setup/ShutdownHandler$1;
 
     invoke-direct {v1, p0}, Lcom/google/glass/setup/ShutdownHandler$1;-><init>(Lcom/google/glass/setup/ShutdownHandler;)V
 
     iput-object v1, p0, Lcom/google/glass/setup/ShutdownHandler;->batteryStateReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
-    .line 73
+    .line 71
     iput-object p1, p0, Lcom/google/glass/setup/ShutdownHandler;->context:Landroid/content/Context;
 
-    .line 74
+    .line 72
     new-instance v1, Lcom/google/glass/util/BatteryHelper;
 
     invoke-direct {v1, p1}, Lcom/google/glass/util/BatteryHelper;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/google/glass/setup/ShutdownHandler;->batteryHelper:Lcom/google/glass/util/BatteryHelper;
 
-    .line 76
+    .line 74
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 77
+    .line 75
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "com.google.glass.setup.action.REQUEST_SHUTDOWN"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 78
+    .line 76
     const/high16 v1, 0x800
 
     invoke-static {p1, v2, v0, v1}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
@@ -123,7 +123,7 @@
 
     iput-object v1, p0, Lcom/google/glass/setup/ShutdownHandler;->shutDownIntent:Landroid/app/PendingIntent;
 
-    .line 81
+    .line 79
     const-string v1, "alarm"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -134,7 +134,7 @@
 
     iput-object v1, p0, Lcom/google/glass/setup/ShutdownHandler;->alarm:Landroid/app/AlarmManager;
 
-    .line 82
+    .line 80
     return-void
 .end method
 
@@ -142,7 +142,7 @@
     .locals 1
 
     .prologue
-    .line 24
+    .line 22
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
     return-object v0
@@ -153,7 +153,7 @@
     .parameter "x0"
 
     .prologue
-    .line 24
+    .line 22
     invoke-direct {p0}, Lcom/google/glass/setup/ShutdownHandler;->cancelShutDown()V
 
     return-void
@@ -164,7 +164,7 @@
     .parameter "x0"
 
     .prologue
-    .line 24
+    .line 22
     invoke-direct {p0}, Lcom/google/glass/setup/ShutdownHandler;->scheduleShutDown()V
 
     return-void
@@ -174,39 +174,39 @@
     .locals 2
 
     .prologue
-    .line 124
+    .line 122
     invoke-static {}, Lcom/google/glass/util/Assert;->assertUiThread()V
 
-    .line 125
+    .line 123
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
     const-string v1, "cancel shutdown."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 126
+    .line 124
     iget-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->isScheduled:Z
 
     if-nez v0, :cond_0
 
-    .line 127
+    .line 125
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
     const-string v1, "not scheduled."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 132
+    .line 130
     :goto_0
     return-void
 
-    .line 130
+    .line 128
     :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->isScheduled:Z
 
-    .line 131
+    .line 129
     iget-object v0, p0, Lcom/google/glass/setup/ShutdownHandler;->alarm:Landroid/app/AlarmManager;
 
     iget-object v1, p0, Lcom/google/glass/setup/ShutdownHandler;->shutDownIntent:Landroid/app/PendingIntent;
@@ -220,41 +220,41 @@
     .locals 6
 
     .prologue
-    .line 135
+    .line 133
     invoke-static {}, Lcom/google/glass/util/Assert;->assertUiThread()V
 
-    .line 136
+    .line 134
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
     const-string v1, "try to schedule shutdown."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 138
+    .line 136
     invoke-virtual {p0}, Lcom/google/glass/setup/ShutdownHandler;->isPowered()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 139
+    .line 137
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
     const-string v1, "Skip scheduling since on battery."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 156
+    .line 154
     :goto_0
     return-void
 
-    .line 141
+    .line 139
     :cond_0
     iget-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->enabled:Z
 
     if-nez v0, :cond_1
 
-    .line 142
+    .line 140
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
     const-string v1, "Skip schedule since it is disabled."
@@ -263,13 +263,13 @@
 
     goto :goto_0
 
-    .line 144
+    .line 142
     :cond_1
     iget-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->isActive:Z
 
     if-eqz v0, :cond_2
 
-    .line 145
+    .line 143
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
     const-string v1, "Skip schedule since user\'s interaction is ongoing."
@@ -278,13 +278,13 @@
 
     goto :goto_0
 
-    .line 147
+    .line 145
     :cond_2
     iget-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->isScheduled:Z
 
     if-eqz v0, :cond_3
 
-    .line 148
+    .line 146
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
     const-string v1, "already scheduled."
@@ -293,7 +293,7 @@
 
     goto :goto_0
 
-    .line 152
+    .line 150
     :cond_3
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
@@ -301,12 +301,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 153
+    .line 151
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->isScheduled:Z
 
-    .line 154
+    .line 152
     iget-object v0, p0, Lcom/google/glass/setup/ShutdownHandler;->alarm:Landroid/app/AlarmManager;
 
     const/4 v1, 0x2
@@ -332,38 +332,38 @@
     .locals 2
 
     .prologue
-    .line 102
+    .line 100
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
     const-string v1, "disable"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 103
+    .line 101
     invoke-static {}, Lcom/google/glass/util/Assert;->assertUiThread()V
 
-    .line 104
+    .line 102
     iget-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->enabled:Z
 
     if-eqz v0, :cond_0
 
-    .line 105
+    .line 103
     iget-object v0, p0, Lcom/google/glass/setup/ShutdownHandler;->batteryStateReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
     iget-object v1, p0, Lcom/google/glass/setup/ShutdownHandler;->context:Landroid/content/Context;
 
     invoke-virtual {v0, v1}, Lcom/google/glass/util/SafeBroadcastReceiver;->unregister(Landroid/content/Context;)V
 
-    .line 107
+    .line 105
     :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->enabled:Z
 
-    .line 108
+    .line 106
     invoke-direct {p0}, Lcom/google/glass/setup/ShutdownHandler;->cancelShutDown()V
 
-    .line 109
+    .line 107
     return-void
 .end method
 
@@ -371,22 +371,22 @@
     .locals 3
 
     .prologue
-    .line 115
+    .line 113
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
     const-string v1, "enable"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 116
+    .line 114
     invoke-static {}, Lcom/google/glass/util/Assert;->assertUiThread()V
 
-    .line 117
+    .line 115
     iget-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->enabled:Z
 
     if-nez v0, :cond_0
 
-    .line 118
+    .line 116
     iget-object v0, p0, Lcom/google/glass/setup/ShutdownHandler;->batteryStateReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
     iget-object v1, p0, Lcom/google/glass/setup/ShutdownHandler;->context:Landroid/content/Context;
@@ -395,13 +395,13 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/google/glass/util/SafeBroadcastReceiver;->register(Landroid/content/Context;[Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 120
+    .line 118
     :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->enabled:Z
 
-    .line 121
+    .line 119
     return-void
 .end method
 
@@ -409,7 +409,7 @@
     .locals 1
 
     .prologue
-    .line 159
+    .line 157
     iget-object v0, p0, Lcom/google/glass/setup/ShutdownHandler;->batteryHelper:Lcom/google/glass/util/BatteryHelper;
 
     invoke-virtual {v0}, Lcom/google/glass/util/BatteryHelper;->isPowered()Z
@@ -423,10 +423,10 @@
     .locals 1
 
     .prologue
-    .line 163
+    .line 161
     invoke-static {}, Lcom/google/glass/util/Assert;->assertIsTest()V
 
-    .line 164
+    .line 162
     iget-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->isScheduled:Z
 
     return v0
@@ -436,22 +436,22 @@
     .locals 2
 
     .prologue
-    .line 86
+    .line 84
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
     const-string v1, "markActive"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 87
+    .line 85
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->isActive:Z
 
-    .line 88
+    .line 86
     invoke-direct {p0}, Lcom/google/glass/setup/ShutdownHandler;->cancelShutDown()V
 
-    .line 89
+    .line 87
     return-void
 .end method
 
@@ -459,21 +459,21 @@
     .locals 2
 
     .prologue
-    .line 93
+    .line 91
     sget-object v0, Lcom/google/glass/setup/ShutdownHandler;->TAG:Ljava/lang/String;
 
     const-string v1, "markInactive"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 94
+    .line 92
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/google/glass/setup/ShutdownHandler;->isActive:Z
 
-    .line 95
+    .line 93
     invoke-direct {p0}, Lcom/google/glass/setup/ShutdownHandler;->scheduleShutDown()V
 
-    .line 96
+    .line 94
     return-void
 .end method

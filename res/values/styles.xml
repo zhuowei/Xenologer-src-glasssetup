@@ -1,30 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="gf_PageHeader">
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:orientation">horizontal</item>
-        <item name="android:background">@color/gf_header_background</item>
-        <item name="android:padding">@dimen/gf_padding</item>
-    </style>
-    <style name="gf_SectionHeader">
-        <item name="android:textAppearance">?android:textAppearanceSmall</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:background">@*android:drawable/dark_header</item>
-        <item name="android:paddingLeft">@dimen/gf_padding</item>
-    </style>
-    <style name="gf_Separator">
-        <item name="android:src">@*android:drawable/divider_horizontal_dark</item>
-        <item name="android:scaleType">fitXY</item>
-    </style>
-    <style name="gf_ListItem">
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingLeft">@dimen/gf_list_item_padding</item>
-        <item name="android:paddingTop">3.0dip</item>
-        <item name="android:paddingRight">@dimen/gf_list_item_padding</item>
-        <item name="android:paddingBottom">3.0dip</item>
-        <item name="android:minHeight">@dimen/gf_list_item_height</item>
-    </style>
     <style name="Animation.Fade" parent="@*android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/window_enter_fade</item>
         <item name="android:windowExitAnimation">@anim/window_exit_down</item>
@@ -197,6 +172,10 @@
         <item name="android:singleLine">true</item>
         <item name="fontWeight">light</item>
     </style>
+    <style name="GuardPhraseText" parent="@style/TipsViewText">
+        <item name="android:textSize">@dimen/medium_text_size</item>
+        <item name="fontWeight">thin</item>
+    </style>
     <style name="GlassTheme" parent="@*android:style/Theme">
         <item name="android:screenOrientation">landscape</item>
         <item name="android:windowBackground">@*android:color/black</item>
@@ -220,6 +199,9 @@
     </style>
     <style name="GlassTheme.Translucent.Fade" parent="@style/GlassTheme.Translucent">
         <item name="android:windowAnimationStyle">@style/Animation.Fade</item>
+    </style>
+    <style name="GlassTheme.Translucent.FadeExitOnly" parent="@style/GlassTheme.Translucent">
+        <item name="android:windowAnimationStyle">@style/Animation.FadeExitOnly</item>
     </style>
     <style name="GlassTheme.MainTimeline" parent="@style/GlassTheme">
         <item name="android:windowAnimationStyle">@style/Animation.MainTimeline</item>

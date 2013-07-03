@@ -50,7 +50,7 @@
     .parameter
 
     .prologue
-    .line 492
+    .line 491
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     iput-object p2, p0, Lcom/google/glass/setup/SetupActivity$7;->val$addAccountFuture:Landroid/accounts/AccountManagerFuture;
@@ -77,7 +77,7 @@
     .prologue
     const/4 v13, 0x0
 
-    .line 496
+    .line 495
     :try_start_0
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->val$addAccountFuture:Landroid/accounts/AccountManagerFuture;
 
@@ -91,7 +91,7 @@
 
     check-cast v2, Landroid/os/Bundle;
 
-    .line 498
+    .line 497
     .local v2, addAccountResult:Landroid/os/Bundle;
     const-string v9, "authAccount"
 
@@ -99,7 +99,7 @@
 
     move-result-object v8
 
-    .line 499
+    .line 498
     .local v8, resultUsername:Ljava/lang/String;
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->val$username:Ljava/lang/String;
 
@@ -109,7 +109,7 @@
 
     if-nez v9, :cond_0
 
-    .line 500
+    .line 499
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     #calls: Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
@@ -155,7 +155,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 502
+    .line 501
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     sget v10, Lcom/google/glass/setup/R$string;->network_failed_tips:I
@@ -163,20 +163,20 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->showErrorDialog(I)V
     invoke-static {v9, v10}, Lcom/google/glass/setup/SetupActivity;->access$200(Lcom/google/glass/setup/SetupActivity;I)V
 
-    .line 503
+    .line 502
     const/4 v9, 0x0
 
     invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v9
 
-    .line 535
+    .line 534
     .end local v2           #addAccountResult:Landroid/os/Bundle;
     .end local v8           #resultUsername:Ljava/lang/String;
     :goto_0
     return-object v9
 
-    .line 506
+    .line 505
     .restart local v2       #addAccountResult:Landroid/os/Bundle;
     .restart local v8       #resultUsername:Ljava/lang/String;
     :cond_0
@@ -192,11 +192,11 @@
 
     move-result-object v1
 
-    .line 508
+    .line 507
     .local v1, accounts:[Landroid/accounts/Account;
     const/4 v7, 0x0
 
-    .line 509
+    .line 508
     .local v7, newAccount:Landroid/accounts/Account;
     move-object v3, v1
 
@@ -212,7 +212,7 @@
 
     aget-object v0, v3, v5
 
-    .line 510
+    .line 509
     .local v0, account:Landroid/accounts/Account;
     iget-object v9, v0, Landroid/accounts/Account;->name:Ljava/lang/String;
 
@@ -222,15 +222,15 @@
 
     if-eqz v9, :cond_2
 
-    .line 511
+    .line 510
     move-object v7, v0
 
-    .line 516
+    .line 515
     .end local v0           #account:Landroid/accounts/Account;
     :cond_1
     if-nez v7, :cond_3
 
-    .line 517
+    .line 516
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     #calls: Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
@@ -242,7 +242,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 518
+    .line 517
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     sget v10, Lcom/google/glass/setup/R$string;->network_failed_tips:I
@@ -250,7 +250,7 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->showErrorDialog(I)V
     invoke-static {v9, v10}, Lcom/google/glass/setup/SetupActivity;->access$200(Lcom/google/glass/setup/SetupActivity;I)V
 
-    .line 519
+    .line 518
     const/4 v9, 0x0
 
     invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -259,14 +259,14 @@
 
     goto :goto_0
 
-    .line 509
+    .line 508
     .restart local v0       #account:Landroid/accounts/Account;
     :cond_2
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_1
 
-    .line 522
+    .line 521
     .end local v0           #account:Landroid/accounts/Account;
     :cond_3
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
@@ -298,7 +298,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 523
+    .line 522
     const/4 v9, 0x1
 
     invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -311,7 +311,7 @@
 
     goto :goto_0
 
-    .line 524
+    .line 523
     .end local v1           #accounts:[Landroid/accounts/Account;
     .end local v2           #addAccountResult:Landroid/os/Bundle;
     .end local v3           #arr$:[Landroid/accounts/Account;
@@ -322,7 +322,7 @@
     :catch_0
     move-exception v4
 
-    .line 525
+    .line 524
     .local v4, e:Landroid/accounts/OperationCanceledException;
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
 
@@ -335,7 +335,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 526
+    .line 525
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     sget v10, Lcom/google/glass/setup/R$string;->sign_in_failed_tips:I
@@ -343,19 +343,19 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->showErrorDialog(I)V
     invoke-static {v9, v10}, Lcom/google/glass/setup/SetupActivity;->access$200(Lcom/google/glass/setup/SetupActivity;I)V
 
-    .line 527
+    .line 526
     invoke-static {v13}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v9
 
     goto :goto_0
 
-    .line 528
+    .line 527
     .end local v4           #e:Landroid/accounts/OperationCanceledException;
     :catch_1
     move-exception v4
 
-    .line 529
+    .line 528
     .local v4, e:Landroid/accounts/AuthenticatorException;
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
 
@@ -368,7 +368,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 530
+    .line 529
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     sget v10, Lcom/google/glass/setup/R$string;->sign_in_failed_tips:I
@@ -376,19 +376,19 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->showErrorDialog(I)V
     invoke-static {v9, v10}, Lcom/google/glass/setup/SetupActivity;->access$200(Lcom/google/glass/setup/SetupActivity;I)V
 
-    .line 531
+    .line 530
     invoke-static {v13}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v9
 
     goto/16 :goto_0
 
-    .line 532
+    .line 531
     .end local v4           #e:Landroid/accounts/AuthenticatorException;
     :catch_2
     move-exception v4
 
-    .line 533
+    .line 532
     .local v4, e:Ljava/io/IOException;
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
 
@@ -401,7 +401,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 534
+    .line 533
     iget-object v9, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     sget v10, Lcom/google/glass/setup/R$string;->sign_in_failed_tips:I
@@ -409,7 +409,7 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->showErrorDialog(I)V
     invoke-static {v9, v10}, Lcom/google/glass/setup/SetupActivity;->access$200(Lcom/google/glass/setup/SetupActivity;I)V
 
-    .line 535
+    .line 534
     invoke-static {v13}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v9
@@ -422,7 +422,7 @@
     .parameter "x0"
 
     .prologue
-    .line 492
+    .line 491
     check-cast p1, [Ljava/lang/Void;
 
     .end local p1
@@ -438,14 +438,14 @@
     .parameter "result"
 
     .prologue
-    .line 543
+    .line 542
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 544
+    .line 543
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$7;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     iget-boolean v1, p0, Lcom/google/glass/setup/SetupActivity$7;->val$skipAccountSetup:Z
@@ -455,7 +455,7 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->onLoginSucceeded(ZLjava/lang/String;)V
     invoke-static {v0, v1, v2}, Lcom/google/glass/setup/SetupActivity;->access$2300(Lcom/google/glass/setup/SetupActivity;ZLjava/lang/String;)V
 
-    .line 546
+    .line 545
     :cond_0
     return-void
 .end method
@@ -465,7 +465,7 @@
     .parameter "x0"
 
     .prologue
-    .line 492
+    .line 491
     check-cast p1, Ljava/lang/Boolean;
 
     .end local p1

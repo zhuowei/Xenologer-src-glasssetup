@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 370
+    .line 369
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$5;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     iput-object p2, p0, Lcom/google/glass/setup/SetupActivity$5;->val$loginFields:Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;
@@ -48,7 +48,7 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 378
+    .line 377
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$5;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     sget-object v1, Lcom/google/glass/logging/UserEventAction;->WIFI_CONNECTED:Lcom/google/glass/logging/UserEventAction;
@@ -56,7 +56,7 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->logUserEvent(Lcom/google/glass/logging/UserEventAction;)V
     invoke-static {v0, v1}, Lcom/google/glass/setup/SetupActivity;->access$1100(Lcom/google/glass/setup/SetupActivity;Lcom/google/glass/logging/UserEventAction;)V
 
-    .line 381
+    .line 380
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$5;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     #calls: Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
@@ -68,14 +68,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 384
+    .line 383
     const/4 v8, 0x0
 
-    .line 385
+    .line 384
     .local v8, sync:Z
     const/4 v7, 0x0
 
-    .line 386
+    .line 385
     .local v7, skipAccountSetup:Z
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$5;->this$0:Lcom/google/glass/setup/SetupActivity;
 
@@ -100,7 +100,7 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->setupDeviceTime(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V
     invoke-static/range {v0 .. v6}, Lcom/google/glass/setup/SetupActivity;->access$900(Lcom/google/glass/setup/SetupActivity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V
 
-    .line 388
+    .line 387
     return-void
 .end method
 
@@ -108,7 +108,7 @@
     .locals 2
 
     .prologue
-    .line 373
+    .line 372
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$5;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     sget v1, Lcom/google/glass/setup/R$string;->network_failed_tips:I
@@ -116,6 +116,6 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->showErrorDialog(I)V
     invoke-static {v0, v1}, Lcom/google/glass/setup/SetupActivity;->access$200(Lcom/google/glass/setup/SetupActivity;I)V
 
-    .line 374
+    .line 373
     return-void
 .end method

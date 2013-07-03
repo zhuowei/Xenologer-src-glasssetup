@@ -28,7 +28,9 @@
 
 .field private static final MSG_TEMPORARY_MESSAGE_DONE:I = 0x1
 
-.field private static final TEMPORARY_MESSAGE_DURATION:J = 0x3e8L
+.field private static final TAG:Ljava/lang/String; = null
+
+.field private static final TEMPORARY_MESSAGE_DURATION:J = 0x7d0L
 
 
 # instance fields
@@ -36,19 +38,37 @@
 
 .field private final params:Lcom/google/glass/widget/MessageDialog$Params;
 
+.field private final screenOffReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
+
 .field private final touchDetector:Lcom/google/glass/input/TouchDetector;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .prologue
+    .line 34
+    const-class v0, Lcom/google/glass/widget/MessageDialog;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/google/glass/widget/MessageDialog;->TAG:Ljava/lang/String;
+
+    return-void
+.end method
+
 .method private constructor <init>(Landroid/content/Context;Lcom/google/glass/widget/MessageDialog$Params;)V
     .locals 2
     .parameter "context"
     .parameter "configuration"
 
     .prologue
-    .line 165
+    .line 186
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldAnimate:Z
-    invoke-static {p2}, Lcom/google/glass/widget/MessageDialog$Params;->access$300(Lcom/google/glass/widget/MessageDialog$Params;)Z
+    invoke-static {p2}, Lcom/google/glass/widget/MessageDialog$Params;->access$400(Lcom/google/glass/widget/MessageDialog$Params;)Z
 
     move-result v0
 
@@ -58,26 +78,33 @@
 
     invoke-direct {p0, p1, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
-    .line 131
+    .line 137
     new-instance v0, Lcom/google/glass/widget/MessageDialog$1;
 
     invoke-direct {v0, p0}, Lcom/google/glass/widget/MessageDialog$1;-><init>(Lcom/google/glass/widget/MessageDialog;)V
 
     iput-object v0, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
 
-    .line 166
+    .line 171
+    new-instance v0, Lcom/google/glass/widget/MessageDialog$2;
+
+    invoke-direct {v0, p0}, Lcom/google/glass/widget/MessageDialog$2;-><init>(Lcom/google/glass/widget/MessageDialog;)V
+
+    iput-object v0, p0, Lcom/google/glass/widget/MessageDialog;->screenOffReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
+
+    .line 187
     iput-object p2, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
-    .line 167
+    .line 188
     new-instance v0, Lcom/google/glass/input/TouchDetector;
 
     invoke-direct {v0, p1, p0}, Lcom/google/glass/input/TouchDetector;-><init>(Landroid/content/Context;Lcom/google/glass/input/InputListener;)V
 
     iput-object v0, p0, Lcom/google/glass/widget/MessageDialog;->touchDetector:Lcom/google/glass/input/TouchDetector;
 
-    .line 168
+    .line 189
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->isExpanded:Z
-    invoke-static {p2}, Lcom/google/glass/widget/MessageDialog$Params;->access$400(Lcom/google/glass/widget/MessageDialog$Params;)Z
+    invoke-static {p2}, Lcom/google/glass/widget/MessageDialog$Params;->access$500(Lcom/google/glass/widget/MessageDialog$Params;)Z
 
     move-result v0
 
@@ -87,7 +114,7 @@
 
     invoke-virtual {p0, v0}, Lcom/google/glass/widget/MessageDialog;->setContentView(I)V
 
-    .line 169
+    .line 190
     sget v0, Lcom/google/glass/common/R$id;->ms_dialog:I
 
     invoke-virtual {p0, v0}, Lcom/google/glass/widget/MessageDialog;->findViewById(I)Landroid/view/View;
@@ -95,13 +122,13 @@
     move-result-object v0
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldKeepScreenOn:Z
-    invoke-static {p2}, Lcom/google/glass/widget/MessageDialog$Params;->access$500(Lcom/google/glass/widget/MessageDialog$Params;)Z
+    invoke-static {p2}, Lcom/google/glass/widget/MessageDialog$Params;->access$600(Lcom/google/glass/widget/MessageDialog$Params;)Z
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setKeepScreenOn(Z)V
 
-    .line 170
+    .line 191
     return-void
 .end method
 
@@ -112,7 +139,7 @@
     .parameter "x2"
 
     .prologue
-    .line 29
+    .line 33
     invoke-direct {p0, p1, p2}, Lcom/google/glass/widget/MessageDialog;-><init>(Landroid/content/Context;Lcom/google/glass/widget/MessageDialog$Params;)V
 
     return-void
@@ -123,7 +150,7 @@
     .parameter "x0"
 
     .prologue
-    .line 29
+    .line 33
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->showNormalContent()V
 
     return-void
@@ -134,8 +161,18 @@
     .parameter "x0"
 
     .prologue
-    .line 29
+    .line 33
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
+
+    return-object v0
+.end method
+
+.method static synthetic access$300()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 33
+    sget-object v0, Lcom/google/glass/widget/MessageDialog;->TAG:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -144,21 +181,21 @@
     .locals 2
 
     .prologue
-    .line 289
+    .line 319
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 290
+    .line 320
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 291
+    .line 321
     return-void
 .end method
 
@@ -166,14 +203,14 @@
     .locals 2
 
     .prologue
-    .line 192
+    .line 222
     invoke-virtual {p0}, Lcom/google/glass/widget/MessageDialog;->isShowing()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 193
+    .line 223
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Method not available when the dialog is not showing."
@@ -182,7 +219,7 @@
 
     throw v0
 
-    .line 195
+    .line 225
     :cond_0
     return-void
 .end method
@@ -191,7 +228,7 @@
     .locals 1
 
     .prologue
-    .line 396
+    .line 442
     sget v0, Lcom/google/glass/common/R$id;->icon:I
 
     invoke-virtual {p0, v0}, Lcom/google/glass/widget/MessageDialog;->findViewById(I)Landroid/view/View;
@@ -207,7 +244,7 @@
     .locals 1
 
     .prologue
-    .line 388
+    .line 434
     sget v0, Lcom/google/glass/common/R$id;->label:I
 
     invoke-virtual {p0, v0}, Lcom/google/glass/widget/MessageDialog;->findViewById(I)Landroid/view/View;
@@ -224,7 +261,7 @@
     .parameter "isExpanded"
 
     .prologue
-    .line 361
+    .line 407
     if-eqz p0, :cond_0
 
     sget v0, Lcom/google/glass/common/R$layout;->message_dialog_expanded:I
@@ -242,7 +279,7 @@
     .locals 1
 
     .prologue
-    .line 392
+    .line 438
     sget v0, Lcom/google/glass/common/R$id;->secondary_label:I
 
     invoke-virtual {p0, v0}, Lcom/google/glass/widget/MessageDialog;->findViewById(I)Landroid/view/View;
@@ -258,7 +295,7 @@
     .locals 1
 
     .prologue
-    .line 400
+    .line 446
     sget v0, Lcom/google/glass/common/R$id;->slider:I
 
     invoke-virtual {p0, v0}, Lcom/google/glass/widget/MessageDialog;->findViewById(I)Landroid/view/View;
@@ -275,7 +312,7 @@
     .parameter "shouldAnimate"
 
     .prologue
-    .line 355
+    .line 401
     if-eqz p0, :cond_0
 
     sget v0, Lcom/google/glass/common/R$style;->ContextualDialogTheme:I
@@ -293,7 +330,7 @@
     .locals 1
 
     .prologue
-    .line 407
+    .line 453
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSlider()Lcom/google/glass/widget/SliderView;
 
     move-result-object v0
@@ -322,24 +359,24 @@
 
     const/4 v1, 0x0
 
-    .line 365
+    .line 411
     if-eqz p1, :cond_1
 
-    .line 366
+    .line 412
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getLabel()Landroid/widget/TextView;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 367
+    .line 413
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getLabel()Landroid/widget/TextView;
 
     move-result-object v0
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 371
+    .line 417
     :goto_0
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSecondaryLabel()Landroid/widget/TextView;
 
@@ -347,47 +384,47 @@
 
     if-eqz v0, :cond_0
 
-    .line 372
+    .line 418
     if-eqz p2, :cond_2
 
-    .line 373
+    .line 419
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSecondaryLabel()Landroid/widget/TextView;
 
     move-result-object v0
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 374
+    .line 420
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSecondaryLabel()Landroid/widget/TextView;
 
     move-result-object v0
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 379
+    .line 425
     :cond_0
     :goto_1
     if-eqz p3, :cond_3
 
-    .line 380
+    .line 426
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getIcon()Landroid/widget/ImageView;
 
     move-result-object v0
 
     invoke-virtual {v0, p3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 381
+    .line 427
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getIcon()Landroid/widget/ImageView;
 
     move-result-object v0
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 385
+    .line 431
     :goto_2
     return-void
 
-    .line 369
+    .line 415
     :cond_1
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getLabel()Landroid/widget/TextView;
 
@@ -397,7 +434,7 @@
 
     goto :goto_0
 
-    .line 376
+    .line 422
     :cond_2
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSecondaryLabel()Landroid/widget/TextView;
 
@@ -407,7 +444,7 @@
 
     goto :goto_1
 
-    .line 383
+    .line 429
     :cond_3
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getIcon()Landroid/widget/ImageView;
 
@@ -424,11 +461,11 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 269
+    .line 299
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->sound:Lcom/google/glass/sound/SoundManager$SoundId;
-    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$900(Lcom/google/glass/widget/MessageDialog$Params;)Lcom/google/glass/sound/SoundManager$SoundId;
+    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1100(Lcom/google/glass/widget/MessageDialog$Params;)Lcom/google/glass/sound/SoundManager$SoundId;
 
     move-result-object v2
 
@@ -437,102 +474,102 @@
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->soundManager:Lcom/google/glass/sound/SoundManager;
-    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1000(Lcom/google/glass/widget/MessageDialog$Params;)Lcom/google/glass/sound/SoundManager;
+    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1200(Lcom/google/glass/widget/MessageDialog$Params;)Lcom/google/glass/sound/SoundManager;
 
     move-result-object v2
 
     if-eqz v2, :cond_0
 
-    .line 270
+    .line 300
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->soundManager:Lcom/google/glass/sound/SoundManager;
-    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1000(Lcom/google/glass/widget/MessageDialog$Params;)Lcom/google/glass/sound/SoundManager;
+    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1200(Lcom/google/glass/widget/MessageDialog$Params;)Lcom/google/glass/sound/SoundManager;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->sound:Lcom/google/glass/sound/SoundManager$SoundId;
-    invoke-static {v3}, Lcom/google/glass/widget/MessageDialog$Params;->access$900(Lcom/google/glass/widget/MessageDialog$Params;)Lcom/google/glass/sound/SoundManager$SoundId;
+    invoke-static {v3}, Lcom/google/glass/widget/MessageDialog$Params;->access$1100(Lcom/google/glass/widget/MessageDialog$Params;)Lcom/google/glass/sound/SoundManager$SoundId;
 
     move-result-object v3
 
     invoke-virtual {v2, v3}, Lcom/google/glass/sound/SoundManager;->playSound(Lcom/google/glass/sound/SoundManager$SoundId;)I
 
-    .line 273
+    .line 303
     :cond_0
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->message:Ljava/lang/CharSequence;
-    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1100(Lcom/google/glass/widget/MessageDialog$Params;)Ljava/lang/CharSequence;
+    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1300(Lcom/google/glass/widget/MessageDialog$Params;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->secondaryMessage:Ljava/lang/CharSequence;
-    invoke-static {v3}, Lcom/google/glass/widget/MessageDialog$Params;->access$1200(Lcom/google/glass/widget/MessageDialog$Params;)Ljava/lang/CharSequence;
+    invoke-static {v3}, Lcom/google/glass/widget/MessageDialog$Params;->access$1400(Lcom/google/glass/widget/MessageDialog$Params;)Ljava/lang/CharSequence;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->icon:Landroid/graphics/drawable/Drawable;
-    invoke-static {v4}, Lcom/google/glass/widget/MessageDialog$Params;->access$1300(Lcom/google/glass/widget/MessageDialog$Params;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v4}, Lcom/google/glass/widget/MessageDialog$Params;->access$1500(Lcom/google/glass/widget/MessageDialog$Params;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
 
     invoke-direct {p0, v2, v3, v4}, Lcom/google/glass/widget/MessageDialog;->setContent(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;)V
 
-    .line 274
+    .line 304
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->hasSlider()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 275
+    .line 305
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldShowProgress:Z
-    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1400(Lcom/google/glass/widget/MessageDialog$Params;)Z
+    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1600(Lcom/google/glass/widget/MessageDialog$Params;)Z
 
     move-result v2
 
     if-eqz v2, :cond_3
 
-    .line 276
+    .line 306
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSlider()Lcom/google/glass/widget/SliderView;
 
     move-result-object v2
 
     invoke-virtual {v2, v5}, Lcom/google/glass/widget/SliderView;->setVisibility(I)V
 
-    .line 277
+    .line 307
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSlider()Lcom/google/glass/widget/SliderView;
 
     move-result-object v2
 
     invoke-virtual {v2}, Lcom/google/glass/widget/SliderView;->startIndeterminate()V
 
-    .line 282
+    .line 312
     :cond_1
     :goto_0
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldAutoHide:Z
-    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1500(Lcom/google/glass/widget/MessageDialog$Params;)Z
+    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1700(Lcom/google/glass/widget/MessageDialog$Params;)Z
 
     move-result v2
 
     if-eqz v2, :cond_2
 
-    .line 283
+    .line 313
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->isExpanded:Z
-    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$400(Lcom/google/glass/widget/MessageDialog$Params;)Z
+    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$500(Lcom/google/glass/widget/MessageDialog$Params;)Z
 
     move-result v2
 
@@ -540,7 +577,7 @@
 
     const-wide/16 v0, 0x7d0
 
-    .line 284
+    .line 314
     .local v0, duration:J
     :goto_1
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
@@ -553,12 +590,12 @@
 
     invoke-virtual {v2, v3, v0, v1}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 286
+    .line 316
     .end local v0           #duration:J
     :cond_2
     return-void
 
-    .line 279
+    .line 309
     :cond_3
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSlider()Lcom/google/glass/widget/SliderView;
 
@@ -570,7 +607,7 @@
 
     goto :goto_0
 
-    .line 283
+    .line 313
     :cond_4
     const-wide/16 v0, 0x3e8
 
@@ -581,35 +618,40 @@
     .locals 5
 
     .prologue
-    const-wide/16 v3, 0x3e8
+    const-wide/16 v3, 0x7d0
 
-    .line 259
+    .line 289
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->temporaryMessage:Ljava/lang/CharSequence;
-    invoke-static {v0}, Lcom/google/glass/widget/MessageDialog$Params;->access$700(Lcom/google/glass/widget/MessageDialog$Params;)Ljava/lang/CharSequence;
+    invoke-static {v0}, Lcom/google/glass/widget/MessageDialog$Params;->access$800(Lcom/google/glass/widget/MessageDialog$Params;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
+
+    #getter for: Lcom/google/glass/widget/MessageDialog$Params;->temporarySecondaryMessage:Ljava/lang/CharSequence;
+    invoke-static {v1}, Lcom/google/glass/widget/MessageDialog$Params;->access$900(Lcom/google/glass/widget/MessageDialog$Params;)Ljava/lang/CharSequence;
+
+    move-result-object v1
 
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->temporaryIcon:Landroid/graphics/drawable/Drawable;
-    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$800(Lcom/google/glass/widget/MessageDialog$Params;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v2}, Lcom/google/glass/widget/MessageDialog$Params;->access$1000(Lcom/google/glass/widget/MessageDialog$Params;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
     invoke-direct {p0, v0, v1, v2}, Lcom/google/glass/widget/MessageDialog;->setContent(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;)V
 
-    .line 260
+    .line 290
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->hasSlider()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 261
+    .line 291
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSlider()Lcom/google/glass/widget/SliderView;
 
     move-result-object v0
@@ -618,14 +660,14 @@
 
     invoke-virtual {v0, v1}, Lcom/google/glass/widget/SliderView;->setVisibility(I)V
 
-    .line 262
+    .line 292
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSlider()Lcom/google/glass/widget/SliderView;
 
     move-result-object v0
 
     invoke-virtual {v0, v3, v4}, Lcom/google/glass/widget/SliderView;->startProgress(J)V
 
-    .line 264
+    .line 294
     :cond_0
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
 
@@ -639,7 +681,7 @@
 
     invoke-virtual {v0, v1, v3, v4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 266
+    .line 296
     return-void
 .end method
 
@@ -649,10 +691,10 @@
     .locals 4
 
     .prologue
-    .line 217
+    .line 247
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->checkIsShowing()V
 
-    .line 218
+    .line 248
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
@@ -667,7 +709,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 219
+    .line 249
     return-void
 .end method
 
@@ -677,7 +719,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 295
+    .line 334
     invoke-virtual {p0}, Lcom/google/glass/widget/MessageDialog;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -694,7 +736,7 @@
 
     invoke-virtual {v2, v3}, Lcom/google/glass/sound/SoundManager;->playSound(Lcom/google/glass/sound/SoundManager$SoundId;)I
 
-    .line 296
+    .line 335
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
 
     invoke-virtual {v2, v1}, Landroid/os/Handler;->hasMessages(I)Z
@@ -705,12 +747,12 @@
 
     move v0, v1
 
-    .line 297
+    .line 336
     .local v0, onTemporaryMessage:I
     :goto_0
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->cancelTransitions()V
 
-    .line 299
+    .line 338
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
 
     iget-object v3, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
@@ -723,13 +765,13 @@
 
     invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 301
+    .line 340
     invoke-super {p0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 302
+    .line 341
     return-void
 
-    .line 296
+    .line 335
     .end local v0           #onTemporaryMessage:I
     :cond_0
     const/4 v0, 0x0
@@ -741,17 +783,17 @@
     .locals 2
 
     .prologue
-    .line 226
+    .line 256
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->checkIsShowing()V
 
-    .line 227
+    .line 257
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 228
+    .line 258
     return-void
 .end method
 
@@ -761,10 +803,10 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 306
+    .line 345
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->cancelTransitions()V
 
-    .line 308
+    .line 347
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
@@ -777,31 +819,18 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 310
+    .line 349
     invoke-super {p0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 311
+    .line 350
     return-void
-.end method
-
-.method public onAudioData([BII)Z
-    .locals 1
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "length"
-
-    .prologue
-    .line 415
-    const/4 v0, 0x0
-
-    return v0
 .end method
 
 .method public onCameraButtonPressed()Z
     .locals 1
 
     .prologue
-    .line 446
+    .line 487
     const/4 v0, 0x0
 
     return v0
@@ -813,20 +842,55 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 329
+    .line 368
     iget-object v1, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->shouldHandleConfirm:Z
-    invoke-static {v1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1600(Lcom/google/glass/widget/MessageDialog$Params;)Z
+    invoke-static {v1}, Lcom/google/glass/widget/MessageDialog$Params;->access$1800(Lcom/google/glass/widget/MessageDialog$Params;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
-    .line 330
+    .line 369
+    iget-object v1, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
+
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->hasMessages(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    iget-object v1, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
+
+    #getter for: Lcom/google/glass/widget/MessageDialog$Params;->temporaryMessage:Ljava/lang/CharSequence;
+    invoke-static {v1}, Lcom/google/glass/widget/MessageDialog$Params;->access$800(Lcom/google/glass/widget/MessageDialog$Params;)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 371
+    sget-object v1, Lcom/google/glass/widget/MessageDialog;->TAG:Ljava/lang/String;
+
+    const-string v2, "Temporary message has completed, onDone will be called to listener, do not send onConfirm."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 392
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 376
+    :cond_1
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->cancelTransitions()V
 
-    .line 333
+    .line 379
     iget-object v1, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->listener:Lcom/google/glass/widget/MessageDialog$Listener;
@@ -849,30 +913,27 @@
 
     if-eqz v1, :cond_0
 
-    .line 334
+    .line 380
     invoke-super {p0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 346
-    :cond_0
-    :goto_0
-    return v0
+    goto :goto_0
 
-    .line 341
-    :cond_1
+    .line 387
+    :cond_2
     iget-object v1, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->hasMessages(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
-    .line 342
+    .line 388
     iget-object v1, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 343
+    .line 389
     iget-object v1, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
 
     iget-object v2, p0, Lcom/google/glass/widget/MessageDialog;->handler:Landroid/os/Handler;
@@ -883,8 +944,8 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 346
-    :cond_2
+    .line 392
+    :cond_3
     const/4 v0, 0x0
 
     goto :goto_0
@@ -894,13 +955,13 @@
     .locals 0
 
     .prologue
-    .line 187
+    .line 217
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->cancelTransitions()V
 
-    .line 188
+    .line 218
     invoke-super {p0}, Landroid/app/Dialog;->onDetachedFromWindow()V
 
-    .line 189
+    .line 219
     return-void
 .end method
 
@@ -909,7 +970,7 @@
     .parameter "dismissAction"
 
     .prologue
-    .line 420
+    .line 461
     const/4 v0, 0x0
 
     return v0
@@ -919,7 +980,7 @@
     .locals 1
 
     .prologue
-    .line 351
+    .line 397
     const/4 v0, 0x0
 
     return v0
@@ -931,7 +992,7 @@
     .parameter "wentDown"
 
     .prologue
-    .line 425
+    .line 466
     const/4 v0, 0x0
 
     return v0
@@ -942,12 +1003,12 @@
     .parameter "event"
 
     .prologue
-    .line 315
+    .line 354
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->touchDetector:Lcom/google/glass/input/TouchDetector;
 
     invoke-virtual {v0, p1}, Lcom/google/glass/input/TouchDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
-    .line 317
+    .line 356
     const/4 v0, 0x1
 
     return v0
@@ -964,43 +1025,58 @@
     .parameter "numSwipesY"
 
     .prologue
-    .line 436
+    .line 477
     const/4 v0, 0x0
 
     return v0
 .end method
 
-.method public onResampledAudioData([BII)Z
-    .locals 1
-    .parameter "buffer"
-    .parameter "offset"
-    .parameter "length"
+.method onScreenOff()V
+    .locals 2
+    .annotation build Lcom/google/common/annotations/VisibleForTesting;
+    .end annotation
 
     .prologue
-    .line 472
-    const/4 v0, 0x0
+    .line 326
+    invoke-virtual {p0}, Lcom/google/glass/widget/MessageDialog;->isShowing()Z
 
-    return v0
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 327
+    sget-object v0, Lcom/google/glass/widget/MessageDialog;->TAG:Ljava/lang/String;
+
+    const-string v1, "Cancelling for screen off event."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 328
+    invoke-virtual {p0}, Lcom/google/glass/widget/MessageDialog;->cancel()V
+
+    .line 330
+    :cond_0
+    return-void
 .end method
 
 .method protected onStart()V
-    .locals 1
+    .locals 5
 
     .prologue
-    .line 174
+    .line 195
     invoke-super {p0}, Landroid/app/Dialog;->onStart()V
 
-    .line 176
+    .line 197
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->isDismissable:Z
-    invoke-static {v0}, Lcom/google/glass/widget/MessageDialog$Params;->access$600(Lcom/google/glass/widget/MessageDialog$Params;)Z
+    invoke-static {v0}, Lcom/google/glass/widget/MessageDialog$Params;->access$700(Lcom/google/glass/widget/MessageDialog$Params;)Z
 
     move-result v0
 
     invoke-virtual {p0, v0}, Lcom/google/glass/widget/MessageDialog;->setCancelable(Z)V
 
-    .line 178
+    .line 199
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     invoke-virtual {v0}, Lcom/google/glass/widget/MessageDialog$Params;->hasTemporaryContent()Z
@@ -1012,24 +1088,63 @@
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #getter for: Lcom/google/glass/widget/MessageDialog$Params;->isExpanded:Z
-    invoke-static {v0}, Lcom/google/glass/widget/MessageDialog$Params;->access$400(Lcom/google/glass/widget/MessageDialog$Params;)Z
+    invoke-static {v0}, Lcom/google/glass/widget/MessageDialog$Params;->access$500(Lcom/google/glass/widget/MessageDialog$Params;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 179
+    .line 200
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->showTemporaryContent()V
 
-    .line 183
+    .line 206
     :goto_0
+    iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->screenOffReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
+
+    invoke-virtual {p0}, Lcom/google/glass/widget/MessageDialog;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    const-string v4, "android.intent.action.SCREEN_OFF"
+
+    aput-object v4, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Lcom/google/glass/util/SafeBroadcastReceiver;->register(Landroid/content/Context;[Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 207
     return-void
 
-    .line 181
+    .line 202
     :cond_0
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->showNormalContent()V
 
     goto :goto_0
+.end method
+
+.method protected onStop()V
+    .locals 2
+
+    .prologue
+    .line 211
+    iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->screenOffReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
+
+    invoke-virtual {p0}, Lcom/google/glass/widget/MessageDialog;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/google/glass/util/SafeBroadcastReceiver;->unregister(Landroid/content/Context;)V
+
+    .line 212
+    invoke-super {p0}, Landroid/app/Dialog;->onStop()V
+
+    .line 213
+    return-void
 .end method
 
 .method public onSwipe(ILcom/google/glass/input/SwipeDirection;)Z
@@ -1038,7 +1153,7 @@
     .parameter "direction"
 
     .prologue
-    .line 430
+    .line 471
     const/4 v0, 0x0
 
     return v0
@@ -1049,7 +1164,7 @@
     .parameter "fingerCount"
 
     .prologue
-    .line 441
+    .line 482
     const/4 v0, 0x0
 
     return v0
@@ -1060,7 +1175,7 @@
     .parameter "event"
 
     .prologue
-    .line 323
+    .line 362
     invoke-virtual {p0, p1}, Lcom/google/glass/widget/MessageDialog;->onGenericMotionEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -1074,48 +1189,10 @@
     .parameter "velocity"
 
     .prologue
-    .line 451
+    .line 492
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method public onVoiceAmplitudeChanged(D)Z
-    .locals 1
-    .parameter "amplitude"
-
-    .prologue
-    .line 467
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public onVoiceCommand(Lcom/google/glass/voice/VoiceCommand;)Z
-    .locals 1
-    .parameter "command"
-
-    .prologue
-    .line 462
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public onVoiceServiceConnected()V
-    .locals 0
-
-    .prologue
-    .line 455
-    return-void
-.end method
-
-.method public onVoiceServiceDisconnected()V
-    .locals 0
-
-    .prologue
-    .line 458
-    return-void
 .end method
 
 .method public setDismissable(Z)V
@@ -1123,10 +1200,10 @@
     .parameter "dismissable"
 
     .prologue
-    .line 234
+    .line 264
     invoke-virtual {p0, p1}, Lcom/google/glass/widget/MessageDialog;->setCancelable(Z)V
 
-    .line 235
+    .line 265
     return-void
 .end method
 
@@ -1135,13 +1212,13 @@
     .parameter "listener"
 
     .prologue
-    .line 241
+    .line 271
     iget-object v0, p0, Lcom/google/glass/widget/MessageDialog;->params:Lcom/google/glass/widget/MessageDialog$Params;
 
     #setter for: Lcom/google/glass/widget/MessageDialog$Params;->listener:Lcom/google/glass/widget/MessageDialog$Listener;
     invoke-static {v0, p1}, Lcom/google/glass/widget/MessageDialog$Params;->access$202(Lcom/google/glass/widget/MessageDialog$Params;Lcom/google/glass/widget/MessageDialog$Listener;)Lcom/google/glass/widget/MessageDialog$Listener;
 
-    .line 242
+    .line 272
     return-void
 .end method
 
@@ -1150,17 +1227,17 @@
     .parameter "show"
 
     .prologue
-    .line 248
+    .line 278
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->hasSlider()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 249
+    .line 279
     if-eqz p1, :cond_1
 
-    .line 250
+    .line 280
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSlider()Lcom/google/glass/widget/SliderView;
 
     move-result-object v0
@@ -1169,19 +1246,19 @@
 
     invoke-virtual {v0, v1}, Lcom/google/glass/widget/SliderView;->setVisibility(I)V
 
-    .line 251
+    .line 281
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSlider()Lcom/google/glass/widget/SliderView;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/google/glass/widget/SliderView;->startIndeterminate()V
 
-    .line 256
+    .line 286
     :cond_0
     :goto_0
     return-void
 
-    .line 253
+    .line 283
     :cond_1
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->getSlider()Lcom/google/glass/widget/SliderView;
 
@@ -1200,10 +1277,10 @@
     .parameter "iconId"
 
     .prologue
-    .line 201
+    .line 231
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->checkIsShowing()V
 
-    .line 202
+    .line 232
     invoke-virtual {p0}, Lcom/google/glass/widget/MessageDialog;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1218,7 +1295,7 @@
 
     invoke-virtual {p0, v0, p2}, Lcom/google/glass/widget/MessageDialog;->updateContent(Ljava/lang/CharSequence;I)V
 
-    .line 203
+    .line 233
     return-void
 .end method
 
@@ -1228,10 +1305,10 @@
     .parameter "iconId"
 
     .prologue
-    .line 209
+    .line 239
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog;->checkIsShowing()V
 
-    .line 210
+    .line 240
     const/4 v0, 0x0
 
     invoke-virtual {p0}, Lcom/google/glass/widget/MessageDialog;->getContext()Landroid/content/Context;
@@ -1248,6 +1325,6 @@
 
     invoke-direct {p0, p1, v0, v1}, Lcom/google/glass/widget/MessageDialog;->setContent(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;)V
 
-    .line 211
+    .line 241
     return-void
 .end method

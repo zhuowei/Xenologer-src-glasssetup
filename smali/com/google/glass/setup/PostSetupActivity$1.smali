@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 65
+    .line 66
     iput-object p1, p0, Lcom/google/glass/setup/PostSetupActivity$1;->this$0:Lcom/google/glass/setup/PostSetupActivity;
 
     invoke-direct {p0}, Lcom/google/glass/util/SafeBroadcastReceiver;-><init>()V
@@ -38,7 +38,7 @@
     .locals 2
 
     .prologue
-    .line 78
+    .line 79
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -67,13 +67,13 @@
     return-object v0
 .end method
 
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public onReceiveInternal(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 68
+    .line 69
     invoke-static {}, Lcom/google/glass/setup/PostSetupActivity;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -115,7 +115,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 69
+    .line 70
     const-string v0, "com.google.glass.bluetooth.PAIRING_ONGOING"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -128,7 +128,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 70
+    .line 71
     iget-object v0, p0, Lcom/google/glass/setup/PostSetupActivity$1;->this$0:Lcom/google/glass/setup/PostSetupActivity;
 
     #getter for: Lcom/google/glass/setup/PostSetupActivity;->state:Lcom/google/glass/setup/PostSetupActivity$State;
@@ -140,7 +140,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 71
+    .line 72
     iget-object v0, p0, Lcom/google/glass/setup/PostSetupActivity$1;->this$0:Lcom/google/glass/setup/PostSetupActivity;
 
     sget-object v1, Lcom/google/glass/setup/PostSetupActivity$State;->WELCOME:Lcom/google/glass/setup/PostSetupActivity$State;
@@ -148,7 +148,7 @@
     #setter for: Lcom/google/glass/setup/PostSetupActivity;->state:Lcom/google/glass/setup/PostSetupActivity$State;
     invoke-static {v0, v1}, Lcom/google/glass/setup/PostSetupActivity;->access$102(Lcom/google/glass/setup/PostSetupActivity;Lcom/google/glass/setup/PostSetupActivity$State;)Lcom/google/glass/setup/PostSetupActivity$State;
 
-    .line 74
+    .line 75
     :cond_0
     return-void
 .end method

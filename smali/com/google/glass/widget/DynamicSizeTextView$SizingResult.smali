@@ -30,18 +30,18 @@
     .parameter "textEnd"
 
     .prologue
-    .line 200
+    .line 208
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 201
+    .line 209
     iput p1, p0, Lcom/google/glass/widget/DynamicSizeTextView$SizingResult;->textSize:F
 
-    .line 202
+    .line 210
     iput p2, p0, Lcom/google/glass/widget/DynamicSizeTextView$SizingResult;->numLines:I
 
-    .line 203
+    .line 211
     iput p3, p0, Lcom/google/glass/widget/DynamicSizeTextView$SizingResult;->textEnd:I
 
-    .line 204
+    .line 212
     return-void
 .end method

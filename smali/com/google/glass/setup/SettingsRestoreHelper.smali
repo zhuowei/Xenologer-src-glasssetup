@@ -18,7 +18,7 @@
     .locals 1
 
     .prologue
-    .line 20
+    .line 19
     const-class v0, Lcom/google/glass/setup/SettingsRestoreHelper;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -34,7 +34,7 @@
     .locals 0
 
     .prologue
-    .line 19
+    .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -44,21 +44,23 @@
     .locals 1
 
     .prologue
-    .line 19
+    .line 18
     sget-object v0, Lcom/google/glass/setup/SettingsRestoreHelper;->TAG:Ljava/lang/String;
 
     return-object v0
 .end method
 
 .method public static restoreSettings(Landroid/content/Context;Landroid/accounts/Account;)V
-    .locals 12
+    .locals 13
     .parameter "context"
     .parameter "account"
 
     .prologue
+    const/4 v12, 0x0
+
     const/4 v11, 0x0
 
-    .line 31
+    .line 30
     const-string v7, "wifi"
 
     invoke-virtual {p0, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -67,55 +69,59 @@
 
     check-cast v6, Landroid/net/wifi/WifiManager;
 
-    .line 34
+    .line 33
     .local v6, wifiManager:Landroid/net/wifi/WifiManager;
     invoke-static {}, Lcom/google/glass/util/HiddenApiHelper;->getBackupManager()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 36
+    .line 35
     .local v0, backupManager:Ljava/lang/Object;
     const/4 v7, 0x1
 
     invoke-static {v0, v7}, Lcom/google/glass/util/HiddenApiHelper;->setBackupEnabled(Ljava/lang/Object;Z)V
 
-    .line 37
+    .line 36
     sget-object v7, Lcom/google/glass/setup/SettingsRestoreHelper;->TAG:Ljava/lang/String;
 
     const-string v8, "Enabled backup manager."
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    new-array v9, v11, [Ljava/lang/Object;
 
-    .line 40
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    .line 39
     const-string v7, "com.google.android.backup/.BackupTransportService"
 
     invoke-static {v0, v7}, Lcom/google/glass/util/HiddenApiHelper;->selectBackupTransport(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 41
+    .line 40
     sget-object v7, Lcom/google/glass/setup/SettingsRestoreHelper;->TAG:Ljava/lang/String;
 
     const-string v8, "Selected Google backup transport."
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    new-array v9, v11, [Ljava/lang/Object;
 
-    .line 44
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    .line 43
     new-instance v2, Landroid/content/Intent;
 
     const-string v7, "com.google.android.backup.SetBackupAccount"
 
     invoke-direct {v2, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 45
+    .line 44
     .local v2, intent:Landroid/content/Intent;
     const-string v7, "backupAccount"
 
     invoke-virtual {v2, v7, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 47
+    .line 46
     :try_start_0
     invoke-virtual {p0, v2}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    .line 48
+    .line 47
     const/4 v7, 0x3
 
     sget-object v8, Lcom/google/glass/setup/SettingsRestoreHelper;->TAG:Ljava/lang/String;
@@ -140,37 +146,39 @@
 
     move-result-object v9
 
-    invoke-static {v7, v8, v9}, Lcom/google/glass/util/LogHelper;->logPii(ILjava/lang/String;Ljava/lang/String;)V
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->logPii(ILjava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 56
+    .line 55
     :goto_0
-    invoke-static {v0, v11, v11}, Lcom/google/glass/util/HiddenApiHelper;->beginRestoreSession(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v0, v12, v12}, Lcom/google/glass/util/HiddenApiHelper;->beginRestoreSession(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v4
 
-    .line 57
+    .line 56
     .local v4, restoreSession:Ljava/lang/Object;
     if-nez v4, :cond_0
 
-    .line 58
+    .line 57
     sget-object v7, Lcom/google/glass/setup/SettingsRestoreHelper;->TAG:Ljava/lang/String;
 
     const-string v8, "restoreSession was null."
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    new-array v9, v11, [Ljava/lang/Object;
 
-    .line 108
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->e(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    .line 107
     :goto_1
     return-void
 
-    .line 49
+    .line 48
     .end local v4           #restoreSession:Ljava/lang/Object;
     :catch_0
     move-exception v1
 
-    .line 50
+    .line 49
     .local v1, ex:Landroid/content/ActivityNotFoundException;
     sget-object v7, Lcom/google/glass/setup/SettingsRestoreHelper;->TAG:Ljava/lang/String;
 
@@ -194,11 +202,13 @@
 
     move-result-object v8
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    new-array v9, v11, [Ljava/lang/Object;
+
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->e(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 
-    .line 62
+    .line 61
     .end local v1           #ex:Landroid/content/ActivityNotFoundException;
     .restart local v4       #restoreSession:Ljava/lang/Object;
     :cond_0
@@ -210,13 +220,13 @@
 
     move-result-object v3
 
-    .line 106
+    .line 105
     .local v3, observer:Ljava/lang/Object;
     invoke-static {v4, v3}, Lcom/google/glass/util/HiddenApiHelper;->getAvailableRestoreSets(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v5
 
-    .line 107
+    .line 106
     .local v5, status:I
     sget-object v7, Lcom/google/glass/setup/SettingsRestoreHelper;->TAG:Ljava/lang/String;
 
@@ -238,7 +248,9 @@
 
     move-result-object v8
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    new-array v9, v11, [Ljava/lang/Object;
+
+    invoke-static {v7, v8, v9}, Lcom/google/glass/util/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_1
 .end method

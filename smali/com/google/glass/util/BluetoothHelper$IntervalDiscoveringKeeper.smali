@@ -19,7 +19,7 @@
 
 
 # instance fields
-.field private final btAdapterWrapper:Lcom/google/glass/companion/BluetoothAdapterWrapper;
+.field private final btAdapterWrapper:Lcom/google/glass/bluetooth/BluetoothAdapter;
 
 .field private final discoveringProcessReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
@@ -33,20 +33,20 @@
     .locals 2
 
     .prologue
-    .line 282
+    .line 196
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 277
-    invoke-static {}, Lcom/google/glass/companion/BluetoothAdapterWrapper;->getBluetoothAdapterWrapper()Lcom/google/glass/companion/BluetoothAdapterWrapper;
+    .line 192
+    invoke-static {}, Lcom/google/glass/bluetooth/BluetoothAdapter;->getDefaultAdapter()Lcom/google/glass/bluetooth/BluetoothAdapter;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/companion/BluetoothAdapterWrapper;
+    iput-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/bluetooth/BluetoothAdapter;
 
-    .line 283
+    .line 197
     invoke-static {}, Lcom/google/glass/util/Assert;->assertUiThread()V
 
-    .line 284
+    .line 198
     new-instance v0, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -57,29 +57,29 @@
 
     iput-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->handler:Landroid/os/Handler;
 
-    .line 285
+    .line 199
     new-instance v0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper$1;
 
     invoke-direct {v0, p0}, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper$1;-><init>(Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;)V
 
     iput-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->discoveringProcessReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
-    .line 312
+    .line 226
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->isKeptDiscovering:Z
 
-    .line 313
+    .line 227
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;)Lcom/google/glass/companion/BluetoothAdapterWrapper;
+.method static synthetic access$000(Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;)Lcom/google/glass/bluetooth/BluetoothAdapter;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 270
-    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/companion/BluetoothAdapterWrapper;
+    .line 185
+    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/bluetooth/BluetoothAdapter;
 
     return-object v0
 .end method
@@ -89,7 +89,7 @@
     .parameter "x0"
 
     .prologue
-    .line 270
+    .line 185
     iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->handler:Landroid/os/Handler;
 
     return-object v0
@@ -104,7 +104,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 322
+    .line 236
     invoke-static {}, Lcom/google/glass/util/BluetoothHelper;->access$200()Ljava/lang/String;
 
     move-result-object v0
@@ -131,20 +131,20 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 323
+    .line 237
     invoke-static {}, Lcom/google/glass/util/Assert;->assertUiThread()V
 
-    .line 324
+    .line 238
     iget-boolean v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->isKeptDiscovering:Z
 
     if-eqz v0, :cond_1
 
-    .line 341
+    .line 254
     :cond_0
     :goto_0
     return-void
 
-    .line 327
+    .line 241
     :cond_1
     iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->handler:Landroid/os/Handler;
 
@@ -152,10 +152,10 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
-    .line 328
+    .line 242
     iput-boolean v4, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->isKeptDiscovering:Z
 
-    .line 329
+    .line 243
     iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->discoveringProcessReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
     const/4 v1, 0x2
@@ -174,16 +174,16 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/google/glass/util/SafeBroadcastReceiver;->register(Landroid/content/Context;[Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 333
-    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/companion/BluetoothAdapterWrapper;
+    .line 246
+    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/bluetooth/BluetoothAdapter;
 
-    invoke-virtual {v0}, Lcom/google/glass/companion/BluetoothAdapterWrapper;->isBluetoothEnabled()Z
+    invoke-virtual {v0}, Lcom/google/glass/bluetooth/BluetoothAdapter;->isBluetoothEnabled()Z
 
     move-result v0
 
     if-nez v0, :cond_2
 
-    .line 334
+    .line 247
     invoke-static {}, Lcom/google/glass/util/BluetoothHelper;->access$200()Ljava/lang/String;
 
     move-result-object v0
@@ -194,20 +194,20 @@
 
     goto :goto_0
 
-    .line 338
+    .line 251
     :cond_2
-    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/companion/BluetoothAdapterWrapper;
+    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/bluetooth/BluetoothAdapter;
 
-    invoke-virtual {v0}, Lcom/google/glass/companion/BluetoothAdapterWrapper;->isDiscovering()Z
+    invoke-virtual {v0}, Lcom/google/glass/bluetooth/BluetoothAdapter;->isDiscovering()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 339
-    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/companion/BluetoothAdapterWrapper;
+    .line 252
+    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/bluetooth/BluetoothAdapter;
 
-    invoke-virtual {v0}, Lcom/google/glass/companion/BluetoothAdapterWrapper;->startDiscovery()Z
+    invoke-virtual {v0}, Lcom/google/glass/bluetooth/BluetoothAdapter;->startDiscovery()Z
 
     goto :goto_0
 .end method
@@ -218,7 +218,7 @@
     .parameter "delayMs"
 
     .prologue
-    .line 350
+    .line 263
     invoke-static {}, Lcom/google/glass/util/BluetoothHelper;->access$200()Ljava/lang/String;
 
     move-result-object v0
@@ -255,19 +255,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 352
+    .line 265
     invoke-static {}, Lcom/google/glass/util/Assert;->assertUiThread()V
 
-    .line 353
+    .line 266
     iget-boolean v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->isKeptDiscovering:Z
 
     if-eqz v0, :cond_0
 
-    .line 367
+    .line 280
     :goto_0
     return-void
 
-    .line 356
+    .line 269
     :cond_0
     const-wide/16 v0, 0x0
 
@@ -275,12 +275,12 @@
 
     if-gtz v0, :cond_1
 
-    .line 357
+    .line 270
     invoke-virtual {p0, p1}, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->start(Landroid/content/Context;)V
 
     goto :goto_0
 
-    .line 360
+    .line 273
     :cond_1
     iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->handler:Landroid/os/Handler;
 
@@ -288,7 +288,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
-    .line 361
+    .line 274
     iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->handler:Landroid/os/Handler;
 
     new-instance v1, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper$2;
@@ -305,7 +305,7 @@
     .parameter "context"
 
     .prologue
-    .line 374
+    .line 287
     invoke-static {}, Lcom/google/glass/util/BluetoothHelper;->access$200()Ljava/lang/String;
 
     move-result-object v0
@@ -332,47 +332,47 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 375
+    .line 288
     invoke-static {}, Lcom/google/glass/util/Assert;->assertUiThread()V
 
-    .line 376
+    .line 289
     iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->handler:Landroid/os/Handler;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
-    .line 377
+    .line 290
     iget-boolean v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->isKeptDiscovering:Z
 
     if-nez v0, :cond_1
 
-    .line 389
+    .line 302
     :cond_0
     :goto_0
     return-void
 
-    .line 380
+    .line 293
     :cond_1
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->isKeptDiscovering:Z
 
-    .line 381
+    .line 294
     iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->discoveringProcessReceiver:Lcom/google/glass/util/SafeBroadcastReceiver;
 
     invoke-virtual {v0, p1}, Lcom/google/glass/util/SafeBroadcastReceiver;->unregister(Landroid/content/Context;)V
 
-    .line 382
-    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/companion/BluetoothAdapterWrapper;
+    .line 295
+    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/bluetooth/BluetoothAdapter;
 
-    invoke-virtual {v0}, Lcom/google/glass/companion/BluetoothAdapterWrapper;->isBluetoothEnabled()Z
+    invoke-virtual {v0}, Lcom/google/glass/bluetooth/BluetoothAdapter;->isBluetoothEnabled()Z
 
     move-result v0
 
     if-nez v0, :cond_2
 
-    .line 383
+    .line 296
     invoke-static {}, Lcom/google/glass/util/BluetoothHelper;->access$200()Ljava/lang/String;
 
     move-result-object v0
@@ -383,20 +383,20 @@
 
     goto :goto_0
 
-    .line 386
+    .line 299
     :cond_2
-    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/companion/BluetoothAdapterWrapper;
+    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/bluetooth/BluetoothAdapter;
 
-    invoke-virtual {v0}, Lcom/google/glass/companion/BluetoothAdapterWrapper;->isDiscovering()Z
+    invoke-virtual {v0}, Lcom/google/glass/bluetooth/BluetoothAdapter;->isDiscovering()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 387
-    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/companion/BluetoothAdapterWrapper;
+    .line 300
+    iget-object v0, p0, Lcom/google/glass/util/BluetoothHelper$IntervalDiscoveringKeeper;->btAdapterWrapper:Lcom/google/glass/bluetooth/BluetoothAdapter;
 
-    invoke-virtual {v0}, Lcom/google/glass/companion/BluetoothAdapterWrapper;->cancelDiscovery()Z
+    invoke-virtual {v0}, Lcom/google/glass/bluetooth/BluetoothAdapter;->cancelDiscovery()Z
 
     goto :goto_0
 .end method

@@ -101,10 +101,10 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 107
+    .line 102
     iget-object v0, p1, Lcom/google/android/libraries/barhopper/Barcode;->rawValue:Ljava/lang/String;
 
-    .line 108
+    .line 103
     .local v0, barcodeValue:Ljava/lang/String;
     iget v4, p1, Lcom/google/android/libraries/barhopper/Barcode;->format:I
 
@@ -112,7 +112,7 @@
 
     if-eq v4, v5, :cond_1
 
-    .line 109
+    .line 104
     invoke-virtual {p0}, Lcom/google/glass/setup/BarcodeScanActivity;->getTag()Ljava/lang/String;
 
     move-result-object v4
@@ -149,44 +149,44 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 123
+    .line 118
     :cond_0
     :goto_0
     return v3
 
-    .line 114
+    .line 109
     :cond_1
     invoke-static {v0}, Lcom/google/glass/util/SetupHelper;->parseBarcodeValue(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 115
+    .line 110
     .local v1, bundle:Landroid/os/Bundle;
     if-eqz v1, :cond_0
 
-    .line 116
+    .line 111
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    .line 117
+    .line 112
     .local v2, returnIntent:Landroid/content/Intent;
     invoke-virtual {v2, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 118
+    .line 113
     const/4 v3, -0x1
 
     invoke-virtual {p0, v3, v2}, Lcom/google/glass/setup/BarcodeScanActivity;->setResult(ILandroid/content/Intent;)V
 
-    .line 119
+    .line 114
     sget-object v3, Lcom/google/glass/logging/UserEventAction;->SETUP_BARCODE_SCANNED:Lcom/google/glass/logging/UserEventAction;
 
     invoke-virtual {p0, v3}, Lcom/google/glass/setup/BarcodeScanActivity;->logUserEvent(Lcom/google/glass/logging/UserEventAction;)V
 
-    .line 120
+    .line 115
     invoke-virtual {p0}, Lcom/google/glass/setup/BarcodeScanActivity;->finish()V
 
-    .line 121
+    .line 116
     const/4 v3, 0x1
 
     goto :goto_0
@@ -223,20 +223,20 @@
     .locals 1
 
     .prologue
-    .line 95
+    .line 90
     iget-object v0, p0, Lcom/google/glass/setup/BarcodeScanActivity;->barcodeScanner:Lcom/google/glass/barcode/BarcodeScanner;
 
     invoke-virtual {v0}, Lcom/google/glass/barcode/BarcodeScanner;->stopScanning()V
 
-    .line 96
+    .line 91
     iget-object v0, p0, Lcom/google/glass/setup/BarcodeScanActivity;->barcodeScanner:Lcom/google/glass/barcode/BarcodeScanner;
 
-    invoke-virtual {v0, p0}, Lcom/google/glass/barcode/BarcodeScanner;->unbindCamera(Landroid/content/Context;)V
+    invoke-virtual {v0}, Lcom/google/glass/barcode/BarcodeScanner;->unbindCamera()V
 
-    .line 98
+    .line 93
     invoke-super {p0}, Lcom/google/glass/app/GlassActivity;->onPause()V
 
-    .line 99
+    .line 94
     return-void
 .end method
 
@@ -244,20 +244,20 @@
     .locals 1
 
     .prologue
-    .line 87
+    .line 82
     invoke-super {p0}, Lcom/google/glass/app/GlassActivity;->onResume()V
 
-    .line 89
+    .line 84
     iget-object v0, p0, Lcom/google/glass/setup/BarcodeScanActivity;->barcodeScanner:Lcom/google/glass/barcode/BarcodeScanner;
 
-    invoke-virtual {v0, p0}, Lcom/google/glass/barcode/BarcodeScanner;->bindCamera(Landroid/content/Context;)V
+    invoke-virtual {v0}, Lcom/google/glass/barcode/BarcodeScanner;->bindCamera()V
 
-    .line 90
+    .line 85
     iget-object v0, p0, Lcom/google/glass/setup/BarcodeScanActivity;->barcodeScanner:Lcom/google/glass/barcode/BarcodeScanner;
 
     invoke-virtual {v0}, Lcom/google/glass/barcode/BarcodeScanner;->startScanning()V
 
-    .line 91
+    .line 86
     return-void
 .end method
 
@@ -275,17 +275,7 @@
     .locals 1
 
     .prologue
-    .line 129
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method protected shouldAllowVoiceInput()Z
-    .locals 1
-
-    .prologue
-    .line 82
+    .line 124
     const/4 v0, 0x0
 
     return v0

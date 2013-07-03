@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 817
+    .line 816
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$11$1;->this$1:Lcom/google/glass/setup/SetupActivity$11;
 
     invoke-direct {p0}, Lcom/google/glass/widget/MessageDialog$SimpleListener;-><init>()V
@@ -38,14 +38,14 @@
     .locals 1
 
     .prologue
-    .line 827
+    .line 826
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$11$1;->this$1:Lcom/google/glass/setup/SetupActivity$11;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$11;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     invoke-virtual {v0}, Lcom/google/glass/setup/SetupActivity;->onConfirm()Z
 
-    .line 828
+    .line 827
     const/4 v0, 0x1
 
     return v0
@@ -55,7 +55,7 @@
     .locals 2
 
     .prologue
-    .line 820
+    .line 819
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$11$1;->this$1:Lcom/google/glass/setup/SetupActivity$11;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$11;->this$0:Lcom/google/glass/setup/SetupActivity;
@@ -66,7 +66,7 @@
 
     if-nez v0, :cond_0
 
-    .line 821
+    .line 820
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$11$1;->this$1:Lcom/google/glass/setup/SetupActivity$11;
 
     iget-object v0, v0, Lcom/google/glass/setup/SetupActivity$11;->this$0:Lcom/google/glass/setup/SetupActivity;
@@ -80,7 +80,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 823
+    .line 822
     :cond_0
     return-void
 .end method

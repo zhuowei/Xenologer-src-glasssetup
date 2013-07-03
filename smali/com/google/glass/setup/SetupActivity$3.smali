@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 308
+    .line 307
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$3;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     iput-object p2, p0, Lcom/google/glass/setup/SetupActivity$3;->val$data:Landroid/content/Intent;
@@ -51,7 +51,7 @@
     .locals 7
 
     .prologue
-    .line 316
+    .line 315
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$3;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     #calls: Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
@@ -63,7 +63,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 317
+    .line 316
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$3;->val$data:Landroid/content/Intent;
 
     const-string v1, "sync"
@@ -74,7 +74,7 @@
 
     move-result v5
 
-    .line 318
+    .line 317
     .local v5, sync:Z
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$3;->val$data:Landroid/content/Intent;
 
@@ -86,7 +86,7 @@
 
     move-result v6
 
-    .line 320
+    .line 319
     .local v6, skipAccountSetup:Z
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$3;->this$0:Lcom/google/glass/setup/SetupActivity;
 
@@ -119,7 +119,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 321
+    .line 320
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$3;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     #calls: Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
@@ -151,7 +151,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 322
+    .line 321
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$3;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     iget-object v1, p0, Lcom/google/glass/setup/SetupActivity$3;->val$loginFields:Lcom/google/glass/setup/SetupActivity$LoginFieldsHelper;
@@ -173,7 +173,7 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->setupDeviceTime(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V
     invoke-static/range {v0 .. v6}, Lcom/google/glass/setup/SetupActivity;->access$900(Lcom/google/glass/setup/SetupActivity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V
 
-    .line 324
+    .line 323
     return-void
 .end method
 
@@ -181,7 +181,7 @@
     .locals 2
 
     .prologue
-    .line 311
+    .line 310
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$3;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     #calls: Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
@@ -193,6 +193,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 312
+    .line 311
     return-void
 .end method

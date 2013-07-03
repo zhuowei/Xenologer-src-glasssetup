@@ -36,7 +36,7 @@
     .parameter
 
     .prologue
-    .line 652
+    .line 651
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$9;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     iput-object p2, p0, Lcom/google/glass/setup/SetupActivity$9;->val$authUtils:Lcom/google/glass/util/AuthUtils;
@@ -58,7 +58,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 655
+    .line 654
     iget-object v2, p0, Lcom/google/glass/setup/SetupActivity$9;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     const-string v3, "device_policy"
@@ -69,7 +69,7 @@
 
     check-cast v0, Landroid/app/admin/DevicePolicyManager;
 
-    .line 657
+    .line 656
     .local v0, manager:Landroid/app/admin/DevicePolicyManager;
     new-instance v1, Landroid/content/ComponentName;
 
@@ -79,11 +79,11 @@
 
     invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 659
+    .line 658
     .local v1, policyReceiver:Landroid/content/ComponentName;
     invoke-static {v0, v1, v4}, Lcom/google/glass/util/HiddenApiHelper;->setActiveAdmin(Landroid/app/admin/DevicePolicyManager;Landroid/content/ComponentName;Z)V
 
-    .line 662
+    .line 661
     iget-object v2, p0, Lcom/google/glass/setup/SetupActivity$9;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     iget-object v3, p0, Lcom/google/glass/setup/SetupActivity$9;->val$authUtils:Lcom/google/glass/util/AuthUtils;
@@ -94,7 +94,7 @@
 
     invoke-static {v2, v3}, Lcom/google/glass/setup/SettingsRestoreHelper;->restoreSettings(Landroid/content/Context;Landroid/accounts/Account;)V
 
-    .line 665
+    .line 664
     iget-object v2, p0, Lcom/google/glass/setup/SetupActivity$9;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     iget-object v3, p0, Lcom/google/glass/setup/SetupActivity$9;->val$displayName:Ljava/lang/String;
@@ -102,7 +102,7 @@
     #calls: Lcom/google/glass/setup/SetupActivity;->updateBluetoothDeviceName(Ljava/lang/String;)V
     invoke-static {v2, v3}, Lcom/google/glass/setup/SetupActivity;->access$3200(Lcom/google/glass/setup/SetupActivity;Ljava/lang/String;)V
 
-    .line 669
+    .line 668
     iget-object v2, p0, Lcom/google/glass/setup/SetupActivity$9;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     #calls: Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
@@ -114,7 +114,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 670
+    .line 669
     iget-object v2, p0, Lcom/google/glass/setup/SetupActivity$9;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     invoke-virtual {v2}, Lcom/google/glass/setup/SetupActivity;->getContentResolver()Landroid/content/ContentResolver;
@@ -125,13 +125,13 @@
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 673
+    .line 672
     iget-object v2, p0, Lcom/google/glass/setup/SetupActivity$9;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     #calls: Lcom/google/glass/setup/SetupActivity;->disableSetup()V
     invoke-static {v2}, Lcom/google/glass/setup/SetupActivity;->access$3400(Lcom/google/glass/setup/SetupActivity;)V
 
-    .line 675
+    .line 674
     invoke-static {}, Lcom/google/glass/util/MainThreadExecutorManager;->getMainThreadExecutor()Ljava/util/concurrent/Executor;
 
     move-result-object v2
@@ -142,6 +142,6 @@
 
     invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 707
+    .line 706
     return-void
 .end method

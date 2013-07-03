@@ -49,26 +49,26 @@
     .locals 1
 
     .prologue
-    .line 7982
+    .line 11426
     invoke-direct {p0}, Lcom/google/protobuf/GeneratedMessageLite$Builder;-><init>()V
 
-    .line 8333
+    .line 11778
     const-string v0, ""
 
     iput-object v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
 
-    .line 7983
+    .line 11427
     invoke-direct {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->maybeForceBuilderInitialization()V
 
-    .line 7984
+    .line 11428
     return-void
 .end method
 
-.method static synthetic access$6200()Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
+.method static synthetic access$10800()Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
     .locals 1
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-static {}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->create()Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
     move-result-object v0
@@ -80,7 +80,7 @@
     .locals 1
 
     .prologue
-    .line 7989
+    .line 11433
     new-instance v0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
     invoke-direct {v0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;-><init>()V
@@ -92,7 +92,7 @@
     .locals 0
 
     .prologue
-    .line 7987
+    .line 11431
     return-void
 .end method
 
@@ -102,12 +102,12 @@
     .locals 2
 
     .prologue
-    .line 8018
+    .line 11462
     invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->buildPartial()Lcom/google/glass/companion/Proto$CompanionInfo;
 
     move-result-object v0
 
-    .line 8019
+    .line 11463
     .local v0, result:Lcom/google/glass/companion/Proto$CompanionInfo;
     invoke-virtual {v0}, Lcom/google/glass/companion/Proto$CompanionInfo;->isInitialized()Z
 
@@ -115,14 +115,14 @@
 
     if-nez v1, :cond_0
 
-    .line 8020
+    .line 11464
     invoke-static {v0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->newUninitializedMessageException(Lcom/google/protobuf/MessageLite;)Lcom/google/protobuf/UninitializedMessageException;
 
     move-result-object v1
 
     throw v1
 
-    .line 8022
+    .line 11466
     :cond_0
     return-object v0
 .end method
@@ -131,7 +131,7 @@
     .locals 1
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->build()Lcom/google/glass/companion/Proto$CompanionInfo;
 
     move-result-object v0
@@ -143,22 +143,22 @@
     .locals 5
 
     .prologue
-    .line 8026
+    .line 11470
     new-instance v1, Lcom/google/glass/companion/Proto$CompanionInfo;
 
     const/4 v3, 0x0
 
     invoke-direct {v1, p0, v3}, Lcom/google/glass/companion/Proto$CompanionInfo;-><init>(Lcom/google/protobuf/GeneratedMessageLite$Builder;Lcom/google/glass/companion/Proto$1;)V
 
-    .line 8027
+    .line 11471
     .local v1, result:Lcom/google/glass/companion/Proto$CompanionInfo;
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8028
+    .line 11472
     .local v0, from_bitField0_:I
     const/4 v2, 0x0
 
-    .line 8029
+    .line 11473
     .local v2, to_bitField0_:I
     and-int/lit8 v3, v0, 0x1
 
@@ -166,106 +166,106 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 8030
+    .line 11474
     or-int/lit8 v2, v2, 0x1
 
-    .line 8032
+    .line 11476
     :cond_0
     iget-wide v3, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->id_:J
 
     #setter for: Lcom/google/glass/companion/Proto$CompanionInfo;->id_:J
-    invoke-static {v1, v3, v4}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$6402(Lcom/google/glass/companion/Proto$CompanionInfo;J)J
+    invoke-static {v1, v3, v4}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$11002(Lcom/google/glass/companion/Proto$CompanionInfo;J)J
 
-    .line 8033
+    .line 11477
     and-int/lit8 v3, v0, 0x2
 
     const/4 v4, 0x2
 
     if-ne v3, v4, :cond_1
 
-    .line 8034
+    .line 11478
     or-int/lit8 v2, v2, 0x2
 
-    .line 8036
+    .line 11480
     :cond_1
     iget-boolean v3, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->requestNetwork_:Z
 
     #setter for: Lcom/google/glass/companion/Proto$CompanionInfo;->requestNetwork_:Z
-    invoke-static {v1, v3}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$6502(Lcom/google/glass/companion/Proto$CompanionInfo;Z)Z
+    invoke-static {v1, v3}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$11102(Lcom/google/glass/companion/Proto$CompanionInfo;Z)Z
 
-    .line 8037
+    .line 11481
     and-int/lit8 v3, v0, 0x4
 
     const/4 v4, 0x4
 
     if-ne v3, v4, :cond_2
 
-    .line 8038
+    .line 11482
     or-int/lit8 v2, v2, 0x4
 
-    .line 8040
+    .line 11484
     :cond_2
     iget-boolean v3, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseIsNetworkOk_:Z
 
     #setter for: Lcom/google/glass/companion/Proto$CompanionInfo;->responseIsNetworkOk_:Z
-    invoke-static {v1, v3}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$6602(Lcom/google/glass/companion/Proto$CompanionInfo;Z)Z
+    invoke-static {v1, v3}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$11202(Lcom/google/glass/companion/Proto$CompanionInfo;Z)Z
 
-    .line 8041
+    .line 11485
     and-int/lit8 v3, v0, 0x8
 
     const/16 v4, 0x8
 
     if-ne v3, v4, :cond_3
 
-    .line 8042
+    .line 11486
     or-int/lit8 v2, v2, 0x8
 
-    .line 8044
+    .line 11488
     :cond_3
     iget v3, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseAndroidVersion_:I
 
     #setter for: Lcom/google/glass/companion/Proto$CompanionInfo;->responseAndroidVersion_:I
-    invoke-static {v1, v3}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$6702(Lcom/google/glass/companion/Proto$CompanionInfo;I)I
+    invoke-static {v1, v3}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$11302(Lcom/google/glass/companion/Proto$CompanionInfo;I)I
 
-    .line 8045
+    .line 11489
     and-int/lit8 v3, v0, 0x10
 
     const/16 v4, 0x10
 
     if-ne v3, v4, :cond_4
 
-    .line 8046
+    .line 11490
     or-int/lit8 v2, v2, 0x10
 
-    .line 8048
+    .line 11492
     :cond_4
     iget-boolean v3, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->requestLog_:Z
 
     #setter for: Lcom/google/glass/companion/Proto$CompanionInfo;->requestLog_:Z
-    invoke-static {v1, v3}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$6802(Lcom/google/glass/companion/Proto$CompanionInfo;Z)Z
+    invoke-static {v1, v3}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$11402(Lcom/google/glass/companion/Proto$CompanionInfo;Z)Z
 
-    .line 8049
+    .line 11493
     and-int/lit8 v3, v0, 0x20
 
     const/16 v4, 0x20
 
     if-ne v3, v4, :cond_5
 
-    .line 8050
+    .line 11494
     or-int/lit8 v2, v2, 0x20
 
-    .line 8052
+    .line 11496
     :cond_5
     iget-object v3, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
 
     #setter for: Lcom/google/glass/companion/Proto$CompanionInfo;->responseLog_:Ljava/lang/Object;
-    invoke-static {v1, v3}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$6902(Lcom/google/glass/companion/Proto$CompanionInfo;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v1, v3}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$11502(Lcom/google/glass/companion/Proto$CompanionInfo;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 8053
+    .line 11497
     #setter for: Lcom/google/glass/companion/Proto$CompanionInfo;->bitField0_:I
-    invoke-static {v1, v2}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$7002(Lcom/google/glass/companion/Proto$CompanionInfo;I)I
+    invoke-static {v1, v2}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$11602(Lcom/google/glass/companion/Proto$CompanionInfo;I)I
 
-    .line 8054
+    .line 11498
     return-object v1
 .end method
 
@@ -273,7 +273,7 @@
     .locals 1
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->buildPartial()Lcom/google/glass/companion/Proto$CompanionInfo;
 
     move-result-object v0
@@ -287,74 +287,74 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 7993
+    .line 11437
     invoke-super {p0}, Lcom/google/protobuf/GeneratedMessageLite$Builder;->clear()Lcom/google/protobuf/GeneratedMessageLite$Builder;
 
-    .line 7994
+    .line 11438
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->id_:J
 
-    .line 7995
+    .line 11439
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x2
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 7996
+    .line 11440
     iput-boolean v2, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->requestNetwork_:Z
 
-    .line 7997
+    .line 11441
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x3
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 7998
+    .line 11442
     iput-boolean v2, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseIsNetworkOk_:Z
 
-    .line 7999
+    .line 11443
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x5
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8000
+    .line 11444
     iput v2, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseAndroidVersion_:I
 
-    .line 8001
+    .line 11445
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x9
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8002
+    .line 11446
     iput-boolean v2, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->requestLog_:Z
 
-    .line 8003
+    .line 11447
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x11
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8004
+    .line 11448
     const-string v0, ""
 
     iput-object v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
 
-    .line 8005
+    .line 11449
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x21
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8006
+    .line 11450
     return-object p0
 .end method
 
@@ -362,7 +362,7 @@
     .locals 1
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->clear()Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
     move-result-object v0
@@ -374,7 +374,7 @@
     .locals 1
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->clear()Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
     move-result-object v0
@@ -386,19 +386,19 @@
     .locals 2
 
     .prologue
-    .line 8135
+    .line 11580
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x2
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8136
+    .line 11581
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->id_:J
 
-    .line 8138
+    .line 11583
     return-object p0
 .end method
 
@@ -406,19 +406,19 @@
     .locals 1
 
     .prologue
-    .line 8327
+    .line 11772
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x11
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8328
+    .line 11773
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->requestLog_:Z
 
-    .line 8330
+    .line 11775
     return-object p0
 .end method
 
@@ -426,19 +426,19 @@
     .locals 1
 
     .prologue
-    .line 8183
+    .line 11628
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x3
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8184
+    .line 11629
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->requestNetwork_:Z
 
-    .line 8186
+    .line 11631
     return-object p0
 .end method
 
@@ -446,19 +446,19 @@
     .locals 1
 
     .prologue
-    .line 8279
+    .line 11724
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x9
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8280
+    .line 11725
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseAndroidVersion_:I
 
-    .line 8282
+    .line 11727
     return-object p0
 .end method
 
@@ -466,19 +466,19 @@
     .locals 1
 
     .prologue
-    .line 8231
+    .line 11676
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x5
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8232
+    .line 11677
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseIsNetworkOk_:Z
 
-    .line 8234
+    .line 11679
     return-object p0
 .end method
 
@@ -486,14 +486,14 @@
     .locals 1
 
     .prologue
-    .line 8407
+    .line 11855
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, -0x21
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8408
+    .line 11856
     invoke-static {}, Lcom/google/glass/companion/Proto$CompanionInfo;->getDefaultInstance()Lcom/google/glass/companion/Proto$CompanionInfo;
 
     move-result-object v0
@@ -504,7 +504,7 @@
 
     iput-object v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
 
-    .line 8410
+    .line 11858
     return-object p0
 .end method
 
@@ -512,7 +512,7 @@
     .locals 2
 
     .prologue
-    .line 8010
+    .line 11454
     invoke-static {}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->create()Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
     move-result-object v0
@@ -532,7 +532,7 @@
     .locals 1
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->clone()Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
     move-result-object v0
@@ -544,7 +544,7 @@
     .locals 1
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->clone()Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
     move-result-object v0
@@ -556,7 +556,7 @@
     .locals 1
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->clone()Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
     move-result-object v0
@@ -573,7 +573,7 @@
     .end annotation
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->clone()Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
     move-result-object v0
@@ -585,7 +585,7 @@
     .locals 1
 
     .prologue
-    .line 8014
+    .line 11458
     invoke-static {}, Lcom/google/glass/companion/Proto$CompanionInfo;->getDefaultInstance()Lcom/google/glass/companion/Proto$CompanionInfo;
 
     move-result-object v0
@@ -597,7 +597,7 @@
     .locals 1
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->getDefaultInstanceForType()Lcom/google/glass/companion/Proto$CompanionInfo;
 
     move-result-object v0
@@ -609,7 +609,7 @@
     .locals 1
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->getDefaultInstanceForType()Lcom/google/glass/companion/Proto$CompanionInfo;
 
     move-result-object v0
@@ -621,7 +621,7 @@
     .locals 2
 
     .prologue
-    .line 8120
+    .line 11565
     iget-wide v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->id_:J
 
     return-wide v0
@@ -631,7 +631,7 @@
     .locals 1
 
     .prologue
-    .line 8304
+    .line 11749
     iget-boolean v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->requestLog_:Z
 
     return v0
@@ -641,7 +641,7 @@
     .locals 1
 
     .prologue
-    .line 8160
+    .line 11605
     iget-boolean v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->requestNetwork_:Z
 
     return v0
@@ -651,7 +651,7 @@
     .locals 1
 
     .prologue
-    .line 8256
+    .line 11701
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseAndroidVersion_:I
 
     return v0
@@ -661,48 +661,61 @@
     .locals 1
 
     .prologue
-    .line 8208
+    .line 11653
     iget-boolean v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseIsNetworkOk_:Z
 
     return v0
 .end method
 
 .method public getResponseLog()Ljava/lang/String;
-    .locals 3
+    .locals 4
 
     .prologue
-    .line 8352
-    iget-object v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
+    .line 11797
+    iget-object v1, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
 
-    .line 8353
-    .local v0, ref:Ljava/lang/Object;
-    instance-of v2, v0, Ljava/lang/String;
+    .line 11798
+    .local v1, ref:Ljava/lang/Object;
+    instance-of v3, v1, Ljava/lang/String;
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_1
 
-    .line 8354
+    move-object v0, v1
+
+    .line 11799
     check-cast v0, Lcom/google/protobuf/ByteString;
 
-    .end local v0           #ref:Ljava/lang/Object;
+    .line 11801
+    .local v0, bs:Lcom/google/protobuf/ByteString;
     invoke-virtual {v0}, Lcom/google/protobuf/ByteString;->toStringUtf8()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    .line 8356
-    .local v1, s:Ljava/lang/String;
-    iput-object v1, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
+    .line 11802
+    .local v2, s:Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/google/protobuf/ByteString;->isValidUtf8()Z
 
-    .line 8359
-    .end local v1           #s:Ljava/lang/String;
-    :goto_0
-    return-object v1
+    move-result v3
 
-    .restart local v0       #ref:Ljava/lang/Object;
+    if-eqz v3, :cond_0
+
+    .line 11803
+    iput-object v2, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
+
+    .line 11807
+    .end local v0           #bs:Lcom/google/protobuf/ByteString;
+    .end local v1           #ref:Ljava/lang/Object;
+    .end local v2           #s:Ljava/lang/String;
     :cond_0
-    check-cast v0, Ljava/lang/String;
+    :goto_0
+    return-object v2
 
-    .end local v0           #ref:Ljava/lang/Object;
-    move-object v1, v0
+    .restart local v1       #ref:Ljava/lang/Object;
+    :cond_1
+    check-cast v1, Ljava/lang/String;
+
+    .end local v1           #ref:Ljava/lang/Object;
+    move-object v2, v1
 
     goto :goto_0
 .end method
@@ -711,16 +724,16 @@
     .locals 3
 
     .prologue
-    .line 8371
+    .line 11819
     iget-object v1, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
 
-    .line 8372
+    .line 11820
     .local v1, ref:Ljava/lang/Object;
     instance-of v2, v1, Ljava/lang/String;
 
     if-eqz v2, :cond_0
 
-    .line 8373
+    .line 11821
     check-cast v1, Ljava/lang/String;
 
     .end local v1           #ref:Ljava/lang/Object;
@@ -728,11 +741,11 @@
 
     move-result-object v0
 
-    .line 8376
+    .line 11824
     .local v0, b:Lcom/google/protobuf/ByteString;
     iput-object v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
 
-    .line 8379
+    .line 11827
     .end local v0           #b:Lcom/google/protobuf/ByteString;
     :goto_0
     return-object v0
@@ -753,7 +766,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 8114
+    .line 11559
     iget v1, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v1, v1, 0x1
@@ -773,7 +786,7 @@
     .locals 2
 
     .prologue
-    .line 8294
+    .line 11739
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, 0x10
@@ -797,7 +810,7 @@
     .locals 2
 
     .prologue
-    .line 8150
+    .line 11595
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, 0x2
@@ -821,7 +834,7 @@
     .locals 2
 
     .prologue
-    .line 8246
+    .line 11691
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, 0x8
@@ -845,7 +858,7 @@
     .locals 2
 
     .prologue
-    .line 8198
+    .line 11643
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, 0x4
@@ -869,7 +882,7 @@
     .locals 2
 
     .prologue
-    .line 8342
+    .line 11787
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     and-int/lit8 v0, v0, 0x20
@@ -893,17 +906,17 @@
     .locals 1
 
     .prologue
-    .line 8083
+    .line 11528
     invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->hasId()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 8085
+    .line 11530
     const/4 v0, 0x0
 
-    .line 8087
+    .line 11532
     :goto_0
     return v0
 
@@ -918,115 +931,131 @@
     .parameter "other"
 
     .prologue
-    .line 8058
+    .line 11502
     invoke-static {}, Lcom/google/glass/companion/Proto$CompanionInfo;->getDefaultInstance()Lcom/google/glass/companion/Proto$CompanionInfo;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_0
 
-    .line 8079
-    :cond_0
+    .line 11524
     :goto_0
     return-object p0
 
-    .line 8059
-    :cond_1
+    .line 11503
+    :cond_0
     invoke-virtual {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->hasId()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
-    .line 8060
+    .line 11504
     invoke-virtual {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->getId()J
 
     move-result-wide v0
 
     invoke-virtual {p0, v0, v1}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->setId(J)Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
-    .line 8062
-    :cond_2
+    .line 11506
+    :cond_1
     invoke-virtual {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->hasRequestNetwork()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
-    .line 8063
+    .line 11507
     invoke-virtual {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->getRequestNetwork()Z
 
     move-result v0
 
     invoke-virtual {p0, v0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->setRequestNetwork(Z)Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
-    .line 8065
-    :cond_3
+    .line 11509
+    :cond_2
     invoke-virtual {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->hasResponseIsNetworkOk()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
-    .line 8066
+    .line 11510
     invoke-virtual {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->getResponseIsNetworkOk()Z
 
     move-result v0
 
     invoke-virtual {p0, v0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->setResponseIsNetworkOk(Z)Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
-    .line 8068
-    :cond_4
+    .line 11512
+    :cond_3
     invoke-virtual {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->hasResponseAndroidVersion()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
-    .line 8069
+    .line 11513
     invoke-virtual {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->getResponseAndroidVersion()I
 
     move-result v0
 
     invoke-virtual {p0, v0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->setResponseAndroidVersion(I)Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
-    .line 8071
-    :cond_5
+    .line 11515
+    :cond_4
     invoke-virtual {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->hasRequestLog()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
-    .line 8072
+    .line 11516
     invoke-virtual {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->getRequestLog()Z
 
     move-result v0
 
     invoke-virtual {p0, v0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->setRequestLog(Z)Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
-    .line 8074
-    :cond_6
+    .line 11518
+    :cond_5
     invoke-virtual {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->hasResponseLog()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
-    .line 8075
+    .line 11519
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     or-int/lit8 v0, v0, 0x20
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8076
+    .line 11520
     #getter for: Lcom/google/glass/companion/Proto$CompanionInfo;->responseLog_:Ljava/lang/Object;
-    invoke-static {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$6900(Lcom/google/glass/companion/Proto$CompanionInfo;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$11500(Lcom/google/glass/companion/Proto$CompanionInfo;)Ljava/lang/Object;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
+
+    .line 11523
+    :cond_6
+    invoke-virtual {p0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->getUnknownFields()Lcom/google/protobuf/ByteString;
+
+    move-result-object v0
+
+    #getter for: Lcom/google/glass/companion/Proto$CompanionInfo;->unknownFields:Lcom/google/protobuf/ByteString;
+    invoke-static {p1}, Lcom/google/glass/companion/Proto$CompanionInfo;->access$11700(Lcom/google/glass/companion/Proto$CompanionInfo;)Lcom/google/protobuf/ByteString;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/google/protobuf/ByteString;->concat(Lcom/google/protobuf/ByteString;)Lcom/google/protobuf/ByteString;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->setUnknownFields(Lcom/google/protobuf/ByteString;)Lcom/google/protobuf/GeneratedMessageLite$Builder;
 
     goto :goto_0
 .end method
@@ -1042,10 +1071,10 @@
     .end annotation
 
     .prologue
-    .line 8094
+    .line 11539
     const/4 v2, 0x0
 
-    .line 8096
+    .line 11541
     .local v2, parsedMessage:Lcom/google/glass/companion/Proto$CompanionInfo;
     :try_start_0
     sget-object v3, Lcom/google/glass/companion/Proto$CompanionInfo;->PARSER:Lcom/google/protobuf/Parser;
@@ -1063,21 +1092,21 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Lcom/google/protobuf/InvalidProtocolBufferException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 8101
+    .line 11546
     if-eqz v2, :cond_0
 
-    .line 8102
+    .line 11547
     invoke-virtual {p0, v2}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->mergeFrom(Lcom/google/glass/companion/Proto$CompanionInfo;)Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
-    .line 8105
+    .line 11550
     :cond_0
     return-object p0
 
-    .line 8097
+    .line 11542
     :catch_0
     move-exception v1
 
-    .line 8098
+    .line 11543
     .local v1, e:Lcom/google/protobuf/InvalidProtocolBufferException;
     :try_start_1
     invoke-virtual {v1}, Lcom/google/protobuf/InvalidProtocolBufferException;->getUnfinishedMessage()Lcom/google/protobuf/MessageLite;
@@ -1090,19 +1119,19 @@
 
     move-object v2, v0
 
-    .line 8099
+    .line 11544
     throw v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 8101
+    .line 11546
     .end local v1           #e:Lcom/google/protobuf/InvalidProtocolBufferException;
     :catchall_0
     move-exception v3
 
     if-eqz v2, :cond_1
 
-    .line 8102
+    .line 11547
     invoke-virtual {p0, v2}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->mergeFrom(Lcom/google/glass/companion/Proto$CompanionInfo;)Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
     :cond_1
@@ -1120,7 +1149,7 @@
     .end annotation
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-virtual {p0, p1, p2}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->mergeFrom(Lcom/google/protobuf/CodedInputStream;Lcom/google/protobuf/ExtensionRegistryLite;)Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
     move-result-object v0
@@ -1133,7 +1162,7 @@
     .parameter "x0"
 
     .prologue
-    .line 7975
+    .line 11419
     check-cast p1, Lcom/google/glass/companion/Proto$CompanionInfo;
 
     .end local p1
@@ -1155,7 +1184,7 @@
     .end annotation
 
     .prologue
-    .line 7975
+    .line 11419
     invoke-virtual {p0, p1, p2}, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->mergeFrom(Lcom/google/protobuf/CodedInputStream;Lcom/google/protobuf/ExtensionRegistryLite;)Lcom/google/glass/companion/Proto$CompanionInfo$Builder;
 
     move-result-object v0
@@ -1168,17 +1197,17 @@
     .parameter "value"
 
     .prologue
-    .line 8126
+    .line 11571
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     or-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8127
+    .line 11572
     iput-wide p1, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->id_:J
 
-    .line 8129
+    .line 11574
     return-object p0
 .end method
 
@@ -1187,17 +1216,17 @@
     .parameter "value"
 
     .prologue
-    .line 8314
+    .line 11759
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     or-int/lit8 v0, v0, 0x10
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8315
+    .line 11760
     iput-boolean p1, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->requestLog_:Z
 
-    .line 8317
+    .line 11762
     return-object p0
 .end method
 
@@ -1206,17 +1235,17 @@
     .parameter "value"
 
     .prologue
-    .line 8170
+    .line 11615
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     or-int/lit8 v0, v0, 0x2
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8171
+    .line 11616
     iput-boolean p1, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->requestNetwork_:Z
 
-    .line 8173
+    .line 11618
     return-object p0
 .end method
 
@@ -1225,17 +1254,17 @@
     .parameter "value"
 
     .prologue
-    .line 8266
+    .line 11711
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     or-int/lit8 v0, v0, 0x8
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8267
+    .line 11712
     iput p1, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseAndroidVersion_:I
 
-    .line 8269
+    .line 11714
     return-object p0
 .end method
 
@@ -1244,17 +1273,17 @@
     .parameter "value"
 
     .prologue
-    .line 8218
+    .line 11663
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
     or-int/lit8 v0, v0, 0x4
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8219
+    .line 11664
     iput-boolean p1, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseIsNetworkOk_:Z
 
-    .line 8221
+    .line 11666
     return-object p0
 .end method
 
@@ -1263,17 +1292,17 @@
     .parameter "value"
 
     .prologue
-    .line 8391
+    .line 11839
     if-nez p1, :cond_0
 
-    .line 8392
+    .line 11840
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 8394
+    .line 11842
     :cond_0
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
@@ -1281,10 +1310,10 @@
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8395
+    .line 11843
     iput-object p1, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
 
-    .line 8397
+    .line 11845
     return-object p0
 .end method
 
@@ -1293,17 +1322,17 @@
     .parameter "value"
 
     .prologue
-    .line 8421
+    .line 11869
     if-nez p1, :cond_0
 
-    .line 8422
+    .line 11870
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 8424
+    .line 11872
     :cond_0
     iget v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
@@ -1311,9 +1340,9 @@
 
     iput v0, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->bitField0_:I
 
-    .line 8425
+    .line 11873
     iput-object p1, p0, Lcom/google/glass/companion/Proto$CompanionInfo$Builder;->responseLog_:Ljava/lang/Object;
 
-    .line 8427
+    .line 11875
     return-object p0
 .end method

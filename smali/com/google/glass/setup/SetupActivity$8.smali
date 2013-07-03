@@ -38,7 +38,7 @@
     .parameter
 
     .prologue
-    .line 586
+    .line 585
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$8;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     iput-object p2, p0, Lcom/google/glass/setup/SetupActivity$8;->val$btDeviceForPair:Ljava/lang/String;
@@ -55,7 +55,7 @@
     .parameter "x0"
 
     .prologue
-    .line 586
+    .line 585
     check-cast p1, [Ljava/lang/Void;
 
     .end local p1
@@ -71,7 +71,7 @@
     .parameter "params"
 
     .prologue
-    .line 589
+    .line 588
     new-instance v0, Lcom/google/glass/util/SettingsSecure;
 
     iget-object v1, p0, Lcom/google/glass/setup/SetupActivity$8;->this$0:Lcom/google/glass/setup/SetupActivity;
@@ -96,7 +96,7 @@
     .parameter "x0"
 
     .prologue
-    .line 586
+    .line 585
     check-cast p1, Ljava/lang/String;
 
     .end local p1
@@ -110,7 +110,7 @@
     .parameter "deviceId"
 
     .prologue
-    .line 594
+    .line 593
     invoke-static {}, Lcom/google/googlex/glass/common/proto/SetupUserAccountRequest;->newBuilder()Lcom/google/googlex/glass/common/proto/SetupUserAccountRequest$Builder;
 
     move-result-object v0
@@ -123,11 +123,11 @@
 
     move-result-object v2
 
-    .line 597
+    .line 596
     .local v2, request:Lcom/google/googlex/glass/common/proto/SetupUserAccountRequest;
     const/4 v6, 0x1
 
-    .line 598
+    .line 597
     .local v6, isImmediate:Z
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$8;->this$0:Lcom/google/glass/setup/SetupActivity;
 
@@ -148,6 +148,6 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/google/glass/net/ProtoRequestDispatcher;->dispatch(Lcom/google/glass/net/ServerConstants$Action;Lcom/google/protobuf/AbstractMessage;ZLcom/google/protobuf/Parser;Lcom/google/glass/net/ProtoResponseHandler;)Z
 
-    .line 626
+    .line 625
     return-void
 .end method

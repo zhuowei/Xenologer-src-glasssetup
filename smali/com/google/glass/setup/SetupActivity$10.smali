@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 760
+    .line 759
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$10;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 
     const/4 v7, 0x0
 
-    .line 763
+    .line 762
     iget-object v3, p0, Lcom/google/glass/setup/SetupActivity$10;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     new-instance v4, Lcom/google/glass/widget/MessageDialog$Builder;
@@ -110,7 +110,7 @@
 
     invoke-virtual {v3, v4}, Lcom/google/glass/setup/SetupActivity;->showMessage(Lcom/google/glass/widget/MessageDialog;)V
 
-    .line 774
+    .line 773
     iget-object v3, p0, Lcom/google/glass/setup/SetupActivity$10;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     #calls: Lcom/google/glass/setup/SetupActivity;->getContentView()Landroid/view/View;
@@ -122,7 +122,7 @@
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 776
+    .line 775
     iget-object v3, p0, Lcom/google/glass/setup/SetupActivity$10;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     invoke-static {v3}, Lcom/google/glass/setup/SetupApplication;->from(Landroid/content/Context;)Lcom/google/glass/setup/SetupApplication;
@@ -133,18 +133,18 @@
 
     move-result-object v2
 
-    .line 778
+    .line 777
     .local v2, userEventHelper:Lcom/google/glass/logging/UserEventHelper;
     sget-object v3, Lcom/google/glass/logging/UserEventAction;->SETUP_ACCOUNT_FAILED:Lcom/google/glass/logging/UserEventAction;
 
     invoke-virtual {v2, v3}, Lcom/google/glass/logging/UserEventHelper;->log(Lcom/google/glass/logging/UserEventAction;)V
 
-    .line 780
+    .line 779
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    .line 781
+    .line 780
     .local v0, dialogStartTimeMs:J
     new-instance v3, Lcom/google/glass/util/AuthUtils;
 
@@ -158,6 +158,6 @@
 
     invoke-virtual {v3, v4}, Lcom/google/glass/util/AuthUtils;->deleteAllAccounts(Ljava/lang/Runnable;)V
 
-    .line 798
+    .line 797
     return-void
 .end method

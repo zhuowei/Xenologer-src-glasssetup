@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 804
+    .line 803
     iput-object p1, p0, Lcom/google/glass/setup/SetupActivity$11;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     iput p2, p0, Lcom/google/glass/setup/SetupActivity$11;->val$errorTipsId:I
@@ -48,7 +48,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 807
+    .line 806
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$11;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     invoke-static {v0}, Lcom/google/glass/setup/SetupApplication;->from(Landroid/content/Context;)Lcom/google/glass/setup/SetupApplication;
@@ -57,7 +57,7 @@
 
     invoke-virtual {v0}, Lcom/google/glass/setup/SetupApplication;->onUserActionEnd()V
 
-    .line 808
+    .line 807
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$11;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     new-instance v1, Lcom/google/glass/widget/MessageDialog$Builder;
@@ -128,7 +128,7 @@
 
     invoke-virtual {v0, v1}, Lcom/google/glass/setup/SetupActivity;->showMessage(Lcom/google/glass/widget/MessageDialog;)V
 
-    .line 832
+    .line 831
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$11;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     #calls: Lcom/google/glass/setup/SetupActivity;->getContentView()Landroid/view/View;
@@ -140,6 +140,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 833
+    .line 832
     return-void
 .end method

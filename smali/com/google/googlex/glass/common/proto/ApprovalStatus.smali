@@ -158,7 +158,7 @@
 
     .prologue
     .line 77
-    sget-object v0, Lcom/google/googlex/glass/common/proto/GlasswareRegistryInternalDescriptors;->descriptor:Lcom/google/protobuf/Descriptors$FileDescriptor;
+    sget-object v0, Lcom/google/googlex/glass/common/proto/GlasswareRegistryOuterClassInternalDescriptors;->descriptor:Lcom/google/protobuf/Descriptors$FileDescriptor;
 
     invoke-virtual {v0}, Lcom/google/protobuf/Descriptors$FileDescriptor;->getEnumTypes()Ljava/util/List;
 

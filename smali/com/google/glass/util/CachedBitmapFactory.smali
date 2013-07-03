@@ -3,22 +3,18 @@
 .source "CachedBitmapFactory.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;
-    }
-.end annotation
-
-
 # static fields
+.field private static final FILE_READ_BUFFER:[B = null
+
+.field private static final MAX_IMAGE_SIZE:I = 0x400
+
 .field private static final TAG:Ljava/lang/String; = null
 
 .field private static final TEMP_STORAGE_BUFFER_SIZE_BYTES:I = 0x4000
 
 .field private static final TEMP_STORAGE_NUM_BUFFERS:I = 0x4
 
-.field private static decodeBufferPool:Ljava/util/concurrent/LinkedBlockingQueue;
+.field private static tempStoragePool:Ljava/util/concurrent/LinkedBlockingQueue;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/LinkedBlockingQueue",
@@ -31,9 +27,11 @@
 # instance fields
 .field private final attachmentHelper:Lcom/google/glass/timeline/AttachmentHelper;
 
-.field private final bitmapLoadLock:Ljava/lang/Object;
+.field protected final context:Landroid/content/Context;
 
-.field private final decodeCache:Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;
+.field protected final minHeight:I
+
+.field protected final minWidth:I
 
 
 # direct methods
@@ -43,7 +41,7 @@
     .prologue
     const/4 v3, 0x4
 
-    .line 25
+    .line 24
     const-class v1, Lcom/google/glass/util/CachedBitmapFactory;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -52,22 +50,22 @@
 
     sput-object v1, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
 
-    .line 41
+    .line 32
     new-instance v1, Ljava/util/concurrent/LinkedBlockingQueue;
 
     invoke-direct {v1, v3}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>(I)V
 
-    sput-object v1, Lcom/google/glass/util/CachedBitmapFactory;->decodeBufferPool:Ljava/util/concurrent/LinkedBlockingQueue;
+    sput-object v1, Lcom/google/glass/util/CachedBitmapFactory;->tempStoragePool:Ljava/util/concurrent/LinkedBlockingQueue;
 
-    .line 44
+    .line 35
     const/4 v0, 0x0
 
     .local v0, i:I
     :goto_0
     if-ge v0, v3, :cond_0
 
-    .line 45
-    sget-object v1, Lcom/google/glass/util/CachedBitmapFactory;->decodeBufferPool:Ljava/util/concurrent/LinkedBlockingQueue;
+    .line 36
+    sget-object v1, Lcom/google/glass/util/CachedBitmapFactory;->tempStoragePool:Ljava/util/concurrent/LinkedBlockingQueue;
 
     const/16 v2, 0x4000
 
@@ -75,391 +73,848 @@
 
     invoke-virtual {v1, v2}, Ljava/util/concurrent/LinkedBlockingQueue;->offer(Ljava/lang/Object;)Z
 
-    .line 44
+    .line 35
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 47
+    .line 46
     :cond_0
+    const/high16 v1, 0x20
+
+    new-array v1, v1, [B
+
+    sput-object v1, Lcom/google/glass/util/CachedBitmapFactory;->FILE_READ_BUFFER:[B
+
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;III)V
+.method public constructor <init>(Landroid/content/Context;II)V
     .locals 1
     .parameter "context"
     .parameter "minWidth"
     .parameter "minHeight"
-    .parameter "maxCacheSize"
 
     .prologue
-    .line 71
+    .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 31
-    new-instance v0, Ljava/lang/Object;
+    .line 62
+    iput-object p1, p0, Lcom/google/glass/util/CachedBitmapFactory;->context:Landroid/content/Context;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    .line 63
+    iput p2, p0, Lcom/google/glass/util/CachedBitmapFactory;->minWidth:I
 
-    iput-object v0, p0, Lcom/google/glass/util/CachedBitmapFactory;->bitmapLoadLock:Ljava/lang/Object;
+    .line 64
+    iput p3, p0, Lcom/google/glass/util/CachedBitmapFactory;->minHeight:I
 
-    .line 72
-    new-instance v0, Lcom/google/glass/util/CachedBitmapFactory$1;
-
-    invoke-direct {v0, p0, p4, p2, p3}, Lcom/google/glass/util/CachedBitmapFactory$1;-><init>(Lcom/google/glass/util/CachedBitmapFactory;III)V
-
-    iput-object v0, p0, Lcom/google/glass/util/CachedBitmapFactory;->decodeCache:Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;
-
-    .line 78
+    .line 65
     new-instance v0, Lcom/google/glass/timeline/AttachmentHelper;
 
     invoke-direct {v0, p1}, Lcom/google/glass/timeline/AttachmentHelper;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/google/glass/util/CachedBitmapFactory;->attachmentHelper:Lcom/google/glass/timeline/AttachmentHelper;
 
-    .line 79
+    .line 66
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/glass/util/CachedBitmapFactory;Ljava/lang/String;II)Landroid/graphics/Bitmap;
+.method private static isCancelled(Lcom/google/glass/util/Condition;)Z
     .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
+    .parameter "isCancelled"
 
     .prologue
-    .line 24
-    invoke-direct {p0, p1, p2, p3}, Lcom/google/glass/util/CachedBitmapFactory;->loadBitmap(Ljava/lang/String;II)Landroid/graphics/Bitmap;
+    .line 329
+    if-eqz p0, :cond_0
 
-    move-result-object v0
+    invoke-virtual {p0}, Lcom/google/glass/util/Condition;->get()Z
 
-    return-object v0
-.end method
+    move-result v0
 
-.method private loadBitmap(Ljava/lang/String;II)Landroid/graphics/Bitmap;
-    .locals 3
-    .parameter "path"
-    .parameter "minWidth"
-    .parameter "minHeight"
+    if-eqz v0, :cond_0
 
-    .prologue
-    .line 211
-    invoke-static {}, Lcom/google/glass/util/Assert;->assertNotUiThread()V
+    const/4 v0, 0x1
 
-    .line 213
-    invoke-static {}, Lcom/google/glass/util/CachedFilesManager;->getSharedInstance()Lcom/google/glass/util/CachedFilesManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Lcom/google/glass/util/CachedFilesManager;->getType(Ljava/lang/String;)Lcom/google/glass/util/CachedFilesManager$Type;
-
-    move-result-object v0
-
-    .line 216
-    .local v0, type:Lcom/google/glass/util/CachedFilesManager$Type;
-    sget-object v1, Lcom/google/glass/util/CachedFilesManager$Type;->NONE:Lcom/google/glass/util/CachedFilesManager$Type;
-
-    if-eq v0, v1, :cond_0
-
-    .line 217
-    invoke-static {}, Lcom/google/glass/util/CachedFilesManager;->getSharedInstance()Lcom/google/glass/util/CachedFilesManager;
-
-    move-result-object v1
-
-    new-instance v2, Lcom/google/glass/util/CachedBitmapFactory$2;
-
-    invoke-direct {v2, p0, p2, p3}, Lcom/google/glass/util/CachedBitmapFactory$2;-><init>(Lcom/google/glass/util/CachedBitmapFactory;II)V
-
-    invoke-virtual {v1, p1, v2}, Lcom/google/glass/util/CachedFilesManager;->load(Ljava/lang/String;Lcom/google/glass/util/CachedFilesManager$Loader;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/graphics/Bitmap;
-
-    .line 225
     :goto_0
-    return-object v1
+    return v0
 
     :cond_0
-    invoke-static {p1, p2, p3}, Lcom/google/glass/util/CachedBitmapFactory;->loadBitmapFile(Ljava/lang/String;II)Landroid/graphics/Bitmap;
-
-    move-result-object v1
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
-.method public static loadBitmapFile(Ljava/lang/String;II)Landroid/graphics/Bitmap;
-    .locals 13
+.method public static loadBitmapFile(Ljava/lang/String;IILcom/google/glass/util/Condition;)Landroid/graphics/Bitmap;
+    .locals 26
     .parameter "path"
     .parameter "minWidth"
     .parameter "minHeight"
+    .parameter "isCancelled"
 
     .prologue
-    const/4 v10, 0x1
+    .line 214
+    invoke-static {}, Lcom/google/glass/util/Assert;->assertNotUiThread()V
 
-    .line 238
-    new-instance v0, Ljava/io/File;
+    .line 216
+    new-instance v9, Ljava/io/File;
 
-    invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    .line 239
-    .local v0, attachmentFile:Ljava/io/File;
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-direct {v9, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    move-result v11
+    .line 217
+    .local v9, file:Ljava/io/File;
+    invoke-virtual {v9}, Ljava/io/File;->exists()Z
 
-    if-nez v11, :cond_1
+    move-result v20
 
-    .line 240
-    sget-object v10, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
+    if-nez v20, :cond_1
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    .line 218
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    const-string v12, "The file \""
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v22, "The file \""
 
-    move-result-object v11
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v21
 
-    move-result-object v11
+    move-object/from16 v0, v21
 
-    const-string v12, "\" does not exist. Not decoding it as an image."
+    move-object/from16 v1, p0
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v21
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v22, "\" does not exist. Not decoding it as an image."
 
-    move-result-object v11
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v10, v11}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v21
 
-    .line 241
-    const/4 v1, 0x0
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 279
+    move-result-object v21
+
+    invoke-static/range {v20 .. v21}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 219
+    const/4 v2, 0x0
+
+    .line 325
     .end local p1
     .end local p2
     :cond_0
     :goto_0
-    return-object v1
+    return-object v2
 
-    .line 245
+    .line 222
     .restart local p1
     .restart local p2
     :cond_1
-    new-instance v7, Landroid/graphics/BitmapFactory$Options;
+    new-instance v13, Landroid/graphics/BitmapFactory$Options;
 
-    invoke-direct {v7}, Landroid/graphics/BitmapFactory$Options;-><init>()V
+    invoke-direct {v13}, Landroid/graphics/BitmapFactory$Options;-><init>()V
+
+    .line 226
+    .local v13, options:Landroid/graphics/BitmapFactory$Options;
+    const/16 v20, 0x1
+
+    move/from16 v0, v20
+
+    iput-boolean v0, v13, Landroid/graphics/BitmapFactory$Options;->inPurgeable:Z
+
+    .line 229
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->tempStoragePool:Ljava/util/concurrent/LinkedBlockingQueue;
+
+    invoke-virtual/range {v20 .. v20}, Ljava/util/concurrent/LinkedBlockingQueue;->poll()Ljava/lang/Object;
+
+    move-result-object v19
+
+    check-cast v19, [B
+
+    .line 230
+    .local v19, tempStorage:[B
+    if-eqz v19, :cond_2
+
+    .line 231
+    move-object/from16 v0, v19
+
+    iput-object v0, v13, Landroid/graphics/BitmapFactory$Options;->inTempStorage:[B
+
+    .line 241
+    :cond_2
+    :try_start_0
+    sget-object v21, Lcom/google/glass/util/CachedBitmapFactory;->FILE_READ_BUFFER:[B
+
+    monitor-enter v21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 242
+    :try_start_1
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v17
+
+    .line 245
+    .local v17, startTime:J
+    invoke-static/range {p3 .. p3}, Lcom/google/glass/util/CachedBitmapFactory;->isCancelled(Lcom/google/glass/util/Condition;)Z
+
+    move-result v20
+
+    if-eqz v20, :cond_3
 
     .line 246
-    .local v7, options:Landroid/graphics/BitmapFactory$Options;
-    iput-boolean v10, v7, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
+
+    const-string v22, "Request for bitmap has been cancelled. Will not read file."
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 247
-    invoke-static {p0, v7}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+    const/4 v2, 0x0
 
-    .line 250
-    iget v6, v7, Landroid/graphics/BitmapFactory$Options;->outWidth:I
+    monitor-exit v21
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 251
-    .local v6, fullWidth:I
-    iget v5, v7, Landroid/graphics/BitmapFactory$Options;->outHeight:I
+    .line 321
+    if-eqz v19, :cond_0
+
+    .line 322
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->tempStoragePool:Ljava/util/concurrent/LinkedBlockingQueue;
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/LinkedBlockingQueue;->offer(Ljava/lang/Object;)Z
+
+    goto :goto_0
 
     .line 252
-    .local v5, fullHeight:I
-    if-gtz p1, :cond_2
+    :cond_3
+    :try_start_2
+    invoke-virtual {v9}, Ljava/io/File;->length()J
 
-    move p1, v10
+    move-result-wide v22
 
-    .end local p1
-    :cond_2
-    div-int v11, v6, p1
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->FILE_READ_BUFFER:[B
 
-    invoke-static {v10, v11}, Ljava/lang/Math;->max(II)I
+    move-object/from16 v0, v20
 
-    move-result v8
+    array-length v0, v0
+
+    move/from16 v20, v0
+
+    move/from16 v0, v20
+
+    int-to-long v0, v0
+
+    move-wide/from16 v24, v0
+
+    cmp-long v20, v22, v24
+
+    if-lez v20, :cond_4
 
     .line 253
-    .local v8, sampleSizeX:I
-    if-gtz p2, :cond_3
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
 
-    move p2, v10
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    .end local p2
-    :cond_3
-    div-int v11, v5, p2
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v10, v11}, Ljava/lang/Math;->max(II)I
+    const-string v23, "Shared file read buffer is too small to hold: "
 
-    move-result v9
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    invoke-virtual {v9}, Ljava/io/File;->length()J
+
+    move-result-wide v23
+
+    invoke-virtual/range {v22 .. v24}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    const-string v23, " bytes."
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 254
-    .local v9, sampleSizeY:I
-    invoke-static {v8, v9}, Ljava/lang/Math;->min(II)I
+    invoke-virtual {v9}, Ljava/io/File;->length()J
 
-    move-result v10
+    move-result-wide v22
 
-    iput v10, v7, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
+    move-wide/from16 v0, v22
 
-    .line 257
-    sget-object v10, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
+    long-to-int v0, v0
 
-    iput-object v10, v7, Landroid/graphics/BitmapFactory$Options;->inPreferredConfig:Landroid/graphics/Bitmap$Config;
+    move/from16 v20, v0
+
+    move/from16 v0, v20
+
+    new-array v3, v0, [B
+
+    .line 255
+    .local v3, buffer:[B
+    move-object/from16 v0, p3
+
+    invoke-static {v9, v3, v0}, Lcom/google/glass/util/FileHelper;->read(Ljava/io/File;[BLcom/google/glass/util/Condition;)I
+
+    move-result v12
+
+    .line 258
+    .local v12, length:I
+    const/16 v20, 0x1
+
+    move/from16 v0, v20
+
+    iput-boolean v0, v13, Landroid/graphics/BitmapFactory$Options;->inInputShareable:Z
+
+    .line 268
+    :goto_1
+    invoke-static/range {p3 .. p3}, Lcom/google/glass/util/CachedBitmapFactory;->isCancelled(Lcom/google/glass/util/Condition;)Z
+
+    move-result v20
+
+    if-eqz v20, :cond_5
+
+    .line 269
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
+
+    const-string v22, "Request for bitmap has been cancelled. Will not decode dimensions."
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 270
+    const/4 v2, 0x0
+
+    monitor-exit v21
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    .line 321
+    if-eqz v19, :cond_0
+
+    .line 322
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->tempStoragePool:Ljava/util/concurrent/LinkedBlockingQueue;
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/LinkedBlockingQueue;->offer(Ljava/lang/Object;)Z
+
+    goto/16 :goto_0
 
     .line 260
-    sget-object v10, Lcom/google/glass/util/CachedBitmapFactory;->decodeBufferPool:Ljava/util/concurrent/LinkedBlockingQueue;
+    .end local v3           #buffer:[B
+    .end local v12           #length:I
+    :cond_4
+    :try_start_3
+    sget-object v3, Lcom/google/glass/util/CachedBitmapFactory;->FILE_READ_BUFFER:[B
 
-    invoke-virtual {v10}, Ljava/util/concurrent/LinkedBlockingQueue;->poll()Ljava/lang/Object;
+    .line 261
+    .restart local v3       #buffer:[B
+    move-object/from16 v0, p3
+
+    invoke-static {v9, v3, v0}, Lcom/google/glass/util/FileHelper;->read(Ljava/io/File;[BLcom/google/glass/util/Condition;)I
+
+    move-result v12
+
+    .line 264
+    .restart local v12       #length:I
+    const/16 v20, 0x0
+
+    move/from16 v0, v20
+
+    iput-boolean v0, v13, Landroid/graphics/BitmapFactory$Options;->inInputShareable:Z
+
+    goto :goto_1
+
+    .line 314
+    .end local v3           #buffer:[B
+    .end local v12           #length:I
+    .end local v17           #startTime:J
+    .end local p1
+    .end local p2
+    :catchall_0
+    move-exception v20
+
+    monitor-exit v21
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :try_start_4
+    throw v20
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+
+    .line 315
+    :catch_0
+    move-exception v6
+
+    .line 316
+    .local v6, e:Ljava/io/IOException;
+    :try_start_5
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
+
+    new-instance v21, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v22, "The file \""
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    const-string v22, "\" could not be read. Not decoding it as an image."
+
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v21
+
+    invoke-static/range {v20 .. v21}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    .line 317
+    const/4 v2, 0x0
+
+    .line 321
+    if-eqz v19, :cond_0
+
+    .line 322
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->tempStoragePool:Ljava/util/concurrent/LinkedBlockingQueue;
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/LinkedBlockingQueue;->offer(Ljava/lang/Object;)Z
+
+    goto/16 :goto_0
+
+    .line 274
+    .end local v6           #e:Ljava/io/IOException;
+    .restart local v3       #buffer:[B
+    .restart local v12       #length:I
+    .restart local v17       #startTime:J
+    .restart local p1
+    .restart local p2
+    :cond_5
+    const/16 v20, 0x1
+
+    :try_start_6
+    move/from16 v0, v20
+
+    iput-boolean v0, v13, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
+
+    .line 275
+    const/16 v20, 0x0
+
+    move/from16 v0, v20
+
+    invoke-static {v3, v0, v12, v13}, Landroid/graphics/BitmapFactory;->decodeByteArray([BIILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
-    check-cast v2, [B
+    .line 278
+    .local v2, bitmap:Landroid/graphics/Bitmap;
+    iget v11, v13, Landroid/graphics/BitmapFactory$Options;->outWidth:I
 
-    .line 261
-    .local v2, buffer:[B
-    if-eqz v2, :cond_4
+    .line 279
+    .local v11, fullWidth:I
+    iget v10, v13, Landroid/graphics/BitmapFactory$Options;->outHeight:I
 
-    .line 262
-    iput-object v2, v7, Landroid/graphics/BitmapFactory$Options;->inTempStorage:[B
+    .line 280
+    .local v10, fullHeight:I
+    const/16 v20, 0x1
 
-    .line 266
-    :cond_4
-    const/4 v10, 0x0
+    if-gtz p1, :cond_6
 
-    iput-boolean v10, v7, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
+    const/16 p1, 0x1
 
-    .line 267
-    invoke-static {p0, v7}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+    .end local p1
+    :cond_6
+    div-int v22, v11, p1
 
-    move-result-object v1
+    move/from16 v0, v20
 
-    .line 268
-    .local v1, bitmap:Landroid/graphics/Bitmap;
-    iget v4, v7, Landroid/graphics/BitmapFactory$Options;->outWidth:I
+    move/from16 v1, v22
 
-    .line 269
-    .local v4, decodedWidth:I
-    iget v3, v7, Landroid/graphics/BitmapFactory$Options;->outHeight:I
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
 
-    .line 271
-    .local v3, decodedHeight:I
-    sget-object v10, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
+    move-result v15
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    .line 281
+    .local v15, sampleSizeX:I
+    const/16 v20, 0x1
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    if-gtz p2, :cond_7
 
-    const-string v12, "Decoded a "
+    const/16 p2, 0x1
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .end local p2
+    :cond_7
+    div-int v22, v10, p2
 
-    move-result-object v11
+    move/from16 v0, v20
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move/from16 v1, v22
 
-    move-result-object v11
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
 
-    const-string v12, "x"
+    move-result v16
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 282
+    .local v16, sampleSizeY:I
+    invoke-static/range {v15 .. v16}, Ljava/lang/Math;->min(II)I
 
-    move-result-object v11
+    move-result v20
 
-    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->highestOneBit(I)I
 
-    move-result-object v11
+    move-result v14
 
-    const-string v12, " image ("
+    .line 286
+    .local v14, sampleSize:I
+    :goto_2
+    div-int v20, v11, v14
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v22, 0x400
 
-    move-result-object v11
+    move/from16 v0, v20
 
-    invoke-virtual {v11, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v1, v22
 
-    move-result-object v11
+    if-gt v0, v1, :cond_8
 
-    const-string v12, ") into a "
+    div-int v20, v10, v14
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v22, 0x400
 
-    move-result-object v11
+    move/from16 v0, v20
 
-    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move/from16 v1, v22
 
-    move-result-object v11
+    if-le v0, v1, :cond_9
 
-    const-string v12, "x"
+    .line 287
+    :cond_8
+    mul-int/lit8 v14, v14, 0x2
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto :goto_2
 
-    move-result-object v11
+    .line 289
+    :cond_9
+    iput v14, v13, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
-    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    .line 293
+    if-eqz p3, :cond_a
 
-    move-result-object v11
+    new-instance v20, Lcom/google/glass/util/CachedBitmapFactory$2;
 
-    const-string v12, " bitmap."
+    move-object/from16 v0, v20
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v13}, Lcom/google/glass/util/CachedBitmapFactory$2;-><init>(Landroid/graphics/BitmapFactory$Options;)V
 
-    move-result-object v11
+    move-object/from16 v0, p3
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v1, v20
 
-    move-result-object v11
+    invoke-virtual {v0, v1}, Lcom/google/glass/util/Condition;->addCallback(Ljava/lang/Runnable;)Z
 
-    invoke-static {v10, v11}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v20
 
-    .line 275
-    if-eqz v2, :cond_0
+    if-nez v20, :cond_b
 
-    .line 276
-    sget-object v10, Lcom/google/glass/util/CachedBitmapFactory;->decodeBufferPool:Ljava/util/concurrent/LinkedBlockingQueue;
+    .line 301
+    :cond_a
+    const/16 v20, 0x0
 
-    invoke-virtual {v10, v2}, Ljava/util/concurrent/LinkedBlockingQueue;->offer(Ljava/lang/Object;)Z
+    move/from16 v0, v20
+
+    iput-boolean v0, v13, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
+
+    .line 302
+    const/16 v20, 0x0
+
+    move/from16 v0, v20
+
+    invoke-static {v3, v0, v12, v13}, Landroid/graphics/BitmapFactory;->decodeByteArray([BIILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+
+    move-result-object v2
+
+    .line 304
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v7
+
+    .line 305
+    .local v7, endTime:J
+    iget v5, v13, Landroid/graphics/BitmapFactory$Options;->outWidth:I
+
+    .line 306
+    .local v5, decodedWidth:I
+    iget v4, v13, Landroid/graphics/BitmapFactory$Options;->outHeight:I
+
+    .line 307
+    .local v4, decodedHeight:I
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
+
+    new-instance v22, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v23, "Decoded a "
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    const-string v23, "x"
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    const-string v23, " image ("
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    const-string v23, ") into a "
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    const-string v23, "x"
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    const-string v23, " bitmap, took "
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    sub-long v23, v7, v17
+
+    invoke-virtual/range {v22 .. v24}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    const-string v23, "ms"
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 314
+    monitor-exit v21
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    .line 321
+    if-eqz v19, :cond_0
+
+    .line 322
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->tempStoragePool:Ljava/util/concurrent/LinkedBlockingQueue;
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/LinkedBlockingQueue;->offer(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
+
+    .line 311
+    .end local v4           #decodedHeight:I
+    .end local v5           #decodedWidth:I
+    .end local v7           #endTime:J
+    :cond_b
+    :try_start_7
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
+
+    const-string v22, "Request for bitmap has been cancelled. Will not decode image."
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 312
+    const/4 v2, 0x0
+
+    monitor-exit v21
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    .line 321
+    .end local v2           #bitmap:Landroid/graphics/Bitmap;
+    if-eqz v19, :cond_0
+
+    .line 322
+    sget-object v20, Lcom/google/glass/util/CachedBitmapFactory;->tempStoragePool:Ljava/util/concurrent/LinkedBlockingQueue;
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/LinkedBlockingQueue;->offer(Ljava/lang/Object;)Z
+
+    goto/16 :goto_0
+
+    .line 321
+    .end local v3           #buffer:[B
+    .end local v10           #fullHeight:I
+    .end local v11           #fullWidth:I
+    .end local v12           #length:I
+    .end local v14           #sampleSize:I
+    .end local v15           #sampleSizeX:I
+    .end local v16           #sampleSizeY:I
+    .end local v17           #startTime:J
+    :catchall_1
+    move-exception v20
+
+    if-eqz v19, :cond_c
+
+    .line 322
+    sget-object v21, Lcom/google/glass/util/CachedBitmapFactory;->tempStoragePool:Ljava/util/concurrent/LinkedBlockingQueue;
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/LinkedBlockingQueue;->offer(Ljava/lang/Object;)Z
+
+    :cond_c
+    throw v20
 .end method
 
 
 # virtual methods
-.method public cacheContainsAttachment(Lcom/google/googlex/glass/common/proto/Attachment;)Z
+.method public final cacheContainsAttachment(Lcom/google/googlex/glass/common/proto/Attachment;)Z
     .locals 3
     .parameter "attachment"
 
     .prologue
-    .line 199
+    .line 146
     invoke-static {}, Lcom/google/glass/util/Assert;->assertNotUiThread()V
 
-    .line 202
+    .line 149
     invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->hasClientCachePath()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 203
+    .line 150
     const/4 v1, 0x1
 
-    .line 207
+    .line 154
     :goto_0
     return v1
 
-    .line 206
+    .line 153
     :cond_0
     invoke-static {}, Lcom/google/glass/util/CachedFilesManager;->getSharedInstance()Lcom/google/glass/util/CachedFilesManager;
 
     move-result-object v0
 
-    .line 207
+    .line 154
     .local v0, cachedFilesManager:Lcom/google/glass/util/CachedFilesManager;
     sget-object v1, Lcom/google/glass/util/CachedFilesManager$Type;->ATTACHMENT:Lcom/google/glass/util/CachedFilesManager$Type;
 
@@ -474,38 +929,26 @@
     goto :goto_0
 .end method
 
-.method public clearCache()V
-    .locals 1
-
-    .prologue
-    .line 85
-    iget-object v0, p0, Lcom/google/glass/util/CachedBitmapFactory;->decodeCache:Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;
-
-    invoke-virtual {v0}, Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;->evictAll()V
-
-    .line 86
-    return-void
-.end method
-
-.method public decodeAttachment(Lcom/google/googlex/glass/common/proto/Attachment;Z)Landroid/graphics/Bitmap;
+.method public decodeAttachment(Lcom/google/googlex/glass/common/proto/Attachment;ZLcom/google/glass/util/Condition;)Landroid/graphics/Bitmap;
     .locals 2
     .parameter "attachment"
     .parameter "lookupOnly"
+    .parameter "isCancelled"
 
     .prologue
-    .line 143
+    .line 83
     if-nez p2, :cond_0
 
-    .line 144
+    .line 84
     invoke-static {}, Lcom/google/glass/util/Assert;->assertNotUiThread()V
 
-    .line 147
+    .line 87
     :cond_0
     invoke-virtual {p0, p1, p2}, Lcom/google/glass/util/CachedBitmapFactory;->getCachedAttachmentPath(Lcom/google/googlex/glass/common/proto/Attachment;Z)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 148
+    .line 88
     .local v0, path:Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -513,130 +956,187 @@
 
     if-eqz v1, :cond_1
 
-    .line 149
+    .line 89
     const/4 v1, 0x0
 
-    .line 151
+    .line 91
     :goto_0
     return-object v1
 
     :cond_1
-    invoke-virtual {p0, v0, p2}, Lcom/google/glass/util/CachedBitmapFactory;->decodeFile(Ljava/lang/String;Z)Landroid/graphics/Bitmap;
+    invoke-virtual {p0, v0, p2, p3}, Lcom/google/glass/util/CachedBitmapFactory;->decodeFile(Ljava/lang/String;ZLcom/google/glass/util/Condition;)Landroid/graphics/Bitmap;
 
     move-result-object v1
 
     goto :goto_0
 .end method
 
-.method public decodeFile(Ljava/lang/String;Z)Landroid/graphics/Bitmap;
-    .locals 6
+.method public decodeFile(Ljava/lang/String;ZLcom/google/glass/util/Condition;)Landroid/graphics/Bitmap;
+    .locals 2
     .parameter "path"
+    .parameter "lookupOnly"
+    .parameter "isCancelled"
+
+    .prologue
+    .line 174
+    if-eqz p2, :cond_0
+
+    .line 175
+    const/4 v0, 0x0
+
+    .line 178
+    :goto_0
+    return-object v0
+
+    .line 177
+    :cond_0
+    invoke-static {}, Lcom/google/glass/util/Assert;->assertNotUiThread()V
+
+    .line 178
+    iget v0, p0, Lcom/google/glass/util/CachedBitmapFactory;->minWidth:I
+
+    iget v1, p0, Lcom/google/glass/util/CachedBitmapFactory;->minHeight:I
+
+    invoke-virtual {p0, p1, v0, v1, p3}, Lcom/google/glass/util/CachedBitmapFactory;->loadBitmap(Ljava/lang/String;IILcom/google/glass/util/Condition;)Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method public final getCachedAttachmentPath(Lcom/google/googlex/glass/common/proto/Attachment;Z)Ljava/lang/String;
+    .locals 6
+    .parameter "attachment"
     .parameter "lookupOnly"
 
     .prologue
-    .line 100
+    .line 105
     if-nez p2, :cond_0
 
-    .line 101
+    .line 106
     invoke-static {}, Lcom/google/glass/util/Assert;->assertNotUiThread()V
 
-    .line 104
+    .line 110
     :cond_0
-    if-nez p1, :cond_2
+    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->hasClientCachePath()Z
 
-    .line 105
-    const/4 v1, 0x0
+    move-result v3
 
-    .line 130
-    :cond_1
+    if-eqz v3, :cond_1
+
+    .line 111
+    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getClientCachePath()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 134
     :goto_0
-    return-object v1
+    return-object v3
 
-    .line 108
-    :cond_2
-    iget-object v2, p0, Lcom/google/glass/util/CachedBitmapFactory;->decodeCache:Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;
+    .line 114
+    :cond_1
+    invoke-static {}, Lcom/google/glass/util/CachedFilesManager;->getSharedInstance()Lcom/google/glass/util/CachedFilesManager;
 
-    invoke-virtual {v2, p1}, Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v1
-
-    check-cast v1, Landroid/graphics/Bitmap;
-
-    .line 109
-    .local v1, bitmap:Landroid/graphics/Bitmap;
-    if-nez v1, :cond_1
-
-    if-nez p2, :cond_1
-
-    .line 113
-    iget-object v3, p0, Lcom/google/glass/util/CachedBitmapFactory;->bitmapLoadLock:Ljava/lang/Object;
-
-    monitor-enter v3
+    .line 115
+    .local v0, cachedFilesManager:Lcom/google/glass/util/CachedFilesManager;
+    if-nez p2, :cond_2
 
     .line 117
-    :try_start_0
-    iget-object v2, p0, Lcom/google/glass/util/CachedBitmapFactory;->decodeCache:Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;
+    sget-object v3, Lcom/google/glass/util/CachedFilesManager$Type;->ATTACHMENT:Lcom/google/glass/util/CachedFilesManager$Type;
 
-    invoke-virtual {v2, p1}, Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getId()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    move-object v0, v2
+    invoke-virtual {v0, v3, v4}, Lcom/google/glass/util/CachedFilesManager;->contains(Lcom/google/glass/util/CachedFilesManager$Type;Ljava/lang/String;)Z
 
-    check-cast v0, Landroid/graphics/Bitmap;
+    move-result v3
 
-    move-object v1, v0
+    if-nez v3, :cond_2
 
-    .line 120
-    if-nez v1, :cond_3
+    .line 118
+    const/4 v1, 0x0
 
     .line 121
-    iget-object v2, p0, Lcom/google/glass/util/CachedBitmapFactory;->decodeCache:Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;
+    .local v1, content:Lcom/google/protobuf/ByteString;
+    :try_start_0
+    iget-object v3, p0, Lcom/google/glass/util/CachedBitmapFactory;->attachmentHelper:Lcom/google/glass/timeline/AttachmentHelper;
 
-    invoke-virtual {v2, p1}, Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;->provideBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;
+    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getId()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/google/glass/timeline/AttachmentHelper;->getAttachmentFromServer(Ljava/lang/String;)Lcom/google/protobuf/ByteString;
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
-    .line 122
-    if-eqz v1, :cond_4
-
-    .line 123
-    iget-object v2, p0, Lcom/google/glass/util/CachedBitmapFactory;->decodeCache:Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;
-
-    invoke-virtual {v2, p1, v1}, Lcom/google/glass/util/CachedBitmapFactory$BitmapCache;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 128
-    :cond_3
+    .line 126
     :goto_1
-    monitor-exit v3
+    if-eqz v1, :cond_3
+
+    invoke-virtual {v1}, Lcom/google/protobuf/ByteString;->isEmpty()Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    .line 127
+    sget-object v3, Lcom/google/glass/util/CachedFilesManager$Type;->ATTACHMENT:Lcom/google/glass/util/CachedFilesManager$Type;
+
+    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getId()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v1}, Lcom/google/glass/util/FileSaver;->newSaver(Lcom/google/protobuf/ByteString;)Lcom/google/glass/util/FileSaver$Saver;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v3, v4, v5}, Lcom/google/glass/util/CachedFilesManager;->save(Lcom/google/glass/util/CachedFilesManager$Type;Ljava/lang/String;Lcom/google/glass/util/FileSaver$Saver;)Z
+
+    .line 134
+    .end local v1           #content:Lcom/google/protobuf/ByteString;
+    :cond_2
+    :goto_2
+    sget-object v3, Lcom/google/glass/util/CachedFilesManager$Type;->ATTACHMENT:Lcom/google/glass/util/CachedFilesManager$Type;
+
+    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getId()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v3, v4}, Lcom/google/glass/util/CachedFilesManager;->getPath(Lcom/google/glass/util/CachedFilesManager$Type;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
 
     goto :goto_0
 
-    :catchall_0
+    .line 122
+    .restart local v1       #content:Lcom/google/protobuf/ByteString;
+    :catch_0
     move-exception v2
 
-    monitor-exit v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v2
-
-    .line 125
-    :cond_4
-    :try_start_1
-    sget-object v2, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
+    .line 123
+    .local v2, e:Ljava/lang/InterruptedException;
+    sget-object v3, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Image loading error, bitmap==null, path:"
+    const-string v5, "Interrupted while fetching attachment from server: "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getId()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -644,143 +1144,91 @@
 
     move-result-object v4
 
-    invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
+
+    .line 130
+    .end local v2           #e:Ljava/lang/InterruptedException;
+    :cond_3
+    sget-object v3, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Failed to get attachment from server: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getId()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
 .end method
 
-.method public getCachedAttachmentPath(Lcom/google/googlex/glass/common/proto/Attachment;Z)Ljava/lang/String;
-    .locals 5
-    .parameter "attachment"
-    .parameter "lookupOnly"
+.method protected final loadBitmap(Ljava/lang/String;IILcom/google/glass/util/Condition;)Landroid/graphics/Bitmap;
+    .locals 3
+    .parameter "path"
+    .parameter "minWidth"
+    .parameter "minHeight"
+    .parameter "isCancelled"
 
     .prologue
-    .line 165
-    if-nez p2, :cond_0
-
-    .line 166
+    .line 184
     invoke-static {}, Lcom/google/glass/util/Assert;->assertNotUiThread()V
 
-    .line 170
-    :cond_0
-    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->hasClientCachePath()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 171
-    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getClientCachePath()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 187
-    :goto_0
-    return-object v2
-
-    .line 174
-    :cond_1
+    .line 186
     invoke-static {}, Lcom/google/glass/util/CachedFilesManager;->getSharedInstance()Lcom/google/glass/util/CachedFilesManager;
-
-    move-result-object v0
-
-    .line 175
-    .local v0, cachedFilesManager:Lcom/google/glass/util/CachedFilesManager;
-    if-nez p2, :cond_2
-
-    .line 177
-    sget-object v2, Lcom/google/glass/util/CachedFilesManager$Type;->ATTACHMENT:Lcom/google/glass/util/CachedFilesManager$Type;
-
-    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getId()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v2, v3}, Lcom/google/glass/util/CachedFilesManager;->contains(Lcom/google/glass/util/CachedFilesManager$Type;Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
-    .line 178
-    iget-object v2, p0, Lcom/google/glass/util/CachedBitmapFactory;->attachmentHelper:Lcom/google/glass/timeline/AttachmentHelper;
-
-    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getId()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lcom/google/glass/timeline/AttachmentHelper;->getAttachmentFromServer(Ljava/lang/String;)Lcom/google/protobuf/ByteString;
 
     move-result-object v1
 
-    .line 179
-    .local v1, content:Lcom/google/protobuf/ByteString;
-    if-eqz v1, :cond_3
+    invoke-virtual {v1, p1}, Lcom/google/glass/util/CachedFilesManager;->getType(Ljava/lang/String;)Lcom/google/glass/util/CachedFilesManager$Type;
 
-    invoke-virtual {v1}, Lcom/google/protobuf/ByteString;->isEmpty()Z
+    move-result-object v0
 
-    move-result v2
+    .line 189
+    .local v0, type:Lcom/google/glass/util/CachedFilesManager$Type;
+    sget-object v1, Lcom/google/glass/util/CachedFilesManager$Type;->NONE:Lcom/google/glass/util/CachedFilesManager$Type;
 
-    if-nez v2, :cond_3
+    if-eq v0, v1, :cond_0
 
-    .line 180
-    sget-object v2, Lcom/google/glass/util/CachedFilesManager$Type;->ATTACHMENT:Lcom/google/glass/util/CachedFilesManager$Type;
+    .line 190
+    invoke-static {}, Lcom/google/glass/util/CachedFilesManager;->getSharedInstance()Lcom/google/glass/util/CachedFilesManager;
 
-    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getId()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
+    new-instance v2, Lcom/google/glass/util/CachedBitmapFactory$1;
 
-    invoke-static {v1}, Lcom/google/glass/util/FileSaver;->newSaver(Lcom/google/protobuf/ByteString;)Lcom/google/glass/util/FileSaver$Saver;
+    invoke-direct {v2, p0, p2, p3, p4}, Lcom/google/glass/util/CachedBitmapFactory$1;-><init>(Lcom/google/glass/util/CachedBitmapFactory;IILcom/google/glass/util/Condition;)V
 
-    move-result-object v4
+    invoke-virtual {v1, p1, v2}, Lcom/google/glass/util/CachedFilesManager;->load(Ljava/lang/String;Lcom/google/glass/util/CachedFilesManager$Loader;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v2, v3, v4}, Lcom/google/glass/util/CachedFilesManager;->save(Lcom/google/glass/util/CachedFilesManager$Type;Ljava/lang/String;Lcom/google/glass/util/FileSaver$Saver;)Z
+    move-result-object v1
 
-    .line 187
-    .end local v1           #content:Lcom/google/protobuf/ByteString;
-    :cond_2
-    :goto_1
-    sget-object v2, Lcom/google/glass/util/CachedFilesManager$Type;->ATTACHMENT:Lcom/google/glass/util/CachedFilesManager$Type;
+    check-cast v1, Landroid/graphics/Bitmap;
 
-    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getId()Ljava/lang/String;
+    .line 198
+    :goto_0
+    return-object v1
 
-    move-result-object v3
+    :cond_0
+    invoke-static {p1, p2, p3, p4}, Lcom/google/glass/util/CachedBitmapFactory;->loadBitmapFile(Ljava/lang/String;IILcom/google/glass/util/Condition;)Landroid/graphics/Bitmap;
 
-    invoke-virtual {v0, v2, v3}, Lcom/google/glass/util/CachedFilesManager;->getPath(Lcom/google/glass/util/CachedFilesManager$Type;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
+    move-result-object v1
 
     goto :goto_0
-
-    .line 183
-    .restart local v1       #content:Lcom/google/protobuf/ByteString;
-    :cond_3
-    sget-object v2, Lcom/google/glass/util/CachedBitmapFactory;->TAG:Ljava/lang/String;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Failed to get attachment from server: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {p1}, Lcom/google/googlex/glass/common/proto/Attachment;->getId()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
 .end method

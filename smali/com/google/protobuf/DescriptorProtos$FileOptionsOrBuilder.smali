@@ -64,7 +64,7 @@
 .method public abstract getJavaApiVersion()I
 .end method
 
-.method public abstract getJavaDualGenerateMutableApi()Z
+.method public abstract getJavaEnableDualGenerateMutableApi()Z
 .end method
 
 .method public abstract getJavaGenerateEqualsAndHash()Z
@@ -92,6 +92,9 @@
 .end method
 
 .method public abstract getJavaPackageBytes()Lcom/google/protobuf/ByteString;
+.end method
+
+.method public abstract getJavaStringCheckUtf8()Z
 .end method
 
 .method public abstract getJavaUseJavaproto2()Z
@@ -181,7 +184,7 @@
 .method public abstract hasJavaApiVersion()Z
 .end method
 
-.method public abstract hasJavaDualGenerateMutableApi()Z
+.method public abstract hasJavaEnableDualGenerateMutableApi()Z
 .end method
 
 .method public abstract hasJavaGenerateEqualsAndHash()Z
@@ -203,6 +206,9 @@
 .end method
 
 .method public abstract hasJavaPackage()Z
+.end method
+
+.method public abstract hasJavaStringCheckUtf8()Z
 .end method
 
 .method public abstract hasJavaUseJavaproto2()Z

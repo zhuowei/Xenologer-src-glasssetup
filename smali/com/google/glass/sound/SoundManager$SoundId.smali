@@ -50,6 +50,8 @@
 
 .field public static final enum HANGOUT_INCOMING_RING:Lcom/google/glass/sound/SoundManager$SoundId; = null
 
+.field public static final enum HANGOUT_OUTGOING_RING:Lcom/google/glass/sound/SoundManager$SoundId; = null
+
 .field public static final enum HANGOUT_PARTICIPANT_JOIN:Lcom/google/glass/sound/SoundManager$SoundId; = null
 
 .field public static final enum HANGOUT_PARTICIPANT_LEAVE:Lcom/google/glass/sound/SoundManager$SoundId; = null
@@ -120,7 +122,7 @@
     .locals 9
 
     .prologue
-    const/16 v8, 0x1f4
+    const/16 v8, 0x258
 
     const/4 v7, 0x0
 
@@ -130,7 +132,7 @@
 
     const/16 v4, 0xa
 
-    .line 45
+    .line 48
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "TAP"
@@ -141,7 +143,7 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->TAP:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 48
+    .line 51
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "FOCUS"
@@ -152,7 +154,7 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->FOCUS:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 51
+    .line 54
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "DISMISS"
@@ -165,7 +167,7 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->DISMISS:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 54
+    .line 57
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "SUCCESS"
@@ -178,7 +180,7 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SUCCESS:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 57
+    .line 60
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "ERROR"
@@ -191,7 +193,7 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->ERROR:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 60
+    .line 63
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "DISALLOWED_ACTION"
@@ -204,44 +206,42 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->DISALLOWED_ACTION:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 63
+    .line 66
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "DON"
 
     const/4 v2, 0x6
 
-    const/16 v3, 0x30c
-
-    invoke-direct {v0, v1, v2, v4, v3}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
+    invoke-direct {v0, v1, v2, v4, v8}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->DON:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 66
+    .line 69
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "DOFF"
 
     const/4 v2, 0x7
 
-    const/16 v3, 0x352
-
-    invoke-direct {v0, v1, v2, v4, v3}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
+    invoke-direct {v0, v1, v2, v4, v8}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->DOFF:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 69
+    .line 72
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "NOTIFICATION"
 
     const/16 v2, 0x8
 
-    invoke-direct {v0, v1, v2, v6, v8}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
+    const/16 v3, 0x1f4
+
+    invoke-direct {v0, v1, v2, v6, v3}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->NOTIFICATION:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 72
+    .line 75
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "NOTIFICATION_MULTIPLE"
@@ -254,7 +254,7 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->NOTIFICATION_MULTIPLE:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 75
+    .line 78
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "NOTIFICATION_NAVIGATION"
@@ -265,7 +265,7 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->NOTIFICATION_NAVIGATION:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 78
+    .line 81
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "VOICE_PENDING"
@@ -278,7 +278,7 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->VOICE_PENDING:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 81
+    .line 84
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "VOICE_COMPLETED"
@@ -291,7 +291,7 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->VOICE_COMPLETED:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 84
+    .line 87
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "PHOTO_READY"
@@ -304,7 +304,7 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->PHOTO_READY:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 87
+    .line 90
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "PHOTO_SHUTTER"
@@ -317,7 +317,7 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->PHOTO_SHUTTER:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 90
+    .line 93
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "VIDEO_START"
@@ -330,7 +330,7 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->VIDEO_START:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 93
+    .line 96
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "VIDEO_STOP"
@@ -343,58 +343,73 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->VIDEO_STOP:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 96
+    .line 99
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "HANGOUT_INCOMING_RING"
 
     const/16 v2, 0x11
 
-    const/16 v3, 0x578
+    const/16 v3, 0xaf0
 
     invoke-direct {v0, v1, v2, v4, v3}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_INCOMING_RING:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 99
-    new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
-
-    const-string v1, "HANGOUT_PARTICIPANT_JOIN"
-
-    const/16 v2, 0x12
-
-    invoke-direct {v0, v1, v2, v4, v8}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
-
-    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_PARTICIPANT_JOIN:Lcom/google/glass/sound/SoundManager$SoundId;
-
     .line 102
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
-    const-string v1, "HANGOUT_PARTICIPANT_LEAVE"
+    const-string v1, "HANGOUT_OUTGOING_RING"
 
-    const/16 v2, 0x13
+    const/16 v2, 0x12
 
-    invoke-direct {v0, v1, v2, v4, v8}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
+    const/16 v3, 0xb54
 
-    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_PARTICIPANT_LEAVE:Lcom/google/glass/sound/SoundManager$SoundId;
+    invoke-direct {v0, v1, v2, v4, v3}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
+
+    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_OUTGOING_RING:Lcom/google/glass/sound/SoundManager$SoundId;
 
     .line 105
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
-    const-string v1, "HANGOUT_CHAT_MESSAGE"
+    const-string v1, "HANGOUT_PARTICIPANT_JOIN"
 
-    const/16 v2, 0xfa
+    const/16 v2, 0x13
 
-    invoke-direct {v0, v1, v6, v4, v2}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
+    const/16 v3, 0x320
 
-    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_CHAT_MESSAGE:Lcom/google/glass/sound/SoundManager$SoundId;
+    invoke-direct {v0, v1, v2, v4, v3}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
+
+    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_PARTICIPANT_JOIN:Lcom/google/glass/sound/SoundManager$SoundId;
 
     .line 108
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
-    const-string v1, "CALL_INCOMING_RING"
+    const-string v1, "HANGOUT_PARTICIPANT_LEAVE"
+
+    invoke-direct {v0, v1, v6, v4, v8}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
+
+    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_PARTICIPANT_LEAVE:Lcom/google/glass/sound/SoundManager$SoundId;
+
+    .line 111
+    new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
+
+    const-string v1, "HANGOUT_CHAT_MESSAGE"
 
     const/16 v2, 0x15
+
+    const/16 v3, 0x190
+
+    invoke-direct {v0, v1, v2, v4, v3}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
+
+    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_CHAT_MESSAGE:Lcom/google/glass/sound/SoundManager$SoundId;
+
+    .line 114
+    new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
+
+    const-string v1, "CALL_INCOMING_RING"
+
+    const/16 v2, 0x16
 
     const/16 v3, 0x3e8
 
@@ -402,12 +417,12 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->CALL_INCOMING_RING:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 111
+    .line 117
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "CALL_START"
 
-    const/16 v2, 0x16
+    const/16 v2, 0x17
 
     const/16 v3, 0x1c2
 
@@ -415,12 +430,12 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->CALL_START:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 114
+    .line 120
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "CALL_STOP"
 
-    const/16 v2, 0x17
+    const/16 v2, 0x18
 
     const/16 v3, 0x212
 
@@ -428,34 +443,34 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->CALL_STOP:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 121
+    .line 127
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "ADD_CARD"
-
-    const/16 v2, 0x18
-
-    invoke-direct {v0, v1, v2, v4, v7}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
-
-    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->ADD_CARD:Lcom/google/glass/sound/SoundManager$SoundId;
-
-    .line 128
-    new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
-
-    const-string v1, "REMOVE_CARD"
 
     const/16 v2, 0x19
 
     invoke-direct {v0, v1, v2, v4, v7}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
+    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->ADD_CARD:Lcom/google/glass/sound/SoundManager$SoundId;
+
+    .line 134
+    new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
+
+    const-string v1, "REMOVE_CARD"
+
+    const/16 v2, 0x1a
+
+    invoke-direct {v0, v1, v2, v4, v7}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
+
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->REMOVE_CARD:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 131
+    .line 137
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "POWER_CONNECTED"
 
-    const/16 v2, 0x1a
+    const/16 v2, 0x1b
 
     const/16 v3, 0x1cc
 
@@ -463,25 +478,25 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->POWER_CONNECTED:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 134
+    .line 140
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "SHUT_DOWN"
 
-    const/16 v2, 0x1b
+    const/16 v2, 0x1c
 
-    const/16 v3, 0x226
+    const/16 v3, 0x3e8
 
     invoke-direct {v0, v1, v2, v4, v3}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SHUT_DOWN:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 137
+    .line 143
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "VOLUME_CHANGE"
 
-    const/16 v2, 0x1c
+    const/16 v2, 0x1d
 
     const/16 v3, 0xc3
 
@@ -489,109 +504,107 @@
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->VOLUME_CHANGE:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 140
+    .line 146
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "SCALE1"
-
-    const/16 v2, 0x1d
-
-    invoke-direct {v0, v1, v2, v4, v5}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
-
-    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE1:Lcom/google/glass/sound/SoundManager$SoundId;
-
-    .line 141
-    new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
-
-    const-string v1, "SCALE2"
 
     const/16 v2, 0x1e
 
     invoke-direct {v0, v1, v2, v4, v5}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
-    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE2:Lcom/google/glass/sound/SoundManager$SoundId;
+    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE1:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 142
+    .line 147
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
-    const-string v1, "SCALE3"
+    const-string v1, "SCALE2"
 
     const/16 v2, 0x1f
 
     invoke-direct {v0, v1, v2, v4, v5}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
-    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE3:Lcom/google/glass/sound/SoundManager$SoundId;
+    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE2:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 143
+    .line 148
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
-    const-string v1, "SCALE4"
+    const-string v1, "SCALE3"
 
     const/16 v2, 0x20
 
     invoke-direct {v0, v1, v2, v4, v5}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
-    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE4:Lcom/google/glass/sound/SoundManager$SoundId;
+    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE3:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 144
+    .line 149
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
-    const-string v1, "SCALE5"
+    const-string v1, "SCALE4"
 
     const/16 v2, 0x21
 
     invoke-direct {v0, v1, v2, v4, v5}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
-    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE5:Lcom/google/glass/sound/SoundManager$SoundId;
+    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE4:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 145
+    .line 150
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
-    const-string v1, "SCALE6"
+    const-string v1, "SCALE5"
 
     const/16 v2, 0x22
 
     invoke-direct {v0, v1, v2, v4, v5}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
-    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE6:Lcom/google/glass/sound/SoundManager$SoundId;
+    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE5:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 146
+    .line 151
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
-    const-string v1, "SCALE7"
+    const-string v1, "SCALE6"
 
     const/16 v2, 0x23
 
     invoke-direct {v0, v1, v2, v4, v5}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
-    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE7:Lcom/google/glass/sound/SoundManager$SoundId;
+    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE6:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 147
+    .line 152
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
-    const-string v1, "SCALE8"
+    const-string v1, "SCALE7"
 
     const/16 v2, 0x24
 
     invoke-direct {v0, v1, v2, v4, v5}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
+    sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE7:Lcom/google/glass/sound/SoundManager$SoundId;
+
+    .line 153
+    new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
+
+    const-string v1, "SCALE8"
+
+    const/16 v2, 0x25
+
+    invoke-direct {v0, v1, v2, v4, v5}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
+
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE8:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 148
+    .line 154
     new-instance v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     const-string v1, "SCALE_RESOLVE"
 
-    const/16 v2, 0x25
+    const/16 v2, 0x26
 
-    const/16 v3, 0x258
-
-    invoke-direct {v0, v1, v2, v4, v3}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
+    invoke-direct {v0, v1, v2, v4, v8}, Lcom/google/glass/sound/SoundManager$SoundId;-><init>(Ljava/lang/String;III)V
 
     sput-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE_RESOLVE:Lcom/google/glass/sound/SoundManager$SoundId;
 
-    .line 43
-    const/16 v0, 0x26
+    .line 46
+    const/16 v0, 0x27
 
     new-array v0, v0, [Lcom/google/glass/sound/SoundManager$SoundId;
 
@@ -701,117 +714,123 @@
 
     const/16 v1, 0x12
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_PARTICIPANT_JOIN:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_OUTGOING_RING:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x13
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_PARTICIPANT_LEAVE:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_PARTICIPANT_JOIN:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_CHAT_MESSAGE:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v1, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_PARTICIPANT_LEAVE:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v1, v0, v6
 
     const/16 v1, 0x15
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->CALL_INCOMING_RING:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->HANGOUT_CHAT_MESSAGE:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x16
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->CALL_START:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->CALL_INCOMING_RING:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x17
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->CALL_STOP:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->CALL_START:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x18
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->ADD_CARD:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->CALL_STOP:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x19
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->REMOVE_CARD:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->ADD_CARD:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x1a
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->POWER_CONNECTED:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->REMOVE_CARD:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x1b
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SHUT_DOWN:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->POWER_CONNECTED:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x1c
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->VOLUME_CHANGE:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SHUT_DOWN:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x1d
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE1:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->VOLUME_CHANGE:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x1e
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE2:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE1:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x1f
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE3:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE2:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x20
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE4:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE3:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x21
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE5:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE4:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x22
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE6:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE5:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x23
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE7:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE6:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x24
 
-    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE8:Lcom/google/glass/sound/SoundManager$SoundId;
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE7:Lcom/google/glass/sound/SoundManager$SoundId;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x25
+
+    sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE8:Lcom/google/glass/sound/SoundManager$SoundId;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x26
 
     sget-object v2, Lcom/google/glass/sound/SoundManager$SoundId;->SCALE_RESOLVE:Lcom/google/glass/sound/SoundManager$SoundId;
 
@@ -835,16 +854,16 @@
     .end annotation
 
     .prologue
-    .line 167
+    .line 173
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 168
+    .line 174
     iput p3, p0, Lcom/google/glass/sound/SoundManager$SoundId;->priority:I
 
-    .line 169
+    .line 175
     iput p4, p0, Lcom/google/glass/sound/SoundManager$SoundId;->durationMs:I
 
-    .line 170
+    .line 176
     return-void
 .end method
 
@@ -853,7 +872,7 @@
     .parameter "x0"
 
     .prologue
-    .line 43
+    .line 46
     iget v0, p0, Lcom/google/glass/sound/SoundManager$SoundId;->durationMs:I
 
     return v0
@@ -864,7 +883,7 @@
     .parameter "name"
 
     .prologue
-    .line 43
+    .line 46
     const-class v0, Lcom/google/glass/sound/SoundManager$SoundId;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -880,7 +899,7 @@
     .locals 1
 
     .prologue
-    .line 43
+    .line 46
     sget-object v0, Lcom/google/glass/sound/SoundManager$SoundId;->$VALUES:[Lcom/google/glass/sound/SoundManager$SoundId;
 
     invoke-virtual {v0}, [Lcom/google/glass/sound/SoundManager$SoundId;->clone()Ljava/lang/Object;
@@ -900,7 +919,7 @@
     .end annotation
 
     .prologue
-    .line 178
+    .line 184
     iget v0, p0, Lcom/google/glass/sound/SoundManager$SoundId;->durationMs:I
 
     return v0
@@ -910,7 +929,7 @@
     .locals 1
 
     .prologue
-    .line 173
+    .line 179
     iget v0, p0, Lcom/google/glass/sound/SoundManager$SoundId;->priority:I
 
     return v0

@@ -38,7 +38,7 @@
     .locals 2
 
     .prologue
-    .line 122
+    .line 121
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -67,13 +67,13 @@
     return-object v0
 .end method
 
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public onReceiveInternal(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 110
+    .line 109
     invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity$2;->getTag()Ljava/lang/String;
 
     move-result-object v0
@@ -98,7 +98,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 111
+    .line 110
     const-string v0, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -123,7 +123,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 115
+    .line 114
     :cond_0
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$2;->this$0:Lcom/google/glass/setup/SetupActivity;
 
@@ -133,7 +133,7 @@
 
     invoke-virtual {v0}, Lcom/google/glass/setup/SetupApplication;->onUserActionStart()V
 
-    .line 116
+    .line 115
     iget-object v0, p0, Lcom/google/glass/setup/SetupActivity$2;->this$0:Lcom/google/glass/setup/SetupActivity;
 
     invoke-static {v0}, Lcom/google/glass/setup/SetupApplication;->from(Landroid/content/Context;)Lcom/google/glass/setup/SetupApplication;
@@ -142,7 +142,7 @@
 
     invoke-virtual {v0}, Lcom/google/glass/setup/SetupApplication;->onUserActionEnd()V
 
-    .line 118
+    .line 117
     :cond_1
     return-void
 .end method
