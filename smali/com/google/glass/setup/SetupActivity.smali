@@ -620,17 +620,7 @@
 
     .prologue
     .line 759
-    invoke-static {}, Lcom/google/glass/util/MainThreadExecutorManager;->getMainThreadExecutor()Ljava/util/concurrent/Executor;
 
-    move-result-object v0
-
-    new-instance v1, Lcom/google/glass/setup/SetupActivity$10;
-
-    invoke-direct {v1, p0}, Lcom/google/glass/setup/SetupActivity$10;-><init>(Lcom/google/glass/setup/SetupActivity;)V
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    .line 799
     return-void
 .end method
 
@@ -786,7 +776,7 @@
 
     invoke-direct {v1, p0, v0, p1, p3}, Lcom/google/glass/setup/SetupActivity$9;-><init>(Lcom/google/glass/setup/SetupActivity;Lcom/google/glass/util/AuthUtils;Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {v1}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
+    #invoke-static {v1}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
 
     goto :goto_0
 .end method
@@ -2019,126 +2009,11 @@
     .line 211
     invoke-super {p0}, Lcom/google/glass/app/GlassActivity;->onResume()V
 
-    .line 215
-    invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->isMessageShowing()Z
+    const-string v2, "Fat, lazy old string of no importance"
 
-    move-result v3
+    invoke-direct {p0, v2}, Lcom/google/glass/setup/SetupActivity;->setupUserAccount(Ljava/lang/String;)V
 
-    if-nez v3, :cond_1
-
-    invoke-static {p0}, Lcom/google/glass/util/SetupHelper;->wasSetupFinished(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    .line 217
-    invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v3, "SetupActivity should not be resumed if it is disabled"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 218
-    invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->finish()V
-
-    .line 246
-    :cond_0
-    :goto_0
     return-void
-
-    .line 221
-    :cond_1
-    invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->isDeviceSetup()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    .line 226
-    invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v3, "Component enabled, but we have an account. Disabling and finishing."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 227
-    invoke-direct {p0}, Lcom/google/glass/setup/SetupActivity;->disableSetup()V
-
-    .line 228
-    invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->finish()V
-
-    goto :goto_0
-
-    .line 233
-    :cond_2
-    invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->isMessageShowing()Z
-
-    move-result v3
-
-    if-nez v3, :cond_3
-
-    .line 234
-    invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getContentView()Landroid/view/View;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Landroid/view/View;->setVisibility(I)V
-
-    .line 238
-    :cond_3
-    invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v0
-
-    .line 239
-    .local v0, intent:Landroid/content/Intent;
-    if-eqz v0, :cond_4
-
-    const-string v3, "screen_turned_on"
-
-    invoke-virtual {v0, v3, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const/4 v1, 0x1
-
-    .line 241
-    .local v1, unblockScreen:Z
-    :goto_1
-    if-eqz v1, :cond_0
-
-    .line 242
-    invoke-virtual {p0}, Lcom/google/glass/setup/SetupActivity;->getTag()Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v4, "Now turning the screen on."
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 243
-    invoke-static {p0, v2}, Lcom/google/glass/hidden/HiddenPowerManager;->preventScreenOn(Landroid/content/Context;Z)V
-
-    .line 244
-    const-string v2, "screen_turned_on"
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->removeExtra(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .end local v1           #unblockScreen:Z
-    :cond_4
-    move v1, v2
-
-    .line 239
-    goto :goto_1
 .end method
 
 .method protected provideContentView()I
